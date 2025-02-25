@@ -20,7 +20,7 @@ public class MapScript : MonoBehaviour
         }
     }
 
-    void ToggleMap()
+    public void ToggleMap()
     {
         mapPanel.SetActive(!mapPanel.activeSelf);
     }
@@ -29,7 +29,7 @@ public class MapScript : MonoBehaviour
     {
         //teleport fade out animation
         //teleport player and camera to location
-        player.transform.position = new Vector3(location.x, 3.2f, location.z);
+        player.transform.position = location;
         Camera.main.transform.position = player.transform.position + Camera.main.transform.GetComponent<CameraFollow>().offset;
         mapPanel.SetActive(false);
         //teleport fade in animation

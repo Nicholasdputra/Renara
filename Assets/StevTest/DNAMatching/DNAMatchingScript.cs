@@ -7,12 +7,14 @@ public class ScrollViewScript : MonoBehaviour, IEndDragHandler
 {
     public int numberOfDNA;
     //When the sprite is done this will be changed to sprite
+    [Header("1st index is paired with 4th, 2nd with 3rd")]
     Color[] dnaColors = new Color[]{
         Color.red,
         Color.green,
         Color.blue,
         Color.yellow
     };
+    [SerializeField] GameObject dnaMatchPanel;
     [SerializeField] Transform targetDNAPanel;
     [SerializeField] Transform content;
     [SerializeField] GameObject dnaPrefab;
@@ -22,7 +24,7 @@ public class ScrollViewScript : MonoBehaviour, IEndDragHandler
     {
         correctTile = -1;
         //each dna tile is 100 with 10 px spacing. The horizontal group "has" 10 px paddingn on each side
-        // meaning ths first tile needs to be 110 + 10 px away, and the last tile needs to be 100 + 10 px away
+        // meaning ths first tile needs to be 110 + 10 px away, and the last tile needs to be 10 + 100 + 10 (one block + edge space) px away
         //...idk it just works pokoknya gt lah :sob:
         content.GetComponent<RectTransform>().sizeDelta = new Vector2((110*numberOfDNA) + 230, 0);
         GenerateTargetDNA();
@@ -36,7 +38,9 @@ public class ScrollViewScript : MonoBehaviour, IEndDragHandler
 
     void OnValueChange(Vector2 value)
     {
+        //OnValueChange is called everytime the scroll rect is moved
         //put tick sound effect everytime it hits a new tile
+        //I moved this script from the scroll rect to a game object above it, maybe this needs to be somewhere else
 
     }
 
@@ -66,9 +70,9 @@ public class ScrollViewScript : MonoBehaviour, IEndDragHandler
             targetDNA += Random.Range(0, 4);
             GameObject tempObject = Instantiate(dnaPrefab, targetDNAPanel);
             //if we want to do the opposite thinggy you can just change the color of the target from here
-            tempObject.GetComponent<Image>().color = dnaColors[targetDNA[i] - '0'];
+            tempObject.GetComponent<Image>().color = dnaColors[3-(targetDNA[i] - '0')];
         }
-        Debug.Log("Target DNA: " + targetDNA);
+        // Debug.Log("Target DNA: " + targetDNA);
 
         //create 15 random DNA string
         for(int i = 0; i < numberOfDNA; i++){
@@ -81,17 +85,17 @@ public class ScrollViewScript : MonoBehaviour, IEndDragHandler
             fullDNA = fullDNA.Insert(correctTile, targetDNA);
             //remove 4 last characters
             fullDNA = fullDNA.Substring(0, fullDNA.Length - 4);
-            Debug.Log("len" + fullDNA.Length);
+            // Debug.Log("len" + fullDNA.Length);
             // Debug.Log("Dna length " + fullDNA.Length);
             // correctTile--;;
-            Debug.Log("New DNA: " + fullDNA);
+            // Debug.Log("New DNA: " + fullDNA);
             Debug.Log("Correct Tile: " + correctTile);
         }else{
             //else, find the index of the targetDNA
             //very rare edge case
             Debug.Log("yoo rare case where dna alrdy exists very cool!");
             correctTile = fullDNA.IndexOf(targetDNA);
-            Debug.Log("Correct Tile: " + correctTile);
+            // Debug.Log("Correct Tile: " + correctTile);
         }
 
         foreach(char c in fullDNA){
@@ -103,23 +107,9 @@ public class ScrollViewScript : MonoBehaviour, IEndDragHandler
         content.localPosition = new Vector3(Random.Range(0, numberOfDNA) * 110f, content.localPosition.y, content.localPosition.z);
     }
 
-    void SubmitDNA(int tile)
-    {
-        if(correctTile == -1){
-            Debug.LogError("The player shouldnt have been able to move DNA without DNA Target existing");
-            return;
-        }
-
-        Debug.Log("Tile: " + tile + " Correct Tile: " + correctTile);
-        if(Mathf.Abs(tile) == correctTile){
-            Debug.Log("Correct!");
-            Debug.Log("This is the final output for this minigame, call ur next functions from here");
-        }
-    }
-
     void IEndDragHandler.OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("End Drag");
+        // Debug.Log("End Drag");
         StopAllCoroutines();
         StartCoroutine(ScrollRectSnap());
     }
@@ -141,7 +131,7 @@ public class ScrollViewScript : MonoBehaviour, IEndDragHandler
         }else{
             //middle tile, we manually snap it
             float target = tile * 110;
-            Debug.Log("Tile: " + tile + " Target: " + target);
+            // Debug.Log("Tile: " + tile + " Target: " + target);
             float t = 0;
             while(t < 0.5){
                 t += Time.deltaTime;
@@ -151,5 +141,18 @@ public class ScrollViewScript : MonoBehaviour, IEndDragHandler
         }
         //then just submits whatever tile it landed on
         SubmitDNA(tile);
+    }
+    void SubmitDNA(int tile)
+    {
+        if(correctTile == -1){
+            Debug.LogError("The player shouldnt have been able to move DNA without DNA Target existing");
+            return;
+        }
+
+        Debug.Log("Tile: " + tile + " Correct Tile: " + correctTile);
+        if(Mathf.Abs(tile) == correctTile){
+            Debug.Log("Correct!");
+            dnaMatchPanel.GetComponent<Animator>().SetTrigger("DNAMatch");
+        }
     }
 }
