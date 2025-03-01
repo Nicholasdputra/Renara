@@ -30,7 +30,7 @@ public class MapScript : MonoBehaviour
         //teleport fade out animation
         //teleport player and camera to location
         player.transform.position = location;
-        Camera.main.transform.position = player.transform.position + Camera.main.transform.GetComponent<CameraFollow>().offset;
+        Camera.main.transform.position = player.transform.position;
         mapPanel.SetActive(false);
         //teleport fade in animation
     }
