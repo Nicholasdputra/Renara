@@ -16,4 +16,7 @@ MonoBehaviour:
   mutatedImage: {fileID: -160738040, guid: 49c794124f4cfb840a593dabfe4eab4f, type: 3}
   plantName: 1
   plantDescription: aaaaa
-  extractionSteps: 010000000000000000000000
+  extractionSteps:
+  - hoe
+  - pruningShears
+  - sprayBottle

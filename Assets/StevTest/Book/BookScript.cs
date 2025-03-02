@@ -9,6 +9,7 @@ public class BookScript : MonoBehaviour
 {
     [Header("Tool Sprites")]
     //U dont have to use an SO for this, it could be changed to a sprite array
+
     public ToolSpritesSO toolSprites;
     [Header("Plant Data")]
     public PlantDataSO plantDataSO;
@@ -39,6 +40,28 @@ public class BookScript : MonoBehaviour
         //ini di run sekali aj udh ke save ke SO
         // PlantSO[] plants = Resources.LoadAll<PlantSO>("PlantData");
         UpdatePage();
+    }
+
+    int DetermineWhichToolSpriteToUse(string extractionStep)
+    {
+        switch (extractionStep)
+        {
+            case "hoe":
+                return 1;
+            case "pruningShears":
+                return 2;
+            case "sprayBottle":
+                return 3;
+            case "sickle":
+                return 4;
+            case "spade":
+                return 5;
+            case "axe":
+                return 6;
+            default:
+                Debug.LogError("Unknown tool: " + extractionStep);
+                return -1; // Unknown tool
+        }
     }
 
     [ContextMenu("NextPage")]
@@ -111,7 +134,7 @@ public class BookScript : MonoBehaviour
             GameObject tool = Instantiate(toolsPrefab, extractionSteps);
             //set sprite inside of the circle
             if(plantUnlocked){
-                tool.transform.GetChild(0).GetComponent<Image>().sprite = toolSprites.toolSprites[plant.extractionSteps[i]];
+                tool.transform.GetChild(0).GetComponent<Image>().sprite = toolSprites.toolSprites[DetermineWhichToolSpriteToUse(plant.extractionSteps[i])];
             }else{
                 //unknown tool is the last index of the toolSprites array
                 //Just spawn 1 unknown step and finish
@@ -158,7 +181,7 @@ public class BookScript : MonoBehaviour
             GameObject tool = Instantiate(toolsPrefab, extractionSteps);
             //set sprite inside of the circle
             if(plantUnlocked){
-                tool.transform.GetChild(0).GetComponent<Image>().sprite = toolSprites.toolSprites[plant.extractionSteps[i]];
+                tool.transform.GetChild(0).GetComponent<Image>().sprite = toolSprites.toolSprites[DetermineWhichToolSpriteToUse(plant.extractionSteps[i])];
             }else{
                 //unknown tool is the last index of the toolSprites array
                 //Just spawn 1 unknown step and finish
