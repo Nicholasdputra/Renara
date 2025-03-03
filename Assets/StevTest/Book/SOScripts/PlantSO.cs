@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewPlant", menuName = "Plant")]
+[CreateAssetMenu(fileName = "NewPlant", menuName = "ScriptableObjects/Plant")]
 public class PlantSO : ScriptableObject
 {
     public Sprite plantImage;

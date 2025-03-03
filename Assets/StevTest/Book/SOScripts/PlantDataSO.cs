@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "PlantData", menuName = "PlantData")]
+[CreateAssetMenu(fileName = "PlantData", menuName = "ScriptableObjects/PlantData")]
 public class PlantDataSO : ScriptableObject
 {
     public PlantSO[] plantData;
