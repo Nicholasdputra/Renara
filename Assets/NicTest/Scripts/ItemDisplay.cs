@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class ItemDisplay : MonoBehaviour
 {
-    public Item item;
+    public ItemSO item;
     public Image image;
 
     public string itemName;
     public string itemDescription;
     public Sprite itemSprite;
-    public string[] materialsNeeded;
+    public Material[] materialsNeeded;
 
     void Start()
     {

@@ -7,13 +7,14 @@ public class PlantDisplay : MonoBehaviour, IDropHandler
 {
     public PlantSO plant;
     public TextMeshProUGUI dialogueText;
-    [SerializeField] private PlantSO[] plantList;
+    // [SerializeField] private PlantSO[] plantList;
+    public PlantDataSO plantList;
     public int currentStep;
 
     void Awake()
     {
         //Determine which plant to display here later
-        plant = plantList[0];
+        plant = plantList.plantData[0];
         currentStep = 0;
         dialogueText = GameObject.FindGameObjectWithTag("DialogueBox").GetComponentInChildren<TextMeshProUGUI>();
         dialogueText.text = "";
