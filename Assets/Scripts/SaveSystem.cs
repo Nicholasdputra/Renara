@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class SaveSystem : MonoBehaviour
 {
-    public static SaveSystem currentSave { get; private set; }
+    public static SaveSystem currentSave;
     public PlayerData currentPlayerData;
 
     // Start is called before the first frame update
@@ -28,7 +28,6 @@ public class SaveSystem : MonoBehaviour
             inventory = new List<ItemSO>(),
             materials = new List<Material>(),
             position = Vector3.zero
-
         };
     }
 

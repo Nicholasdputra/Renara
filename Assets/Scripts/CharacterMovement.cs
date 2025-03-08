@@ -27,6 +27,8 @@ public class CharacterMovement : MonoBehaviour
         {
             Flip();
         }
+        // saving last position
+        SaveSystem.currentSave.currentPlayerData.position = transform.position;
     }
 
     private void FixedUpdate()
