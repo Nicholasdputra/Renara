@@ -9,9 +9,9 @@ public class SaveSystem : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        if (CurrentSave == null)
+        if (currentSave == null)
         {
-            CurrentSave = this;
+            currentSave = this;
             DontDestroyOnLoad(gameObject);
             InitializePlayerData();
         }

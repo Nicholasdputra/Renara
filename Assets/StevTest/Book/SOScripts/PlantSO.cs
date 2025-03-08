@@ -9,11 +9,14 @@ public class PlantSO : ScriptableObject
     public string plantDescription;
     public string[] extractionSteps;
 
-    public PlantSO(Sprite plantImage, Sprite mutatedImage, string plantName, string plantDescription, string[] extractionSteps){
+    public bool isUnlocked;
+
+    public PlantSO(Sprite plantImage, Sprite mutatedImage, string plantName, string plantDescription, string[] extractionSteps, bool isUnlocked){
         this.plantImage = plantImage;
         this.mutatedImage = mutatedImage;
         this.plantName = plantName;
         this.plantDescription = plantDescription;
         this.extractionSteps = extractionSteps;
+        this.isUnlocked = false;
     }
 }
