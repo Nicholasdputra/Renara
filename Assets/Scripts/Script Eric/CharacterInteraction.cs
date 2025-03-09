@@ -26,6 +26,7 @@ public class CharacterInteraction : MonoBehaviour
             typing = true;
             dialogueBox.gameObject.SetActive(typing);
             DialogueSO dialogue = RetrieveDialogue("Welcoming");
+            StopAllCoroutines();
             StartCoroutine(TypeDialogue(dialogue.dialogueText[UnityEngine.Random.Range(0, dialogue.dialogueText.Length)]));
         }
     }
