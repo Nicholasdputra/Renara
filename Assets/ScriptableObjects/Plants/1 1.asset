@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 013e4a3b804aecd4480c2dfd35080a12, type: 3}
-  m_Name: 1
+  m_Name: 1 1
   m_EditorClassIdentifier: 
-  plantImage: {fileID: 1068416746, guid: 49c794124f4cfb840a593dabfe4eab4f, type: 3}
-  mutatedImage: {fileID: -160738040, guid: 49c794124f4cfb840a593dabfe4eab4f, type: 3}
-  plantName: 1
-  plantDescription: aaaaa
-  extractionSteps:
-  - hoe
-  - pruningShears
-  - sprayBottle
+  plantImage: {fileID: 2069997747, guid: 49c794124f4cfb840a593dabfe4eab4f, type: 3}
+  mutatedImage: {fileID: 1540098377, guid: 49c794124f4cfb840a593dabfe4eab4f, type: 3}
+  plantName: 2
+  plantDescription: bbbbbb
+  extractionSteps: []
+  isUnlocked: 0

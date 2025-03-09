@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ScrollViewScript : MonoBehaviour, IEndDragHandler
+public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
 {
     public int numberOfDNA;
     //When the sprite is done this will be changed to sprite
@@ -19,9 +19,14 @@ public class ScrollViewScript : MonoBehaviour, IEndDragHandler
     [SerializeField] Transform content;
     [SerializeField] GameObject dnaPrefab;
     int correctTile;
-    // Start is called before the first frame update
-    void Start()
+
+    void OnValueChange(Vector2 value)
     {
+        //OnValueChange is called everytime the scroll rect is moved
+        //put tick sound effect everytime it hits a new tile
+    }
+
+    public void StartDNAExtraction(){
         correctTile = -1;
         //each dna tile is 100 with 10 px spacing. The horizontal group "has" 10 px paddingn on each side
         // meaning ths first tile needs to be 110 + 10 px away, and the last tile needs to be 10 + 100 + 10 (one block + edge space) px away
@@ -30,22 +35,9 @@ public class ScrollViewScript : MonoBehaviour, IEndDragHandler
         GenerateTargetDNA();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void OnValueChange(Vector2 value)
-    {
-        //OnValueChange is called everytime the scroll rect is moved
-        //put tick sound effect everytime it hits a new tile
-        //I moved this script from the scroll rect to a game object above it, maybe this needs to be somewhere else
-
-    }
-
     [ContextMenu("Generate DNA")]
     public void GenerateTargetDNA(){
+        
         //reset UI
         foreach(Transform dna in targetDNAPanel){
             if(dna.name != "DNAStrandSprite"){
@@ -127,7 +119,7 @@ public class ScrollViewScript : MonoBehaviour, IEndDragHandler
             //negative cuz all of our tiles are negative
             //too far to the back, just let unity snap it back
             //but we still need to process the tile
-            tile = 11;
+            tile = numberOfDNA - 4;
         }else{
             //middle tile, we manually snap it
             float target = tile * 110;

@@ -29,8 +29,6 @@ public class BookScript : MonoBehaviour
     public GameObject toolsPrefab;
     public GameObject plusPrefab;
     public int openPageIndex;
-    public bool isLeftMutated;
-    public bool isRightMutated;
 
     void Start(){
         nextButton.onClick.AddListener(NextPage);
@@ -67,9 +65,9 @@ public class BookScript : MonoBehaviour
     [ContextMenu("NextPage")]
     public void NextPage(){
         //check if there are more plants to show
-        if(openPageIndex < plantDataSO.plantData.Length/2){
+        if(openPageIndex < plantDataSO.plant.Length/2){
             openPageIndex++;
-            if(openPageIndex == plantDataSO.plantData.Length/2){
+            if(openPageIndex == plantDataSO.plant.Length/2){
                 //last page, remove next button
                 nextButton.gameObject.SetActive(false);
             }else{
@@ -80,6 +78,7 @@ public class BookScript : MonoBehaviour
             UpdatePage();
         }
     }
+    
     [ContextMenu("PrevPage")]
     public void PrevPage(){
         //check if there are more plants to show
@@ -117,10 +116,10 @@ public class BookScript : MonoBehaviour
         extractionSteps = leftBookPanel.GetChild(6);
 
         PlantSO plant;
-        bool plantUnlocked = plantDataSO.isUnlocked[openPageIndex*2];
+        bool plantUnlocked = plantDataSO.plant[openPageIndex*2].isUnlocked;
         if(plantUnlocked){
             //if unlocked show normal data
-            plant = plantDataSO.plantData[openPageIndex*2];
+            plant = plantDataSO.plant[openPageIndex*2];
         }else{
             //else show unknown plant data (question mark)
             plant = plantDataSO.unknownPlantData;
@@ -149,7 +148,7 @@ public class BookScript : MonoBehaviour
 
         //update right page (basically same thing but add 1 to the index)
         //need to check whether right plant exists or not
-        if(openPageIndex*2+1 >= plantDataSO.plantData.Length){
+        if(openPageIndex*2+1 >= plantDataSO.plant.Length){
             //if not exist, hide the right page
             rightBookPanel.gameObject.SetActive(false);
             return;
@@ -160,10 +159,10 @@ public class BookScript : MonoBehaviour
         amountExtractedText = rightBookPanel.GetChild(5).GetComponent<TMP_Text>();
         extractionSteps = rightBookPanel.GetChild(6);
 
-        plantUnlocked = plantDataSO.isUnlocked[openPageIndex*2+1];
+        plantUnlocked = plantDataSO.plant[openPageIndex*2+1].isUnlocked;
         if(plantUnlocked){
             //if unlocked show normal data
-            plant = plantDataSO.plantData[openPageIndex*2+1];
+            plant = plantDataSO.plant[openPageIndex*2+1];
         }else{
             //else show unknown plant data (question mark)
             plant = plantDataSO.unknownPlantData;
@@ -191,39 +190,6 @@ public class BookScript : MonoBehaviour
             //spawn plus if not the last index
             if(i != plant.extractionSteps.Length - 1){
                 Instantiate(plusPrefab, extractionSteps);
-            }
-        }
-    }
-
-    public void ToggleMutatedImage(bool isRight){
-        //Check which toggle is pressed, if left then change left sprite, else change right sprite
-        if(!isRight){
-            //left
-            if(!plantDataSO.isUnlocked[openPageIndex*2]){
-                //if not unlocked cant toggle
-                return;
-            }
-
-            if(isLeftMutated){
-                isLeftMutated = false;
-                leftBookPanel.GetChild(2).GetComponent<Image>().sprite = plantDataSO.plantData[openPageIndex*2].plantImage;
-            }else{
-                isLeftMutated = true;
-                leftBookPanel.GetChild(2).GetComponent<Image>().sprite = plantDataSO.plantData[openPageIndex*2].mutatedImage;
-            }   
-        }else{
-            //right
-            if(!plantDataSO.isUnlocked[openPageIndex*2+1]){
-                //if not unlocked cant toggle
-                return;
-            }
-            
-            if(isRightMutated){
-                isRightMutated = false;
-                rightBookPanel.GetChild(2).GetComponent<Image>().sprite = plantDataSO.plantData[openPageIndex*2 + 1].plantImage;
-            }else{
-                isRightMutated = true;
-                rightBookPanel.GetChild(2).GetComponent<Image>().sprite = plantDataSO.plantData[openPageIndex*2 + 1].mutatedImage;
             }
         }
     }

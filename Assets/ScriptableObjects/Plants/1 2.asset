@@ -16,4 +16,5 @@ MonoBehaviour:
   mutatedImage: {fileID: -1384394883, guid: 49c794124f4cfb840a593dabfe4eab4f, type: 3}
   plantName: 2
   plantDescription: cccc
-  extractionSteps: 020000000200000002000000
+  extractionSteps: []
+  isUnlocked: 0

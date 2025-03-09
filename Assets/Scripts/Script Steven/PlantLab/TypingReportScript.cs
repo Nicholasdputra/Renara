@@ -5,6 +5,7 @@ using TMPro;
 
 public class TypingReportScript : MonoBehaviour
 {
+    [SerializeField] LabManager labManager;
     string colorString = "<color=#888888>";
     string tempString;
     [SerializeField] TMP_Text reportText;
@@ -12,9 +13,8 @@ public class TypingReportScript : MonoBehaviour
     [SerializeField] int sentenceIndex = 0;
     [SerializeField] int letterIndex = 0;
     [SerializeField] bool waitingForDot = false;
-    // Start is called before the first frame update
-    void Start()
-    {
+
+    public void StartReport(){
         sentenceIndex = 0;
         letterIndex = 0;
         waitingForDot = false;
@@ -93,5 +93,7 @@ public class TypingReportScript : MonoBehaviour
 
     void EndReport(){
         Debug.Log("End of Report");
+        gameObject.SetActive(false);
+        labManager.ShowExtractedMaterials(true);
     }   
 }

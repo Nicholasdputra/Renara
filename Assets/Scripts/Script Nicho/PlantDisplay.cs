@@ -14,7 +14,7 @@ public class PlantDisplay : MonoBehaviour, IDropHandler
     void Awake()
     {
         //Determine which plant to display here later
-        plant = plantList.plantData[0];
+        plant = plantList.plant[0];
         currentStep = 0;
         dialogueText = GameObject.FindGameObjectWithTag("DialogueBox").GetComponentInChildren<TextMeshProUGUI>();
         dialogueText.text = "";
