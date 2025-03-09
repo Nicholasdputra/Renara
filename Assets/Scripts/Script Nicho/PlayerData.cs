@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-public class PlayerData
+[CreateAssetMenu(fileName = "PlayerDataSO", menuName = "ScriptableObjects/PlayerDataSO")]
+public class PlayerDataSO : ScriptableObject
 {
-    public List<ItemSO> inventory;
-    public List<Material> materials;
+    public ItemDataSO itemDataSO;
+    public ToolDataSO toolDataSO;
+    public PlantDataSO plantDataSO;
+    [SerializeField] public List<CraftingMaterial> obtainedMaterials;
     public Vector3 position;
     public int currentPlant;
     public int playerToolLevel;
-    public PlantDataSO plantDataSO;
 }

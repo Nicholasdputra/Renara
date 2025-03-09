@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class SaveSystem : MonoBehaviour
 {
     public static SaveSystem currentSave;
-    public PlayerData currentPlayerData;
+    public PlayerDataSO currentPlayerData;
 
     // Start is called before the first frame update
     void Awake()
@@ -23,12 +23,12 @@ public class SaveSystem : MonoBehaviour
 
     private void InitializePlayerData()
     {
-        currentPlayerData = new PlayerData
+        if (currentPlayerData == null)
         {
-            inventory = new List<ItemSO>(),
-            materials = new List<Material>(),
-            position = Vector3.zero
-        };
+            currentPlayerData = ScriptableObject.CreateInstance<PlayerDataSO>();
+            currentPlayerData.obtainedMaterials = new List<CraftingMaterial>();
+            currentPlayerData.position = Vector3.zero;
+        }
     }
 
     void Save()
@@ -49,7 +49,7 @@ public class SaveSystem : MonoBehaviour
             using (System.IO.StreamReader reader = new System.IO.StreamReader(Application.persistentDataPath + "/save.json"))
             {
                 string json = reader.ReadToEnd();
-                currentPlayerData = JsonUtility.FromJson<PlayerData>(json);
+                currentPlayerData = JsonUtility.FromJson<PlayerDataSO>(json);
             }
         }
         else

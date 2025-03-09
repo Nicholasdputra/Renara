@@ -21,6 +21,8 @@ public class LabManager : MonoBehaviour
     [SerializeField] GameObject materialPanel;
     [SerializeField] GameObject materialPrefab;
 
+    
+
     [ContextMenu("Start Lab")]
     public void StartLab()
     {
@@ -78,10 +80,20 @@ public class LabManager : MonoBehaviour
         Debug.Log("Showing Extracted Materials");
         hasExtracted = true;
         materialPanel.SetActive(true);
-        GameObject material = Instantiate(materialPrefab, materialPanel.transform);
-        // material.transform.GetChild(0).GetComponent<Image>().sprite = (MATERIAL SPRITE HERE);
-        // material.transform.GetChild(1).GetComponent<TMP_Text>().text = (MATERIAL NAME HERE);
+        GameObject materialDrop = Instantiate(materialPrefab, materialPanel.transform);
+        CraftingMaterialSO currentPlantDrop = plantData.plant[playerPlant].materialDrop;
+        materialDrop.transform.GetChild(0).GetComponent<Image>().sprite = currentPlantDrop.materialSprite;
+        materialDrop.transform.GetChild(1).GetComponent<TMP_Text>().text = currentPlantDrop.materialName;
+        
+        CraftingMaterial playerMaterial = SaveSystem.currentSave.currentPlayerData.obtainedMaterials.Find(m => m.materialSO == currentPlantDrop);
         // ADD MATERIAL VARIABLE HERE
+        if(playerMaterial == null){
+            SaveSystem.currentSave.currentPlayerData.obtainedMaterials.Add(new CraftingMaterial(currentPlantDrop, 1)); 
+        }
+        else{
+            playerMaterial.amount++;
+        }
+
         if(hasReport){
             GameObject tempReport = Instantiate(materialPrefab, materialPanel.transform);
             tempReport.GetComponent<TMP_Text>().text = plantData.plant[playerPlant].name + " Report";

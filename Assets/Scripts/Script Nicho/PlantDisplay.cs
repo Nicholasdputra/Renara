@@ -28,11 +28,11 @@ public class PlantDisplay : MonoBehaviour, IDropHandler
         //kl ada yang di drag ke plant
         if (eventData.pointerDrag != null)
         {
-            ItemDisplay currentItemScript = eventData.pointerDrag.GetComponent<ItemDisplay>();
+            ToolDisplay currentItemScript = eventData.pointerDrag.GetComponent<ToolDisplay>();
 
             //kl yang di drag sesuai dengan extract processnya
             if(currentStep < plant.extractionSteps.Length 
-            && currentItemScript.item.itemName == plant.extractionSteps[currentStep])
+            && currentItemScript.tool.toolName == plant.extractionSteps[currentStep])
             {
                 dialogueText.text = "That seems right!";
                 currentStep++;

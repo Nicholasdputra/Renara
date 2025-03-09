@@ -222,7 +222,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3946724447444453032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27fc346d2f3ef5d4d9dbe14e1ca014ad, type: 3}
+  m_Script: {fileID: 11500000, guid: 6549e7d4b03e3f44cacc63038caf3968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2005584652440382012
@@ -240,6 +240,7 @@ MonoBehaviour:
   dialogueData: {fileID: 11400000, guid: f0694944455e3b542a2d699687a2ab48, type: 2}
   typing: 0
   dialogueTextBox: {fileID: 2760948403522140820}
+  dialogueBox: {fileID: 0}
 --- !u!1 &5999055152940605694
 GameObject:
   m_ObjectHideFlags: 0
