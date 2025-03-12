@@ -96,7 +96,8 @@ public class LabManager : MonoBehaviour
 
         if(hasReport){
             GameObject tempReport = Instantiate(materialPrefab, materialPanel.transform);
-            tempReport.GetComponent<TMP_Text>().text = plantData.plant[playerPlant].name + " Report";
+            //tempReport.transform.GetChild(0).GetComponent<Image>().sprite = (EITHER PAPER SPRITE OR PLANT IMAGE);
+            tempReport.transform.GetChild(1).GetComponent<TMP_Text>().text = plantData.plant[playerPlant].name + " Report";
         }
     }
 }
