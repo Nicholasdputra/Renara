@@ -215,11 +215,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &592612713 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2379839895708952206, guid: 1116d68cd5f8ad74bbbf635c965af5fe, type: 3}
-  m_PrefabInstance: {fileID: 4260520257866767036}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1547170467
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,6 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 228041bbc2c37744abe8e640a81a5a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPlayerData: {fileID: 0}
 --- !u!1 &1557466705
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,8 +270,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1557466707}
   - component: {fileID: 1557466706}
+  - component: {fileID: 1557466708}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Interactable Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -348,6 +345,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1557466708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557466705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73b0ecd392c42be45973fd74c86d1b02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onInteract:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1984765452
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,18 +440,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 378158189}
-    - target: {fileID: 2005584652440382012, guid: 1116d68cd5f8ad74bbbf635c965af5fe, type: 3}
-      propertyPath: dialogueBox
-      value: 
-      objectReference: {fileID: 592612713}
-    - target: {fileID: 2760948403522140820, guid: 1116d68cd5f8ad74bbbf635c965af5fe, type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 2760948403522140820, guid: 1116d68cd5f8ad74bbbf635c965af5fe, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3946724447444453032, guid: 1116d68cd5f8ad74bbbf635c965af5fe, type: 3}
       propertyPath: m_Name
       value: Character
