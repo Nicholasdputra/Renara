@@ -98,6 +98,10 @@ public class CraftingManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            Debug.Log("Escape");
+        }
+
         if(isInMinigame){
             if(minigameProg == 0){ //A
                 if(sliderCoroutine == null){
@@ -167,6 +171,14 @@ public class CraftingManager : MonoBehaviour
 
     void CraftingListButton(ItemSO item)
     {
+        if(materialsNeededParent.transform.childCount > 0)
+        {
+            foreach (Transform child in materialsNeededParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        
         activeItem = item;
         //Open the craftablePopUp
         craftablePopUp.SetActive(true);
@@ -223,7 +235,16 @@ public class CraftingManager : MonoBehaviour
         minigameProg = 0;
         sliderCoroutine = null;
         SetUpCraftingList();
+        craftingListObjects.SetActive(true);
         craftingMinigameObjects.SetActive(false);
+        craftablePopUp.SetActive(false);
+    }
+
+    public void StartCraftingMinigame()
+    {
+        isInMinigame = true;
+        craftingListObjects.SetActive(false);
+        craftingMinigameObjects.SetActive(true);
         craftablePopUp.SetActive(false);
     }
 
