@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ToolDataSO", menuName = "ScriptableObjects/ToolDataSO")]
 public class ToolDataSO : ScriptableObject
 {
-    public ToolSO[] items;
+    public List<ToolSO> tools = new List<ToolSO>();
 }
