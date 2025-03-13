@@ -44,7 +44,6 @@ public class CharacterMovement : MonoBehaviour
         if ((moveX == 0 && moveY == 0) && (input.x != 0 || input.y != 0))
         {
             lastMoveDirection = input;
-            Debug.Log(lastMoveDirection);
         }
         input.x = Input.GetAxisRaw("Horizontal");
         input.y = Input.GetAxisRaw("Vertical");

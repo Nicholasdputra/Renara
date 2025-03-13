@@ -5,50 +5,35 @@ using System.Collections;
 
 public class CharacterInteraction : MonoBehaviour
 {
-    [Header("Data")]
-    [SerializeField] private DialogueData dialogueData;
-
     [Header("Parameter")]
-    [SerializeField] private bool typing;
+    [SerializeField] private bool isTalking;
 
     [Header("Object")]
     [SerializeField] private TMP_Text dialogueTextBox;
     [SerializeField] private GameObject dialogueBox;
     private void Start()
     {
+        isTalking = false;
         dialogueTextBox.text = "";
         dialogueBox.gameObject.SetActive(false);
     }
-    private void Update()
+    
+    public IEnumerator TypeDialogue(string sentence)
     {
-        if(Input.anyKeyDown)
+        if (isTalking)
         {
-            typing = true;
-            dialogueBox.gameObject.SetActive(typing);
-            DialogueSO dialogue = RetrieveDialogue("Welcoming");
-            StopAllCoroutines();
-            StartCoroutine(TypeDialogue(dialogue.dialogueText[UnityEngine.Random.Range(0, dialogue.dialogueText.Length)]));
+            yield return null;
         }
-    }
-
-    IEnumerator TypeDialogue(string sentence)
-    {
+        isTalking = true;
         dialogueTextBox.text = "";
-        Debug.Log("test");
+        dialogueBox.gameObject.SetActive(true);
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueTextBox.text += letter;
             yield return new WaitForSeconds(0.05f);
         }
         yield return new WaitForSeconds(2f);
-        typing = false;
-        dialogueBox.gameObject.SetActive(typing);
+        isTalking = false;
+        dialogueBox.gameObject.SetActive(false);
     }
-
-    DialogueSO RetrieveDialogue(string context)
-    {
-        DialogueSO dialogue = Array.Find(dialogueData.dialogues, x => x.name == context);
-        return dialogue;
-    }
-
 }

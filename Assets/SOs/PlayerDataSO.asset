@@ -19,7 +19,7 @@ MonoBehaviour:
   - materialSO: {fileID: 11400000, guid: c65094de47513694a97c53be92f94b5e, type: 2}
     amount: 1000
   - materialSO: {fileID: 11400000, guid: 07fb5ff82c493a2459168c5025f367b4, type: 2}
-    amount: 1000
-  position: {x: 0, y: 0, z: 0}
+    amount: 1003
+  position: {x: -3.6366034, y: 1.938273, z: 0}
   currentPlant: 0
   playerToolLevel: 0

@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edc811d074a18b34f80dd94ace65c0e2, type: 3}
-  m_Name: '!DialogueData'
+  m_Script: {fileID: 11500000, guid: 8f8752799a382e94b9f4be916052e7b2, type: 3}
+  m_Name: Meja
   m_EditorClassIdentifier: 
-  dialogues:
-  - {fileID: 11400000, guid: 1e42491c6c2d8b1498ede395a6dbf173, type: 2}
-  - {fileID: 11400000, guid: 034e8748d8cde41499e8ab39d935439f, type: 2}
+  dialogueText:
+  - Ini Meja apaan
+  - '*table Flip*'
+  - menggokil
+  - halah meja kuno
