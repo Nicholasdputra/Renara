@@ -6,7 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerDataSO", menuName = "ScriptableObjects/PlayerDataSO")]
 public class PlayerDataSO : ScriptableObject
 {
-    public ItemDataSO itemDataSO;
+    public ItemDataSO obtainedItemDataSO;
+    public ItemDataSO listOfRecipes;
     public ToolDataSO toolDataSO;
     public PlantDataSO plantDataSO;
     [SerializeField] public List<CraftingMaterial> obtainedMaterials;

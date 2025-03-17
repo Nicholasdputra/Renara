@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2045a9e09cde9c44eb1414650947fa75, type: 3}
   m_Name: PlayerDataSO
   m_EditorClassIdentifier: 
-  itemDataSO: {fileID: 11400000, guid: e629e48363a33d74bab70c451326d1ee, type: 2}
+  obtainedItemDataSO: {fileID: 11400000, guid: 084d716656cbca84fa3ee27079ee4d7e, type: 2}
+  listOfRecipes: {fileID: 11400000, guid: e629e48363a33d74bab70c451326d1ee, type: 2}
   toolDataSO: {fileID: 11400000, guid: f5eba59e8ae4aed47b3ffc1da2a43a2a, type: 2}
   plantDataSO: {fileID: 0}
   obtainedMaterials:
@@ -20,6 +21,6 @@ MonoBehaviour:
     amount: 1000
   - materialSO: {fileID: 11400000, guid: 07fb5ff82c493a2459168c5025f367b4, type: 2}
     amount: 1003
-  position: {x: -3.6366034, y: 1.938273, z: 0}
+  position: {x: -3.636603, y: 1.938273, z: 0}
   currentPlant: 0
   playerToolLevel: 0

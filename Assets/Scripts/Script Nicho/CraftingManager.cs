@@ -7,7 +7,7 @@ public class CraftingManager : MonoBehaviour
 {
     [Header("For Displaying What Items Can Be Crafted")]
     public GameObject craftingListObjects;
-    public ItemDataSO ItemDataSO;
+    // public ItemDataSO ItemDataSO;
     // public MaterialDataSO MaterialDataSO;
     public GameObject itemButtonPrefab;
     public GameObject itemButtonParent;
@@ -39,7 +39,7 @@ public class CraftingManager : MonoBehaviour
 
         //Determine which buttons to display based on the items in the player's inventory
         //you do this by comparing it to the recipes for every item
-        foreach (ItemSO item in ItemDataSO.items)
+        foreach (ItemSO item in SaveSystem.currentSave.currentPlayerData.listOfRecipes.items)
         {
             bool craftable = true;
             // Debug.Log("Current Item Needs: " +  item);
@@ -221,7 +221,7 @@ public class CraftingManager : MonoBehaviour
         }
 
         //Add the crafted item to the player's inventory
-        SaveSystem.currentSave.currentPlayerData.itemDataSO.items.Add(activeItem);
+        SaveSystem.currentSave.currentPlayerData.obtainedItemDataSO.items.Add(activeItem);
         
         //Close the craftablePopUp
         craftingMinigameObjects.SetActive(false);
