@@ -3,7 +3,7 @@ guid: 0808a30865889b54fb7308dca108707e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -94,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Server
+    buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,70 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hill_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1200
-        width: 400
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c51a62dc0727c9b43b9265ecea75699f
-      internalID: 1013705277
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hill_1
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 1200
-        width: 400
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7c00fe3f1a06a4445b9c7a836ceb9260
-      internalID: -1709437731
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hill_2
-      rect:
-        serializedVersion: 2
-        x: 800
-        y: 1200
-        width: 400
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 33835b056b524e044b953ff73b7d86b2
-      internalID: -1373552778
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hill_3
+      name: Hill_0
       rect:
         serializedVersion: 2
         x: 0
@@ -187,35 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f0a3f9970657d64781d7e1808d13622
-      internalID: -1429922428
+      spriteID: b0df929a54ce6d84cbb9ea092e933474
+      internalID: -1391305852
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hill_4
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 800
-        width: 400
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 322b94bf81609054ab9b10be8d552a43
-      internalID: 1930130573
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hill_5
+      name: Hill_1
       rect:
         serializedVersion: 2
         x: 800
@@ -229,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b70ddf76b8df8f45871abd4f780037b
-      internalID: 1284087152
+      spriteID: 54688763cf3698e4c84db79e3444c25f
+      internalID: 392266770
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hill_6
+      name: Hill_2
       rect:
         serializedVersion: 2
         x: 0
@@ -250,35 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e91445dabeb2924a9f84479ca610e25
-      internalID: -104736823
+      spriteID: 447188952ce43554489ac83db5ff6d3a
+      internalID: -261546455
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hill_7
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 400
-        width: 400
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0c709cc4925cdd14d95b20035ec8c989
-      internalID: -2075438643
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hill_8
+      name: Hill_3
       rect:
         serializedVersion: 2
         x: 800
@@ -292,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c4e5aab256422549ae6a01fc2b59584
-      internalID: -347165142
+      spriteID: 7d57384ad2818d546b72a2d4eaecdf76
+      internalID: -1280482954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hill_9
+      name: Hill_4
       rect:
         serializedVersion: 2
         x: 0
@@ -313,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00a33631c777a4f449a746afff68b13a
-      internalID: 1833601799
+      spriteID: f7891e47d26aceb40aedf1cdef056d4e
+      internalID: 44161104
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hill_10
+      name: Hill_5
       rect:
         serializedVersion: 2
         x: 400
@@ -334,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ac731f07d08e8944831201495ffb0d8
-      internalID: 872458667
+      spriteID: b8168743b7adbce40b80698cc647f1cd
+      internalID: -1696643928
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hill_11
+      name: Hill_6
       rect:
         serializedVersion: 2
         x: 800
@@ -355,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc5a5bc040cf4654ea16d61e3c852a5f
-      internalID: -1656652616
+      spriteID: f6c03aaaea790ff40806d174208ef5e0
+      internalID: -1040924521
       vertices: []
       indices: 
       edges: []
@@ -372,18 +267,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      hill_0: 1013705277
-      hill_1: -1709437731
-      hill_10: 872458667
-      hill_11: -1656652616
-      hill_2: -1373552778
-      hill_3: -1429922428
-      hill_4: 1930130573
-      hill_5: 1284087152
-      hill_6: -104736823
-      hill_7: -2075438643
-      hill_8: -347165142
-      hill_9: 1833601799
+      Hill_0: -1391305852
+      Hill_1: 392266770
+      Hill_2: -261546455
+      Hill_3: -1280482954
+      Hill_4: 44161104
+      Hill_5: -1696643928
+      Hill_6: -1040924521
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
