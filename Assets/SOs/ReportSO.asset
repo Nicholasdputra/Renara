@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5867ef1aa40d7d4f87d39da6979018c, type: 3}
   m_Name: ReportSO
   m_EditorClassIdentifier: 
+  title: Pohon Pisang
   sentences:
   - promt: Pisang
     fullSentence: Pisang adalah pisang yang sangat pisang

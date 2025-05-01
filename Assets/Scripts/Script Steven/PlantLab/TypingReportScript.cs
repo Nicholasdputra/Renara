@@ -18,10 +18,11 @@ public class TypingReportScript : MonoBehaviour
         sentenceIndex = 0;
         letterIndex = 0;
         waitingForDot = false;
-        //write the first prompt w the color tag
-        reportText.text = colorString + reportSO.sentences[sentenceIndex].promt + ".";
+        reportText.text = tempString = FormatTitle(reportSO.title);
         //there are no string before the first prompt so temp string is empty
-        tempString = "";
+        //write the first prompt w the color tag
+        reportText.text = tempString + colorString + reportSO.sentences[sentenceIndex].promt + ".";
+        reportText.transform.localPosition = Vector3.zero;
     }
 
     // Update is called once per frame
@@ -30,6 +31,10 @@ public class TypingReportScript : MonoBehaviour
         if(Input.anyKeyDown){
             CheckInput();
         }
+    }
+
+    string FormatTitle(string plantName){
+        return "<align=\"center\"><size=110>\n" + plantName + "</size></align>\n\n";
     }
 
     void CheckInput(){
@@ -44,7 +49,7 @@ public class TypingReportScript : MonoBehaviour
         }else if(Input.inputString.ToLower() == reportSO.sentences[sentenceIndex].promt[letterIndex].ToString().ToLower()){
             //else, go to the next letter
             letterIndex++;
-            reportText.text = tempString + " ";
+            reportText.text = tempString;
             //print out how many letters we have typed
             for(int i = 0; i<letterIndex; i++){
                 reportText.text += reportSO.sentences[sentenceIndex].promt[i];
@@ -74,7 +79,7 @@ public class TypingReportScript : MonoBehaviour
             reportText.text += reportSO.sentences[sentenceIndex].fullSentence[i];
             yield return new WaitForSeconds(0.025f);
         }
-        reportText.text += ".";
+        reportText.text += ". ";
         yield return new WaitForSeconds(0.025f);
         NextSentence();
     }
@@ -88,7 +93,7 @@ public class TypingReportScript : MonoBehaviour
             EndReport();
             return;
         }
-        reportText.text += " " + colorString + reportSO.sentences[sentenceIndex].promt + ".";
+        reportText.text += colorString + reportSO.sentences[sentenceIndex].promt + ".";
     }
 
     void EndReport(){

@@ -56,6 +56,7 @@ public class LabManager : MonoBehaviour
         }
     }
 
+    [ContextMenu("Start Report")]
     public void CloseDNAWindow(){
         //Calls at the end of DNA Animation
         dnaMatchingPanel.gameObject.SetActive(false);
