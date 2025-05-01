@@ -13,11 +13,12 @@ public class TypingReportScript : MonoBehaviour
     [SerializeField] int sentenceIndex = 0;
     [SerializeField] int letterIndex = 0;
     [SerializeField] bool waitingForDot = false;
-
+    bool isFinished = false;
     public void StartReport(){
         sentenceIndex = 0;
         letterIndex = 0;
         waitingForDot = false;
+        isFinished = false;
         reportText.text = tempString = FormatTitle(reportSO.title);
         //there are no string before the first prompt so temp string is empty
         //write the first prompt w the color tag
@@ -28,8 +29,15 @@ public class TypingReportScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.anyKeyDown){
-            CheckInput();
+        if(isFinished){
+            if(Input.GetKeyDown(KeyCode.Return)){
+                EndReport();
+            }
+        }else{
+            if(Input.anyKeyDown){
+                CheckInput();
+            }
+
         }
     }
 
@@ -90,7 +98,8 @@ public class TypingReportScript : MonoBehaviour
         sentenceIndex++;
         tempString = reportText.text;
         if(sentenceIndex >= reportSO.sentences.Length){
-            EndReport();
+            isFinished = true;
+            reportText.text += "\n\nPress Enter to continue...";
             return;
         }
         reportText.text += colorString + reportSO.sentences[sentenceIndex].promt + ".";

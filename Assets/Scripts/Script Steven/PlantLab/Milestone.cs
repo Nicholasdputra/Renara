@@ -10,6 +10,7 @@ public class Milestone : MonoBehaviour
 
     [ContextMenu ("SubmitPlant")]
     public void SubmitCurrentPlant(){
+        Debug.Log("Submitting Plant");
         gameObject.SetActive(true);
         plantsUnlocked = 0;
         foreach(PlantSO plant in plantData.plant){
@@ -20,7 +21,7 @@ public class Milestone : MonoBehaviour
         slider.value = plantsUnlocked;
 
         //check if we have unlocked the plant or not
-        int plantIndex = 1;
+        int plantIndex = 0;
         if(plantData.plant[plantIndex].isUnlocked == false){
             //if not, unlock it
             plantData.plant[plantIndex].isUnlocked = true;

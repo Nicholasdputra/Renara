@@ -18,3 +18,4 @@ MonoBehaviour:
   plantDescription: bbbbbb
   extractionSteps: []
   isUnlocked: 0
+  materialDrop: {fileID: 0}

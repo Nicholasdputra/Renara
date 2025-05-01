@@ -27,6 +27,8 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
     }
 
     public void StartDNAExtraction(){
+        //make the scroll rect draggable
+        GetComponent<ScrollRect>().horizontal = true;
         correctTile = -1;
         //each dna tile is 100 with 10 px spacing. The horizontal group "has" 10 px paddingn on each side
         // meaning ths first tile needs to be 110 + 10 px away, and the last tile needs to be 10 + 100 + 10 (one block + edge space) px away
@@ -145,6 +147,8 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
         if(Mathf.Abs(tile) == correctTile){
             Debug.Log("Correct!");
             dnaMatchPanel.GetComponent<Animator>().SetTrigger("DNAMatch");
+            //stop players from scrolling the rect 
+            GetComponent<ScrollRect>().horizontal = false;
         }
     }
 }
