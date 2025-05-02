@@ -15,8 +15,15 @@ MonoBehaviour:
   title: Pohon Pisang
   sentences:
   - promt: Pisang
-    fullSentence: Pisang adalah pisang yang sangat pisang
+    fullSentence: 'Pisang adalah buah yang dikategorikan sebagai beri. '
   - promt: Kuning
-    fullSentence: Pisang berwarna kuning dan kuning
-  - promt: Pottasium
-    fullSentence: Pisang punya banyak pottasium
+    fullSentence: 'Pisang berwarna kuning karena klorofilnya hilang saat matang,
+      digantikan dengan pigmen karotenoid. '
+  - promt: Potassium
+    fullSentence: 'Pisang kaya akan potassium, oleh karena itu pisang bagus untuk
+      menjaga tekanan darah, fungsi otot, dan keseimbangan cairan tubuh. '
+  - promt: Genetik
+    fullSentence: 'Genetik pisang memiliki kesamaan 50%-60% dengan manusia. '
+  - promt: Radioaktif?
+    fullSentence: 'Pisang memiliki sedikit radioaktif karena mengandung Kalium-40,
+      tetapi pisang tidak membuatmu menjadi min*on. '

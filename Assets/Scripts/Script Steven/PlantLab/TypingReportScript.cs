@@ -51,7 +51,7 @@ public class TypingReportScript : MonoBehaviour
         //     Debug.Log("Comparing" + Input.inputString + " with " + reportSO.sentences[sentenceIndex].promt[letterIndex]);
         // }
         //waiting for dot means the word is alrdy complete j waiting on the dot at the end of the sentence
-        if(waitingForDot && Input.inputString == "."){
+        if(waitingForDot && Input.inputString == " "){
             StartCoroutine(TypeSentence());
             return;
         }else if(Input.inputString.ToLower() == reportSO.sentences[sentenceIndex].promt[letterIndex].ToString().ToLower()){
@@ -68,7 +68,7 @@ public class TypingReportScript : MonoBehaviour
                 reportText.text += reportSO.sentences[sentenceIndex].promt[i];
             }
             //then the texts we havent typed 
-            reportText.text += ".";
+            //reportText.text += ".";
             if(letterIndex >= reportSO.sentences[sentenceIndex].promt.Length){
                 //word is done, wait for dot
                 waitingForDot = true;
@@ -87,7 +87,7 @@ public class TypingReportScript : MonoBehaviour
             reportText.text += reportSO.sentences[sentenceIndex].fullSentence[i];
             yield return new WaitForSeconds(0.025f);
         }
-        reportText.text += ". ";
+        //reportText.text += ". ";
         yield return new WaitForSeconds(0.025f);
         NextSentence();
     }
@@ -102,7 +102,9 @@ public class TypingReportScript : MonoBehaviour
             reportText.text += "\n\nPress Enter to continue...";
             return;
         }
-        reportText.text += colorString + reportSO.sentences[sentenceIndex].promt + ".";
+        //reportText.text += colorString + reportSO.sentences[sentenceIndex].promt + ".";
+        reportText.text += colorString + reportSO.sentences[sentenceIndex].promt;
+
     }
 
     void EndReport(){
