@@ -154,7 +154,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -635908282, guid: 13d497b7d5f923d40a0ef4b9e7641270, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -238,8 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904456de59553b04195cd08fdc402430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueData: {fileID: 11400000, guid: f0694944455e3b542a2d699687a2ab48, type: 2}
-  typing: 0
+  isTalking: 0
   dialogueTextBox: {fileID: 2760948403522140820}
   dialogueBox: {fileID: 2379839895708952206}
 --- !u!61 &5001864868223322054

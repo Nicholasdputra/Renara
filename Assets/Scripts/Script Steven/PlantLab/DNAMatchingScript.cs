@@ -146,9 +146,9 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
         Debug.Log("Tile: " + tile + " Correct Tile: " + correctTile);
         if(Mathf.Abs(tile) == correctTile){
             Debug.Log("Correct!");
+            GetComponent<ScrollRect>().horizontal = false;
             dnaMatchPanel.GetComponent<Animator>().SetTrigger("DNAMatch");
             //stop players from scrolling the rect 
-            GetComponent<ScrollRect>().horizontal = false;
         }
     }
 }

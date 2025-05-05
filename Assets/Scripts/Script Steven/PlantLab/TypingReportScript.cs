@@ -22,7 +22,7 @@ public class TypingReportScript : MonoBehaviour
         reportText.text = tempString = FormatTitle(reportSO.title);
         //there are no string before the first prompt so temp string is empty
         //write the first prompt w the color tag
-        reportText.text = tempString + colorString + reportSO.sentences[sentenceIndex].promt + ".";
+        reportText.text = tempString + colorString + reportSO.sentences[sentenceIndex].promt;
         reportText.transform.localPosition = Vector3.zero;
     }
 
@@ -51,10 +51,10 @@ public class TypingReportScript : MonoBehaviour
         //     Debug.Log("Comparing" + Input.inputString + " with " + reportSO.sentences[sentenceIndex].promt[letterIndex]);
         // }
         //waiting for dot means the word is alrdy complete j waiting on the dot at the end of the sentence
-        if(waitingForDot && Input.inputString == " "){
+        if(waitingForDot && Input.GetKeyDown(KeyCode.Return)){
             StartCoroutine(TypeSentence());
             return;
-        }else if(Input.inputString.ToLower() == reportSO.sentences[sentenceIndex].promt[letterIndex].ToString().ToLower()){
+        }else if(!waitingForDot && Input.inputString.ToLower() == reportSO.sentences[sentenceIndex].promt[letterIndex].ToString().ToLower()){
             //else, go to the next letter
             letterIndex++;
             reportText.text = tempString;

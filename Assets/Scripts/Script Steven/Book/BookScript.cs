@@ -29,14 +29,31 @@ public class BookScript : MonoBehaviour
     public GameObject plusPrefab;
     public int openPageIndex;
 
-    void Start(){
+    private void Start() {
         nextButton.onClick.AddListener(NextPage);
         prevButton.onClick.AddListener(PrevPage);
         prevButton.gameObject.SetActive(false);
         openPageIndex = 0;
         //ini di run sekali aj udh ke save ke SO
         // PlantSO[] plants = Resources.LoadAll<PlantSO>("PlantData");
-        UpdatePage();
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            //close book
+            gameObject.SetActive(false);
+            openPageIndex = 0;
+            nextButton.gameObject.SetActive(true);
+            prevButton.gameObject.SetActive(false);
+        }
+        if(Input.GetKeyDown(KeyCode.B)){
+            //open book
+            gameObject.SetActive(true);
+            nextButton.gameObject.SetActive(true);
+            prevButton.gameObject.SetActive(false);
+            UpdatePage();
+        }
     }
 
     int DetermineWhichToolSpriteToUse(string extractionStep)
