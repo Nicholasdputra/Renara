@@ -8,7 +8,7 @@ public class CharacterMovement : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sr;
     
-    private float speed = 5f;
+    public float speed = 5f;
     private Vector2 input;
     private Vector2 lastMoveDirection;
     private bool facingLeft = true;
