@@ -21,8 +21,6 @@ public class LabManager : MonoBehaviour
     [SerializeField] GameObject materialPanel;
     [SerializeField] GameObject materialPrefab;
 
-    
-
     [ContextMenu("Start Lab")]
     public void StartLab()
     {

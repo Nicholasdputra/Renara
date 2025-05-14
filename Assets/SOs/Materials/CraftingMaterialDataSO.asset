@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f76a0a185e92da4ab958cb3328568fa, type: 3}
   m_Name: CraftingMaterialDataSO
   m_EditorClassIdentifier: 
-  craftingMaterials: []
+  craftingMaterials:
+  - {fileID: 11400000, guid: c65094de47513694a97c53be92f94b5e, type: 2}
+  - {fileID: 11400000, guid: 07fb5ff82c493a2459168c5025f367b4, type: 2}

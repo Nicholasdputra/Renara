@@ -14,6 +14,7 @@ public class TypingReportScript : MonoBehaviour
     [SerializeField] int letterIndex = 0;
     [SerializeField] bool waitingForDot = false;
     bool isFinished = false;
+    bool ischeckingInput = true;
     public void StartReport(){
         sentenceIndex = 0;
         letterIndex = 0;
@@ -34,10 +35,9 @@ public class TypingReportScript : MonoBehaviour
                 EndReport();
             }
         }else{
-            if(Input.anyKeyDown){
+            if(Input.anyKeyDown && ischeckingInput){
                 CheckInput();
             }
-
         }
     }
 
@@ -52,6 +52,7 @@ public class TypingReportScript : MonoBehaviour
         // }
         //waiting for dot means the word is alrdy complete j waiting on the dot at the end of the sentence
         if(waitingForDot && Input.GetKeyDown(KeyCode.Return)){
+            ischeckingInput = false;
             StartCoroutine(TypeSentence());
             return;
         }else if(!waitingForDot && Input.inputString.ToLower() == reportSO.sentences[sentenceIndex].promt[letterIndex].ToString().ToLower()){
@@ -104,7 +105,7 @@ public class TypingReportScript : MonoBehaviour
         }
         //reportText.text += colorString + reportSO.sentences[sentenceIndex].promt + ".";
         reportText.text += colorString + reportSO.sentences[sentenceIndex].promt;
-
+        ischeckingInput = true;
     }
 
     void EndReport(){
