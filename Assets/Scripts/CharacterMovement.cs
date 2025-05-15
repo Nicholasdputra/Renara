@@ -13,21 +13,32 @@ public class CharacterMovement : MonoBehaviour
     private Vector2 lastMoveDirection;
     private bool facingLeft = true;
 
+    public bool canMove;
+
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
+        canMove = true;
     }
     private void Update()
     {
         ProcessInput();
+        
+        if (canMove)
+        {
+            speed = 5f;
+        }
+        else speed = 0f;
+        
         Animate();
-        if(input.x < 0 && facingLeft || input.x > 0 && !facingLeft)
+        
+        if (input.x < 0 && facingLeft || input.x > 0 && !facingLeft)
         {
             Flip();
         }
-        // saving last position
+        
         SaveSystem.currentSave.currentPlayerData.position = transform.position;
     }
 
@@ -52,11 +63,19 @@ public class CharacterMovement : MonoBehaviour
 
     private void Animate()
     {
-        anim.SetFloat("MoveX", input.x);
-        anim.SetFloat("MoveY", input.y);
-        anim.SetFloat("MoveMagnitude", input.magnitude);
-        anim.SetFloat("LastMoveX", lastMoveDirection.x);
-        anim.SetFloat("LastMoveY", lastMoveDirection.y);
+        if(canMove)
+        {
+            anim.SetFloat("MoveX", input.x);
+            anim.SetFloat("MoveY", input.y);
+            anim.SetFloat("MoveMagnitude", input.magnitude);
+            anim.SetFloat("LastMoveX", lastMoveDirection.x);
+            anim.SetFloat("LastMoveY", lastMoveDirection.y);
+        }
+        else
+        {
+            anim.SetFloat("MoveMagnitude", 0);
+        }
+        
     }
 
     private void Flip()
@@ -64,4 +83,6 @@ public class CharacterMovement : MonoBehaviour
         sr.flipX = !sr.flipX;
         facingLeft = !facingLeft;
     }
+
+
 }
