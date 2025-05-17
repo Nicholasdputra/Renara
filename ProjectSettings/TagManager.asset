@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - DialogueBox
+  - PlantExtraction
+  - PlantToExtract
   layers:
   - Default
   - TransparentFX

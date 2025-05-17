@@ -38,6 +38,20 @@ public class ObjectInteract : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E) && interactable)
         {
+            if(gameObject.tag == "PlantToExtract")
+            {
+                if (GameObject.Find("Canvas") != null)
+                {
+                    // Debug.Log("Canvas found");
+                    GameObject canvas = GameObject.Find("Canvas");
+                    if (canvas.GetComponentInChildren<PlantExtraction>() != null)
+                    {
+                        // Debug.Log("PlantExtraction found");
+                        PlantExtraction currentOverworldPlant = canvas.GetComponentInChildren<PlantExtraction>();
+                        currentOverworldPlant.gameObjectToDestroy = gameObject;
+                    }
+                }
+            }
             onInteract.Invoke();
         }
     }
