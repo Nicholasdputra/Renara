@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
   m_Name: TreeRules1
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: -305856938, guid: 7e7dae8d5eff4d545af2eb6b435e2a61, type: 3}
+  m_DefaultSprite: {fileID: -769341170, guid: 7e7dae8d5eff4d545af2eb6b435e2a61, type: 3}
   m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1
   m_TilingRules:
