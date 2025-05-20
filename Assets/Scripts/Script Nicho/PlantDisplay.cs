@@ -22,7 +22,7 @@ public class PlantDisplay : MonoBehaviour, IDropHandler
         dialogueText = GameObject.FindGameObjectWithTag("DialogueBox").GetComponentInChildren<TextMeshProUGUI>();
         dialogueText.text = "";
         dialogueText.text = string.Empty;
-        Debug.Log(plant.plantName);
+        // Debug.Log(plant.plantName);
         this.GetComponent<Image>().sprite = plant.plantImage;
     }
 

@@ -49,15 +49,15 @@ public class CharacterMovement : MonoBehaviour
 
     private void ProcessInput()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
+        float moveX = Input.GetAxis("Horizontal");
+        float moveY = Input.GetAxis("Vertical");
 
         if ((moveX == 0 && moveY == 0) && (input.x != 0 || input.y != 0))
         {
             lastMoveDirection = input;
         }
-        input.x = Input.GetAxisRaw("Horizontal");
-        input.y = Input.GetAxisRaw("Vertical");
+        input.x = Input.GetAxis("Horizontal");
+        input.y = Input.GetAxis("Vertical");
         input.Normalize();
     }
 
