@@ -25,7 +25,7 @@ public class TypingReportScript : MonoBehaviour
         reportText.text = tempString = FormatTitle(reportSO.title);
         //there are no string before the first prompt so temp string is empty
         //write the first prompt w the color tag
-        reportText.text = tempString + colorString + reportSO.sentences[sentenceIndex].promt;
+        reportText.text = tempString + colorString + reportSO.sentences[sentenceIndex].promt + " (Type the grayed out words)";
         // reportText.transform.localPosition = Vector3.zero;
         shownHint = false;
     }
@@ -45,11 +45,11 @@ public class TypingReportScript : MonoBehaviour
     }
 
     string FormatTitle(string plantName){
-        return "<font=\"ReportHeader\"><align=\"center\"><size=110>\n" + plantName + "</size></align></font>\n\n";
+        return "<font=\"ReportHeader\"><align=\"center\"><size=110>Laporan " + plantName + "</size></align></font>\n\n";
     }
 
     void CheckInput(){
-        Debug.Log("Checking Input");
+        // Debug.Log("Checking Input");
         // if(!waitingForDot){
         //     Debug.Log("Comparing" + Input.inputString + " with " + reportSO.sentences[sentenceIndex].promt[letterIndex]);
         // }
@@ -80,7 +80,7 @@ public class TypingReportScript : MonoBehaviour
                     shownHint = true;
                     reportText.text += "(Enter)";
                 }
-                Debug.Log("Waiting for Dot");
+                // Debug.Log("Waiting for Dot");
             }
         }
     }

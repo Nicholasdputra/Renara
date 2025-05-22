@@ -6,10 +6,11 @@ using TMPro;
 
 public class BookScript : MonoBehaviour
 {
+    GameObject player;
     [Header("Tool Sprites")]
     //U dont have to use an SO for this, it could be changed to a sprite array
 
-    public ToolSpritesSO toolSprites;
+    public ToolDataSO toolData;
     [Header("Plant Data")]
     public PlantDataSO plantDataSO;
     [Header("UI References")]
@@ -22,35 +23,48 @@ public class BookScript : MonoBehaviour
     Transform extractionSteps;
     [SerializeField] Button nextButton;
     [SerializeField] Button prevButton;
-    
+
     [Header("Steps Prefabs")]
     //spawn prefab and plus in between it
     public GameObject toolsPrefab;
     public GameObject plusPrefab;
     public int openPageIndex;
 
-    private void Start() {
+    private void Start()
+    {
         nextButton.onClick.AddListener(NextPage);
         prevButton.onClick.AddListener(PrevPage);
         prevButton.gameObject.SetActive(false);
         openPageIndex = 0;
+        player = GameObject.FindGameObjectWithTag("Player");
         //ini di run sekali aj udh ke save ke SO
         // PlantSO[] plants = Resources.LoadAll<PlantSO>("PlantData");
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)){
+        if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.B)) && leftBookPanel.gameObject.activeSelf)
+        {
             //close book
-            gameObject.SetActive(false);
+            // gameObject.SetActive(false);
             openPageIndex = 0;
-            nextButton.gameObject.SetActive(true);
+            player.GetComponent<CharacterMovement>().canMove = true;
+            gameObject.GetComponent<Image>().enabled = false;
+            leftBookPanel.gameObject.SetActive(false);
+            rightBookPanel.gameObject.SetActive(false);
+            nextButton.gameObject.SetActive(false);
             prevButton.gameObject.SetActive(false);
+            return;
         }
-        if(Input.GetKeyDown(KeyCode.B)){
+        if (Input.GetKeyDown(KeyCode.B) && player.GetComponent<CharacterMovement>().canMove && !leftBookPanel.gameObject.activeSelf)
+        {
             //open book
-            gameObject.SetActive(true);
+            player.GetComponent<CharacterMovement>().canMove = false;
+            gameObject.GetComponent<Image>().enabled = true;
+            leftBookPanel.gameObject.SetActive(true);
+            rightBookPanel.gameObject.SetActive(true);
             nextButton.gameObject.SetActive(true);
+            //since first page, there is no prev page
             prevButton.gameObject.SetActive(false);
             UpdatePage();
         }
@@ -61,17 +75,17 @@ public class BookScript : MonoBehaviour
         switch (extractionStep)
         {
             case "hoe":
-                return 1;
+                return 0;
             case "pruningShears":
-                return 2;
+                return 1;
             case "sprayBottle":
-                return 3;
+                return 2;
             case "sickle":
-                return 4;
+                return 3;
             case "spade":
-                return 5;
+                return 4;
             case "axe":
-                return 6;
+                return 5;
             default:
                 Debug.LogError("Unknown tool: " + extractionStep);
                 return -1; // Unknown tool
@@ -79,14 +93,19 @@ public class BookScript : MonoBehaviour
     }
 
     [ContextMenu("NextPage")]
-    public void NextPage(){
+    public void NextPage()
+    {
         //check if there are more plants to show
-        if(openPageIndex < plantDataSO.plant.Length/2){
+        if (openPageIndex < plantDataSO.plant.Length / 2)
+        {
             openPageIndex++;
-            if(openPageIndex == plantDataSO.plant.Length/2){
+            if (openPageIndex == plantDataSO.plant.Length / 2)
+            {
                 //last page, remove next button
                 nextButton.gameObject.SetActive(false);
-            }else{
+            }
+            else
+            {
                 nextButton.gameObject.SetActive(true);
             }
             //pressing next always means there is a prev page
@@ -94,16 +113,21 @@ public class BookScript : MonoBehaviour
             UpdatePage();
         }
     }
-    
+
     [ContextMenu("PrevPage")]
-    public void PrevPage(){
+    public void PrevPage()
+    {
         //check if there are more plants to show
-        if(openPageIndex != 0){
+        if (openPageIndex != 0)
+        {
             openPageIndex--;
-            if(openPageIndex == 0){
+            if (openPageIndex == 0)
+            {
                 //first page, remove prev button
                 prevButton.gameObject.SetActive(false);
-            }else{
+            }
+            else
+            {
                 prevButton.gameObject.SetActive(true);
             }
             //pressing prev always means there is a next page
@@ -112,18 +136,38 @@ public class BookScript : MonoBehaviour
         }
     }
 
-    void UpdatePage(){
+    void UpdatePage()
+    {
         leftBookPanel.gameObject.SetActive(true);
         rightBookPanel.gameObject.SetActive(true);
         //Clear extraction steps
+        ClearLeftPageSteps();
+        ClearRightPageSteps();
+
+        UpdateLeftPage();
+        UpdateRightPage();
+    }
+
+    void ClearLeftPageSteps()
+    {
         extractionSteps = leftBookPanel.GetChild(6);
-        for(int i = 0; i < extractionSteps.childCount; i++){
+        for (int i = 0; i < extractionSteps.childCount; i++)
+        {
             Destroy(extractionSteps.GetChild(i).gameObject);
         }
+    }
+
+    void ClearRightPageSteps()
+    {
         extractionSteps = rightBookPanel.GetChild(6);
-        for(int i = 0; i < extractionSteps.childCount; i++){
+        for (int i = 0; i < extractionSteps.childCount; i++)
+        {
             Destroy(extractionSteps.GetChild(i).gameObject);
         }
+    }
+
+    void UpdateLeftPage()
+    {
         //update left page
         plantImage = leftBookPanel.GetChild(2).GetComponent<Image>();
         plantNameText = leftBookPanel.GetChild(3).GetComponent<TMP_Text>();
@@ -132,11 +176,14 @@ public class BookScript : MonoBehaviour
         extractionSteps = leftBookPanel.GetChild(6);
 
         PlantSO plant;
-        bool plantUnlocked = plantDataSO.plant[openPageIndex*2].isUnlocked;
-        if(plantUnlocked){
+        bool plantUnlocked = plantDataSO.plant[openPageIndex * 2].isUnlocked;
+        if (plantUnlocked)
+        {
             //if unlocked show normal data
-            plant = plantDataSO.plant[openPageIndex*2];
-        }else{
+            plant = plantDataSO.plant[openPageIndex * 2];
+        }
+        else
+        {
             //else show unknown plant data (question mark)
             plant = plantDataSO.unknownPlantData;
         }
@@ -145,66 +192,90 @@ public class BookScript : MonoBehaviour
         plantDescText.text = plant.plantDescription;
         amountExtractedText.text = PlayerPrefs.GetInt(plant.plantName).ToString();
         //spawn extraction steps
-        for(int i = 0; i < plant.extractionSteps.Length; i++){
+        for (int i = 0; i < plant.extractionSteps.Length; i++)
+        {
             GameObject tool = Instantiate(toolsPrefab, extractionSteps);
+            Debug.Log("Showing" + plant.extractionSteps[i]);
             //set sprite inside of the circle
-            if(plantUnlocked){
-                tool.transform.GetChild(0).GetComponent<Image>().sprite = toolSprites.toolSprites[DetermineWhichToolSpriteToUse(plant.extractionSteps[i])];
-            }else{
+            if (plantUnlocked)
+            {
+                tool.transform.GetChild(0).GetComponent<Image>().sprite = toolData.tools[DetermineWhichToolSpriteToUse(plant.extractionSteps[i])].toolSprite;
+            }
+            else
+            {
                 //unknown tool is the last index of the toolSprites array
                 //Just spawn 1 unknown step and finish
-                tool.transform.GetChild(0).GetComponent<Image>().sprite = toolSprites.toolSprites[toolSprites.toolSprites.Length];
+                Debug.Log("Unknown tool, showing unknown tool sprite");
+                tool.transform.GetChild(0).GetComponent<Image>().sprite = toolData.tools[^1].toolSprite;
                 break;
             }
             //spawn plus if not the last index
-            if(i != plant.extractionSteps.Length - 1){
+            if (i != plant.extractionSteps.Length - 1)
+            {
                 Instantiate(plusPrefab, extractionSteps);
             }
         }
+    }
 
+    void UpdateRightPage()
+    {
         //update right page (basically same thing but add 1 to the index)
         //need to check whether right plant exists or not
-        if(openPageIndex*2+1 >= plantDataSO.plant.Length){
+        if (openPageIndex * 2 + 1 >= plantDataSO.plant.Length)
+        {
             //if not exist, hide the right page
             rightBookPanel.gameObject.SetActive(false);
             return;
         }
+        PlantSO plant;
+        bool plantUnlocked = plantDataSO.plant[openPageIndex * 2 + 1].isUnlocked;
         plantImage = rightBookPanel.GetChild(2).GetComponent<Image>();
         plantNameText = rightBookPanel.GetChild(3).GetComponent<TMP_Text>();
         plantDescText = rightBookPanel.GetChild(4).GetComponent<TMP_Text>();
         amountExtractedText = rightBookPanel.GetChild(5).GetComponent<TMP_Text>();
         extractionSteps = rightBookPanel.GetChild(6);
 
-        plantUnlocked = plantDataSO.plant[openPageIndex*2+1].isUnlocked;
-        if(plantUnlocked){
+        if (plantUnlocked)
+        {
             //if unlocked show normal data
-            plant = plantDataSO.plant[openPageIndex*2+1];
-        }else{
+            plant = plantDataSO.plant[openPageIndex * 2 + 1];
+        }
+        else
+        {
             //else show unknown plant data (question mark)
             plant = plantDataSO.unknownPlantData;
         }
         plantImage.sprite = plant.plantImage;
         plantNameText.text = plant.plantName;
         plantDescText.text = plant.plantDescription;
-        if(plantUnlocked){
+        if (plantUnlocked)
+        {
             amountExtractedText.text = PlayerPrefs.GetInt(plant.plantName).ToString();
-        }else{
+        }
+        else
+        {
             amountExtractedText.text = "0";
         }
         //spawn extraction steps
-        for(int i = 0; i < plant.extractionSteps.Length; i++){
+        for (int i = 0; i < plant.extractionSteps.Length; i++)
+        {
             GameObject tool = Instantiate(toolsPrefab, extractionSteps);
             //set sprite inside of the circle
-            if(plantUnlocked){
-                tool.transform.GetChild(0).GetComponent<Image>().sprite = toolSprites.toolSprites[DetermineWhichToolSpriteToUse(plant.extractionSteps[i])];
-            }else{
+            if (plantUnlocked)
+            {
+                tool.transform.GetChild(0).GetComponent<Image>().sprite = toolData.tools[DetermineWhichToolSpriteToUse(plant.extractionSteps[i])].toolSprite;
+            }
+            else
+            {
                 //unknown tool is the last index of the toolSprites array
                 //Just spawn 1 unknown step and finish
-                tool.transform.GetChild(0).GetComponent<Image>().sprite = toolSprites.toolSprites[toolSprites.toolSprites.Length-1];
+                //^1 is index from end kyk python negative index
+                tool.transform.GetChild(0).GetComponent<Image>().sprite = toolData.tools[^1].toolSprite;
                 break;
             }
             //spawn plus if not the last index
-            if(i != plant.extractionSteps.Length - 1){
+            if (i != plant.extractionSteps.Length - 1)
+            {
                 Instantiate(plusPrefab, extractionSteps);
             }
         }

@@ -51,8 +51,13 @@ public class LabManager : MonoBehaviour
                 Destroy(materialPanel.transform.GetChild(i).gameObject);
             }
             materialPanel.SetActive(false);
-            if(hasReport){
+            if (hasReport)
+            {
                 milestoneScript.SubmitCurrentPlant();
+            }
+            else
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().canMove = true;
             }
         }
     }

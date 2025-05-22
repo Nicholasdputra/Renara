@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   plantImage: {fileID: 21300000, guid: 5ea73e28933c18648843d31ef1b2e4fd, type: 3}
-  plantName: Pisang
+  plantName: Pohon Pisang
   plantDescription: Ini Pisang udah
   extractionSteps:
   - hoe

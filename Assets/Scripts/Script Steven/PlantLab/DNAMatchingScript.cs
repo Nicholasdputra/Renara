@@ -72,7 +72,7 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
 
         //if the fullDNA doesnt contain the targetDNA, add it to random index and remove the excess (4 chars)
         if(!fullDNA.Contains(targetDNA)){
-            correctTile = Random.Range(0,numberOfDNA-3);
+            correctTile = Random.Range(1,numberOfDNA-3);
             fullDNA = fullDNA.Insert(correctTile, targetDNA);
             //remove 4 last characters
             fullDNA = fullDNA.Substring(0, fullDNA.Length - 4);

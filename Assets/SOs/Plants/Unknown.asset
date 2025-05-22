@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 013e4a3b804aecd4480c2dfd35080a12, type: 3}
   m_Name: Unknown
   m_EditorClassIdentifier: 
-  plantImage: {fileID: -1416800276, guid: 49c794124f4cfb840a593dabfe4eab4f, type: 3}
-  mutatedImage: {fileID: 0}
+  plantImage: {fileID: -773940164, guid: 576022b3fff99cd41af52867bca172ff, type: 3}
   plantName: ???
   plantDescription: ???
-  extractionSteps: 00000000
+  extractionSteps:
+  - 
+  isUnlocked: 0
+  materialDrop: {fileID: 0}

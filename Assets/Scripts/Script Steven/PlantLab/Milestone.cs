@@ -54,6 +54,7 @@ public class Milestone : MonoBehaviour
         }
         slider.value = plantsUnlocked;
         yield return new WaitForSeconds(1f);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().canMove = true;
         gameObject.SetActive(false);
     }
 }
