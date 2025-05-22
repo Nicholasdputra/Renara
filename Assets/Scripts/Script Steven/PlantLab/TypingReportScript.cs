@@ -13,9 +13,11 @@ public class TypingReportScript : MonoBehaviour
     [SerializeField] int sentenceIndex = 0;
     [SerializeField] int letterIndex = 0;
     [SerializeField] bool waitingForDot = false;
+    bool shownHint = false;
     bool isFinished = false;
     bool ischeckingInput = true;
-    public void StartReport(){
+    public void StartReport()
+    {
         sentenceIndex = 0;
         letterIndex = 0;
         waitingForDot = false;
@@ -24,7 +26,8 @@ public class TypingReportScript : MonoBehaviour
         //there are no string before the first prompt so temp string is empty
         //write the first prompt w the color tag
         reportText.text = tempString + colorString + reportSO.sentences[sentenceIndex].promt;
-        reportText.transform.localPosition = Vector3.zero;
+        // reportText.transform.localPosition = Vector3.zero;
+        shownHint = false;
     }
 
     // Update is called once per frame
@@ -42,7 +45,7 @@ public class TypingReportScript : MonoBehaviour
     }
 
     string FormatTitle(string plantName){
-        return "<align=\"center\"><size=110>\n" + plantName + "</size></align>\n\n";
+        return "<font=\"ReportHeader\"><align=\"center\"><size=110>\n" + plantName + "</size></align></font>\n\n";
     }
 
     void CheckInput(){
@@ -73,6 +76,10 @@ public class TypingReportScript : MonoBehaviour
             if(letterIndex >= reportSO.sentences[sentenceIndex].promt.Length){
                 //word is done, wait for dot
                 waitingForDot = true;
+                if(!shownHint){
+                    shownHint = true;
+                    reportText.text += "(Enter)";
+                }
                 Debug.Log("Waiting for Dot");
             }
         }

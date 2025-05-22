@@ -7,13 +7,8 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
 {
     public int numberOfDNA;
     //When the sprite is done this will be changed to sprite
-    [Header("1st index is paired with 4th, 2nd with 3rd")]
-    Color[] dnaColors = new Color[]{
-        Color.red,
-        Color.green,
-        Color.blue,
-        Color.yellow
-    };
+    [Header("Red, Green, Blue, Yellow")]
+    [SerializeField] Sprite[] dnaSprites = new Sprite[4];
     [SerializeField] GameObject dnaMatchPanel;
     [SerializeField] Transform targetDNAPanel;
     [SerializeField] Transform content;
@@ -60,11 +55,13 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
         
         string targetDNA = "";
         string fullDNA = "";
-        for(int i = 0; i < 4; i++){
+        for (int i = 0; i < 4; i++)
+        {
             targetDNA += Random.Range(0, 4);
             GameObject tempObject = Instantiate(dnaPrefab, targetDNAPanel);
             //if we want to do the opposite thinggy you can just change the color of the target from here
-            tempObject.GetComponent<Image>().color = dnaColors[3-(targetDNA[i] - '0')];
+            tempObject.GetComponent<Image>().sprite = dnaSprites[3 - (targetDNA[i] - '0')];
+            tempObject.GetComponent<RectTransform>().localRotation = Quaternion.Euler(0, 0, 180);
         }
         // Debug.Log("Target DNA: " + targetDNA);
 
@@ -94,7 +91,7 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
 
         foreach(char c in fullDNA){
             GameObject tempObject = Instantiate(dnaPrefab, content);
-            tempObject.GetComponent<Image>().color = dnaColors[c - '0'];
+            tempObject.GetComponent<Image>().sprite = dnaSprites[c - '0'];
         }
         
         //set random position
@@ -146,6 +143,8 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
         Debug.Log("Tile: " + tile + " Correct Tile: " + correctTile);
         if(Mathf.Abs(tile) == correctTile){
             Debug.Log("Correct!");
+            float target = tile * 110;
+            content.localPosition = new Vector3(target, content.localPosition.y, content.localPosition.z);
             GetComponent<ScrollRect>().horizontal = false;
             dnaMatchPanel.GetComponent<Animator>().SetTrigger("DNAMatch");
             //stop players from scrolling the rect 

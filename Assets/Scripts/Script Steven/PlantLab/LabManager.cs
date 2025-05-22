@@ -13,6 +13,7 @@ public class LabManager : MonoBehaviour
     [Header ("Showing the background w the tube n plant")]
     [SerializeField] PlantDataSO plantData;
     [SerializeField] Image plantImage;
+    [SerializeField] TMP_Text promptText;
     [Header ("Sequence References")]
     [SerializeField] DNAPanel dnaMatchingPanel;
     [SerializeField] DNAMatchingScript dnaGame;
@@ -32,6 +33,7 @@ public class LabManager : MonoBehaviour
         gameObject.SetActive(true);
         plantImage.sprite = plantData.plant[playerPlant].plantImage;
         materialPanel.SetActive(false);
+        promptText.gameObject.SetActive(true);
     }
 
     void Update()
@@ -40,6 +42,7 @@ public class LabManager : MonoBehaviour
         {
             hasConfirmed = true;
             dnaMatchingPanel.gameObject.SetActive(true);
+            promptText.gameObject.SetActive(false);
             dnaGame.StartDNAExtraction();
         }else if(Input.GetKeyDown(KeyCode.Space) && hasExtracted){
             //close the lab
