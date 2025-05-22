@@ -99,7 +99,7 @@ public class CharacterInteraction : MonoBehaviour
         if (isTalking) return;
 
         StopAllCoroutines();
-        gameObject.GetComponent<CharacterMovement>().canMove = false;
+        //gameObject.GetComponent<CharacterMovement>().canMove = false;
         StartCoroutine(TypeDialogue(dialogues[currentDialogueIndex], false));
     }
 
@@ -108,7 +108,7 @@ public class CharacterInteraction : MonoBehaviour
         if (isTalking) return;
 
         StopAllCoroutines();
-        gameObject.GetComponent<CharacterMovement>().canMove = false;
+        //gameObject.GetComponent<CharacterMovement>().canMove = false;
         int randomIndex = UnityEngine.Random.Range(0, dialogues.Length);
         StartCoroutine(TypeDialogue(dialogues[randomIndex], true));
     }

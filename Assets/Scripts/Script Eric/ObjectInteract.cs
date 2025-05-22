@@ -71,8 +71,14 @@ public class ObjectInteract : MonoBehaviour
     public void CallFullDialogue()
     {
         if (dialogueIsDone && oneTimeDialogue) return;
-        player.GetComponent <CharacterInteraction>().dialogues = dialogues;
+        
+        player.GetComponent<CharacterInteraction>().dialogues = dialogues;
         player.GetComponent<CharacterInteraction>().PlayDialogue();
+    }
+
+    public void StopCharacterMovement()
+    {
+        player.GetComponent<CharacterMovement>().canMove = false;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
