@@ -16,8 +16,7 @@ MonoBehaviour:
   plantName: Pohon Pisang
   plantDescription: Ini Pisang udah
   extractionSteps:
-  - hoe
-  - pruningShears
-  - sprayBottle
+  - Axe
+  - Shovel
   isUnlocked: 0
   materialDrop: {fileID: 11400000, guid: 07fb5ff82c493a2459168c5025f367b4, type: 2}

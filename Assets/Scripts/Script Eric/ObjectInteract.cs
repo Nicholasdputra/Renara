@@ -44,11 +44,19 @@ public class ObjectInteract : MonoBehaviour
                 {
                     // Debug.Log("Canvas found");
                     GameObject canvas = GameObject.Find("Canvas");
+                    canvas.GetComponentInChildren<PlantExtraction>(true);
+                    
                     if (canvas.GetComponentInChildren<PlantExtraction>() != null)
                     {
                         // Debug.Log("PlantExtraction found");
                         PlantExtraction currentOverworldPlant = canvas.GetComponentInChildren<PlantExtraction>();
                         currentOverworldPlant.gameObjectToDestroy = gameObject;
+                    }
+                    else
+                    {
+                        Debug.Log("PlantExtraction not found");
+                        // PlantExtraction newPlantExtraction = canvas.AddComponent<PlantExtraction>();
+                        // newPlantExtraction.gameObjectToDestroy = gameObject;
                     }
                 }
             }

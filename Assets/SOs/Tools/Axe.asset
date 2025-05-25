@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cfecf7c0bfe3fe4c81461b2a835cf36, type: 3}
-  m_Name: Hoe
+  m_Name: Axe
   m_EditorClassIdentifier: 
-  toolName: Hoe
-  toolDescription: A normal hoe made of iron and wood, not the most conventional
-    tool but we work with what we have.
-  toolSprite: {fileID: 21300000, guid: d45eaabbad6444a41bcc8d16afb3c3d4, type: 3}
+  toolName: Axe
+  toolDescription: "It\u2019s a bit overkill for most plants\u2026 but some things
+    just can\u2019t be cut down using other tools and hey, it feels cool to use. "
+  toolSprite: {fileID: 21300000, guid: 95f6b8d2357396a4082918657b38b818, type: 3}
