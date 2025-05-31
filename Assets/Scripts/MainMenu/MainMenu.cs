@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
 
     void Play()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Gameplay");
     }
 
     void Settings()
