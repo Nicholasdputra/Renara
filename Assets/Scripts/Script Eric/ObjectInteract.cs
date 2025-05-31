@@ -71,14 +71,24 @@ public class ObjectInteract : MonoBehaviour
 
     public void CallRandomDialogue()
     {
-        if (dialogueIsDone && oneTimeDialogue) return;
+        if (dialogueIsDone && oneTimeDialogue)
+        {
+            player.GetComponent<CharacterMovement>().canMove = true;
+
+            return;
+        }
         player.GetComponent<CharacterInteraction>().dialogues = dialogues;
         player.GetComponent<CharacterInteraction>().PlayRandomDialogue();
     }
 
     public void CallFullDialogue()
     {
-        if (dialogueIsDone && oneTimeDialogue) return;
+        if (dialogueIsDone && oneTimeDialogue)
+        {
+            player.GetComponent<CharacterMovement>().canMove = true;
+
+            return;
+        }
         
         player.GetComponent<CharacterInteraction>().dialogues = dialogues;
         player.GetComponent<CharacterInteraction>().PlayDialogue();
@@ -87,6 +97,8 @@ public class ObjectInteract : MonoBehaviour
     public void StopCharacterMovement()
     {
         player.GetComponent<CharacterMovement>().canMove = false;
+        Debug.Log(dialogueIsDone);
+        Debug.Log(oneTimeDialogue);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
