@@ -21,6 +21,6 @@ MonoBehaviour:
     amount: 961
   - materialSO: {fileID: 11400000, guid: 07fb5ff82c493a2459168c5025f367b4, type: 2}
     amount: 943
-  position: {x: 4.17, y: 2.584258, z: 0}
+  position: {x: -20.57, y: -17.36, z: 0}
   currentPlant: 0
   playerToolLevel: 0
