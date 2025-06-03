@@ -12,18 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5867ef1aa40d7d4f87d39da6979018c, type: 3}
   m_Name: ReportPisang
   m_EditorClassIdentifier: 
-  title: Pohon Pisang
+  title: Banana Tree
   sentences:
-  - promt: Pisang
-    fullSentence: 'Pisang adalah buah yang dikategorikan sebagai beri. '
-  - promt: Kuning
-    fullSentence: 'Pisang berwarna kuning karena klorofilnya hilang saat matang,
-      digantikan dengan pigmen karotenoid. '
+  - promt: Bananas
+    fullSentence: Bananas is actually classified as berry.
+  - promt: Yellow
+    fullSentence: Bananas are yellow because their chlorophyll breaks down as they
+      ripen, and is replaced by carotenoid pigments.
   - promt: Potassium
-    fullSentence: 'Pisang kaya akan potassium, oleh karena itu pisang bagus untuk
-      menjaga tekanan darah, fungsi otot, dan keseimbangan cairan tubuh. '
-  - promt: Genetik
-    fullSentence: 'Genetik pisang memiliki kesamaan 50%-60% dengan manusia. '
+    fullSentence: Bananas are rich in potassium, which makes them beneficial for
+      maintaining blood pressure, muscle function, and fluid balance in the body.
+  - promt: Genetics
+    fullSentence: Banana genetics share about 50% to 60% similarity with humans.
   - promt: Radioaktif?
-    fullSentence: 'Pisang memiliki sedikit radioaktif karena mengandung Kalium-40,
-      tetapi pisang tidak membuatmu menjadi min*on. '
+    fullSentence: "Bananas are slightly radioactive because they contain Potassium-40
+      \u2014 but don\u2019t worry, eating one won\u2019t turn you into a yellow,
+      banana-obsessed creature\u2026"
