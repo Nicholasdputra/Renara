@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 013e4a3b804aecd4480c2dfd35080a12, type: 3}
+  m_Name: MutatedRafflesia
+  m_EditorClassIdentifier: 
+  plantImage: {fileID: 21300000, guid: 88dc17a49f60b2243a34532bfee650ea, type: 3}
+  plantName: MutatedRafflesia
+  plantDescription: "The mutated rafflessia, similar to its normal counterpart, but
+    maybe about 10x more repulsive. The petals look kind of damaged\u2026 and that
+    same brown goo seems to have solidified into a sort of solid thread that looks
+    almost like a complicated web."
+  extractionSteps:
+  - PotionSpray
+  - Sickle
+  - Hoe
+  isUnlocked: 0
+  materialDrop: {fileID: 0}

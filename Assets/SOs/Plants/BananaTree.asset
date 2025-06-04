@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantImage: {fileID: 21300000, guid: 5cac13bb586262947a4501da35e051e6, type: 3}
   plantName: BananaTree
-  plantDescription: 'Banana Trees Banana Trees are commonly found in tropical and
-    subtropical areas. Even though this plant is common, the JagaAlam company has
-    still chosen to conserve this basic plant due to its popularity around the world
-    and the amount of variants it has (1000+). '
+  plantDescription: 'Banana Trees are commonly found in tropical and subtropical
+    areas. Even though this plant is common, the JagaAlam company has still chosen
+    to conserve this basic plant due to its popularity around the world and the amount
+    of variants it has (1000+). '
   extractionSteps:
   - Axe
   - Shovel

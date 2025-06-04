@@ -18,9 +18,9 @@ MonoBehaviour:
   plantDataSO: {fileID: 0}
   obtainedMaterials:
   - materialSO: {fileID: 11400000, guid: c65094de47513694a97c53be92f94b5e, type: 2}
-    amount: 961
+    amount: 955
   - materialSO: {fileID: 11400000, guid: 07fb5ff82c493a2459168c5025f367b4, type: 2}
-    amount: 943
-  position: {x: -20.57, y: -17.36, z: 0}
+    amount: 933
+  position: {x: 60.56005, y: -2.650955, z: 0}
   currentPlant: 0
   playerToolLevel: 0

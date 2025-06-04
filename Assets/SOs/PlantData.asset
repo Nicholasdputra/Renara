@@ -16,4 +16,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 11e9f1c5700b852408da375990b7f545, type: 2}
   - {fileID: 11400000, guid: 7d2a28dcc6f0e564bbc032fbb2a58394, type: 2}
   - {fileID: 11400000, guid: 32832dbb5ed2b2140900254e97078591, type: 2}
+  - {fileID: 11400000, guid: c1c26edbefbbfef44b1a01d971fef762, type: 2}
+  - {fileID: 11400000, guid: 38b59bea04dd6f94aa4e89446b1ca836, type: 2}
+  - {fileID: 11400000, guid: ffab0dd5d769c824e8a633d2f7301b00, type: 2}
+  - {fileID: 11400000, guid: 7838f5bb753bff8448e50f955ee192c9, type: 2}
+  - {fileID: 11400000, guid: 92fb173bee400bf43aa711cdaed7d443, type: 2}
+  - {fileID: 11400000, guid: 3d36f54da72358f4d817af937f3457b7, type: 2}
+  - {fileID: 11400000, guid: 13ac291e5eb573140b93c4668946a688, type: 2}
+  - {fileID: 11400000, guid: 46bab5416efe4844cb87984ca30888a7, type: 2}
   unknownPlantData: {fileID: 11400000, guid: bfe4622329df4c34e81a972441a7f0f8, type: 2}

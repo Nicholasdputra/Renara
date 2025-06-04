@@ -34,20 +34,27 @@ public class CraftingManager : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    public void ExitCraftingTable(){
+    public void ExitCraftingTable()
+    {
         gameObject.SetActive(false);
-        if(craftingListObjects.activeSelf){
+        if (craftingListObjects.activeSelf)
+        {
             craftingListObjects.SetActive(false);
         }
-        if(craftingMinigameObjects.activeSelf){
+        if (craftingMinigameObjects.activeSelf)
+        {
             craftingMinigameObjects.SetActive(false);
         }
-        if(craftablePopUp.activeSelf){
+        if (craftablePopUp.activeSelf)
+        {
             craftablePopUp.SetActive(false);
         }
-        if(backButton.activeSelf){
+        if (backButton.activeSelf)
+        {
             backButton.SetActive(false);
         }
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<CharacterMovement>().canMove = true;
     }
 
     public void OnEnable()
