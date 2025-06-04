@@ -17,6 +17,6 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 6072dfb4574490c4c921af327eab51db, type: 3}
   materialsNeeded:
   - materialSO: {fileID: 11400000, guid: 07fb5ff82c493a2459168c5025f367b4, type: 2}
-    amount: 5
+    amount: 1
   - materialSO: {fileID: 11400000, guid: c65094de47513694a97c53be92f94b5e, type: 2}
-    amount: 3
+    amount: 1

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlantExtraction : MonoBehaviour
 {
@@ -32,11 +33,11 @@ public class PlantExtraction : MonoBehaviour
                 plantToExtract = plant;
                 if (plantName.ToLower().Contains("mutated"))
                 {
-                    extractionBackground.GetComponent<SpriteRenderer>().sprite = extractionBackgroundSprites[1];
+                    extractionBackground.GetComponent<Image>().sprite = extractionBackgroundSprites[1];
                 }
                 else
                 {
-                    extractionBackground.GetComponent<SpriteRenderer>().sprite = extractionBackgroundSprites[0];
+                    extractionBackground.GetComponent<Image>().sprite = extractionBackgroundSprites[0];
                 }
                 // EnablePlantExtraction();
                 // player.GetComponent<CharacterMovement>().canMove = false;
