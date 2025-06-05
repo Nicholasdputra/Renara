@@ -14,6 +14,7 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
     [SerializeField] Transform content;
     [SerializeField] GameObject dnaPrefab;
     int correctTile;
+    float tileWidth = 240f; // width of each DNA tile including spacing
 
     void OnValueChange(Vector2 value)
     {
@@ -22,13 +23,16 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
     }
 
     public void StartDNAExtraction(){
+        tileWidth = 240f;
         //make the scroll rect draggable
         GetComponent<ScrollRect>().horizontal = true;
         correctTile = -1;
         //each dna tile is 100 with 10 px spacing. The horizontal group "has" 10 px paddingn on each side
         // meaning ths first tile needs to be 110 + 10 px away, and the last tile needs to be 10 + 100 + 10 (one block + edge space) px away
         //...idk it just works pokoknya gt lah :sob:
-        content.GetComponent<RectTransform>().sizeDelta = new Vector2((110*numberOfDNA) + 230, 0);
+        content.GetComponent<RectTransform>().sizeDelta = new Vector2((tileWidth*(numberOfDNA-3))+ 1400f, 0);
+
+        // 3856
         GenerateTargetDNA();
     }
 
@@ -108,20 +112,24 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
     IEnumerator ScrollRectSnap()
     {
         //snap to the nearest tile, the -40 is for liniency so it can snap forward
-        int tile = (int)((content.localPosition.x - 40)/110);
+        int tile = (int)((content.localPosition.x)/(tileWidth));
         if(content.localPosition.x >= 0){
             //too far to the front, just let unity snap it back
             //but we still need to process the tile
             tile = 0;
-        }else if(content.localPosition.x <= (content.GetComponent<RectTransform>().sizeDelta.x-670) * -1){
+        }else if(content.localPosition.x <= -(tileWidth * (numberOfDNA - 3))){
+            Debug.Log("Too far to the back, snapping to last tile");
+            Debug.Log("local pos: " + content.localPosition.x);
+            Debug.Log("trest: " + (content.GetComponent<RectTransform>().sizeDelta.x-(4*tileWidth)));
             //...dont ask why its 670 idk either
             //negative cuz all of our tiles are negative
             //too far to the back, just let unity snap it back
             //but we still need to process the tile
-            tile = numberOfDNA - 4;
+            tile = numberOfDNA - 3;
         }else{
+            Debug.Log("Tile: " + tile);
             //middle tile, we manually snap it
-            float target = tile * 110;
+            float target = tile * tileWidth;
             // Debug.Log("Tile: " + tile + " Target: " + target);
             float t = 0;
             while(t < 0.5){
@@ -143,7 +151,7 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
         Debug.Log("Tile: " + tile + " Correct Tile: " + correctTile);
         if(Mathf.Abs(tile) == correctTile){
             Debug.Log("Correct!");
-            float target = tile * 110;
+            float target = tile * tileWidth;
             content.localPosition = new Vector3(target, content.localPosition.y, content.localPosition.z);
             GetComponent<ScrollRect>().horizontal = false;
             dnaMatchPanel.GetComponent<Animator>().SetTrigger("DNAMatch");
