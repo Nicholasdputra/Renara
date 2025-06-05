@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1f;
         playButton.onClick.AddListener(Play);
         settingsButton.onClick.AddListener(Settings);
         quitButton.onClick.AddListener(Quit);
