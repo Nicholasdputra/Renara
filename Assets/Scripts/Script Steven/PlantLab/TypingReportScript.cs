@@ -95,7 +95,7 @@ public class TypingReportScript : MonoBehaviour
             reportText.text += reportSO.sentences[sentenceIndex].fullSentence[i];
             yield return new WaitForSeconds(0.025f);
         }
-        //reportText.text += ". ";
+        reportText.text += " ";
         yield return new WaitForSeconds(0.025f);
         NextSentence();
     }

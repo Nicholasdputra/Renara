@@ -13,6 +13,7 @@ public class CraftingManager : MonoBehaviour
     public GameObject itemButtonParent; //The parent of the buttons that show what items can be crafted
     public GameObject craftablePopUp; //The pop up that shows the item you can craft
     private List<ItemSO> uncraftableItems = new List<ItemSO>(); //List of items that cannot be crafted right now
+    public GameObject craftablePopUpImageGameObj; //The image of the item that can be crafted in the craftablePopUp
     public GameObject materialsNeededParent; //The place where the materials needed to craft an item are displayed
     public GameObject materialsNeededPrefab; //Prefab for the materials needed to craft an item
     public GameObject craftButton; //The button you click that crafts the item and adds it to the inventory
@@ -210,7 +211,7 @@ public class CraftingManager : MonoBehaviour
         craftablePopUp.SetActive(true);
 
         //Set the image to the item's icon
-        craftablePopUp.GetComponentInChildren<Image>().sprite = item.itemSprite;
+        craftablePopUpImageGameObj.GetComponentInChildren<Image>().sprite = item.itemSprite;
 
         //Set the materials needed to the item's materials needed
         foreach (CraftingMaterial craftingMaterial in item.materialsNeeded)
@@ -360,6 +361,7 @@ public class CraftingManager : MonoBehaviour
 
         // Instantiate the colored zone and set its parent
         Image instantiatedColoredZone = Instantiate(coloredZone, partXSlider.transform);
+        instantiatedColoredZone.transform.SetSiblingIndex(1);
         
         // Get the slider's params
         RectTransform coloredZoneRect = instantiatedColoredZone.GetComponent<RectTransform>();
