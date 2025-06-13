@@ -18,7 +18,7 @@ MonoBehaviour:
     version, it\u2019s much shorter and its leaves are white. Seems like it has albinism\u2026
     I wonder what would happen if you were to eat it."
   extractionSteps:
-  - PotionSpray
+  - SprayPotion
   - GardeningScissors
   - Hoe
   isUnlocked: 0

@@ -19,7 +19,7 @@ MonoBehaviour:
     same brown goo seems to have solidified into a sort of solid thread that looks
     almost like a complicated web."
   extractionSteps:
-  - PotionSpray
+  - SprayPotion
   - Sickle
   - Hoe
   isUnlocked: 0

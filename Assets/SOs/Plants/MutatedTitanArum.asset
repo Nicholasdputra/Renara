@@ -18,7 +18,7 @@ MonoBehaviour:
     There\u2019s this brown-like sap dripping off of it as well. Whatever they were
     trying to do with it, I\u2019m not sure it worked as intended."
   extractionSteps:
-  - PotionSpray
+  - SprayPotion
   - Axe
   - Hoe
   isUnlocked: 0
