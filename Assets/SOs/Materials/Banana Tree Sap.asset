@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e50510de21e47c43a69031d2fe93b1b, type: 3}
+  m_Name: Banana Tree Sap
+  m_EditorClassIdentifier: 
+  materialName: Banana Tree Sap
+  materialDescription: "A thick, sticky liquid obtained from a banana tree, often
+    used in folk remedies and old jungle glue recipes. Perhaps it can be used to
+    make something else aside from remedies\u2026"
+  materialSprite: {fileID: 0}
