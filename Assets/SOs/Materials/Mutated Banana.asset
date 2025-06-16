@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e50510de21e47c43a69031d2fe93b1b, type: 3}
-  m_Name: Titan Arum Extract
+  m_Name: Mutated Banana
   m_EditorClassIdentifier: 
-  materialName: 
-  materialDescription: 
-  materialSprite: {fileID: 0}
+  materialName: Mutated Banana
+  materialDescription: "Just like the tree, it has sticky sap similar to an acacia
+    tree's. It also has a bunch of purple bulges on it\u2026 I definitely wouldn\u2019t
+    eat that"
+  materialSprite: {fileID: 21300000, guid: bffc1a8419e94474299c8472e0bfa808, type: 3}

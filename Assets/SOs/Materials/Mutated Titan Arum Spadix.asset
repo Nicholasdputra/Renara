@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e50510de21e47c43a69031d2fe93b1b, type: 3}
-  m_Name: Spadix Titan Arum
+  m_Name: Mutated Titan Arum Spadix
   m_EditorClassIdentifier: 
-  materialName: 
-  materialDescription: 
-  materialSprite: {fileID: 0}
+  materialName: Mutated Titan Arum Spadix
+  materialDescription: It looks more dead somehow than its normal counterpart, dripping
+    in that same weird stick goo and not as sturdy...
+  materialSprite: {fileID: 21300000, guid: fdcb756597973a140a80dd212b9ec333, type: 3}
