@@ -2,8 +2,6 @@ using System;
 using UnityEngine;
 using TMPro;
 using System.Collections;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 
 public class CharacterInteraction : MonoBehaviour
 {
@@ -38,8 +36,8 @@ public class CharacterInteraction : MonoBehaviour
                     isSkiping = true;
                 }
             }
-            Debug.Log(isTalking);
-            Debug.Log(isSkiping);
+            // Debug.Log(isTalking);
+            // Debug.Log(isSkiping);
         }
     }
     

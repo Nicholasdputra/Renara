@@ -5,12 +5,19 @@ using UnityEngine;
 public class MapScript : MonoBehaviour
 {
     [SerializeField] GameObject player;
+    CharacterMovement characterMovement;
     public bool canOpenMap;
     [SerializeField] GameObject mapPanel;
 
+    void Start()
+    {
+        mapPanel.SetActive(false);
+        characterMovement = player.GetComponent<CharacterMovement>();
+    }
     // Update is called once per frame
     void Update()
     {
+        canOpenMap = characterMovement.canMove;
         if(Input.GetKeyDown(KeyCode.M))
         {
             if(canOpenMap)
@@ -30,7 +37,7 @@ public class MapScript : MonoBehaviour
         //teleport fade out animation
         //teleport player and camera to location
         player.transform.position = location;
-        Camera.main.transform.position = player.transform.position;
+        Camera.main.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, Camera.main.transform.position.z);
         mapPanel.SetActive(false);
         //teleport fade in animation
     }

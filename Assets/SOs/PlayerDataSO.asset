@@ -15,12 +15,12 @@ MonoBehaviour:
   obtainedItemDataSO: {fileID: 11400000, guid: 084d716656cbca84fa3ee27079ee4d7e, type: 2}
   listOfRecipes: {fileID: 11400000, guid: e629e48363a33d74bab70c451326d1ee, type: 2}
   toolDataSO: {fileID: 11400000, guid: f5eba59e8ae4aed47b3ffc1da2a43a2a, type: 2}
-  plantDataSO: {fileID: 0}
+  plantDataSO: {fileID: 11400000, guid: 557ed8c74f682964aa12c0528c5f9c50, type: 2}
   obtainedMaterials:
   - materialSO: {fileID: 11400000, guid: c65094de47513694a97c53be92f94b5e, type: 2}
     amount: 955
   - materialSO: {fileID: 11400000, guid: 07fb5ff82c493a2459168c5025f367b4, type: 2}
     amount: 933
-  position: {x: 60.56005, y: -2.650955, z: 0}
+  position: {x: -3, y: 1, z: 0}
   currentPlant: 0
   playerToolLevel: 0

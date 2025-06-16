@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class SaveSystem : MonoBehaviour
 {
@@ -27,11 +28,11 @@ public class SaveSystem : MonoBehaviour
         {
             currentPlayerData = ScriptableObject.CreateInstance<PlayerDataSO>();
             currentPlayerData.obtainedMaterials = new List<CraftingMaterial>();
-            currentPlayerData.position = Vector3.zero;
+            currentPlayerData.position = new Vector3(-3, 1, 0);
         }
     }
 
-    void Save()
+    public void Save()
     {
         string json = JsonUtility.ToJson(currentPlayerData);
         Debug.Log(json);
@@ -50,6 +51,12 @@ public class SaveSystem : MonoBehaviour
             {
                 string json = reader.ReadToEnd();
                 currentPlayerData = JsonUtility.FromJson<PlayerDataSO>(json);
+                if(!(SceneManager.GetActiveScene().name == "Lab"))
+                {
+                    //overworld, set player position
+                    GameObject player = GameObject.FindGameObjectWithTag("Player");
+                    player.transform.position = currentPlayerData.position;
+                }
             }
         }
         else

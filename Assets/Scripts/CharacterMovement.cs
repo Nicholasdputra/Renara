@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -21,25 +22,30 @@ public class CharacterMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
         canMove = true;
+        if (SceneManager.GetActiveScene().name == "Overworld")
+        {
+            Debug.Log("Loading player position from save data");
+            Debug.Log("Current Player Position: " + SaveSystem.currentSave.currentPlayerData.position);
+            transform.position = SaveSystem.currentSave.currentPlayerData.position;
+        }
     }
+
     private void Update()
     {
         ProcessInput();
-        
+
         if (canMove)
         {
             speed = 9f;
         }
         else speed = 0f;
-        
+
         Animate();
-        
+
         if (input.x < 0 && facingLeft || input.x > 0 && !facingLeft)
         {
             Flip();
         }
-        
-        SaveSystem.currentSave.currentPlayerData.position = transform.position;
     }
 
     private void FixedUpdate()
