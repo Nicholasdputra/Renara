@@ -59,15 +59,20 @@ public class BookScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B) && player.GetComponent<CharacterMovement>().canMove && !leftBookPanel.gameObject.activeSelf)
         {
             //open book
-            player.GetComponent<CharacterMovement>().canMove = false;
-            gameObject.GetComponent<Image>().enabled = true;
-            leftBookPanel.gameObject.SetActive(true);
-            rightBookPanel.gameObject.SetActive(true);
-            nextButton.gameObject.SetActive(true);
-            //since first page, there is no prev page
-            prevButton.gameObject.SetActive(false);
-            UpdatePage();
+            OpenBook();
         }
+    }
+
+    public void OpenBook()
+    {
+        player.GetComponent<CharacterMovement>().canMove = false;
+        gameObject.GetComponent<Image>().enabled = true;
+        leftBookPanel.gameObject.SetActive(true);
+        rightBookPanel.gameObject.SetActive(true);
+        nextButton.gameObject.SetActive(true);
+        //since first page, there is no prev page
+        prevButton.gameObject.SetActive(false);
+        UpdatePage();
     }
 
     int DetermineWhichToolSpriteToUse(string extractionStep)
@@ -99,9 +104,12 @@ public class BookScript : MonoBehaviour
         if (openPageIndex < plantDataSO.plant.Length / 2)
         {
             openPageIndex++;
-            if (openPageIndex == plantDataSO.plant.Length / 2)
+            Debug.Log("Open Page Index: " + openPageIndex);
+            Debug.Log("max " + plantDataSO.plant.Length / 2);
+            if (openPageIndex == (plantDataSO.plant.Length / 2)-1)
             {
                 //last page, remove next button
+                Debug.Log("removing next button");
                 nextButton.gameObject.SetActive(false);
             }
             else
@@ -138,6 +146,7 @@ public class BookScript : MonoBehaviour
 
     void UpdatePage()
     {
+        // Debug.Log("Updating page: " + openPageIndex);
         leftBookPanel.gameObject.SetActive(true);
         rightBookPanel.gameObject.SetActive(true);
         //Clear extraction steps
@@ -189,13 +198,14 @@ public class BookScript : MonoBehaviour
         }
         plantImage.sprite = plant.plantImage;
         plantNameText.text = plant.plantName;
+        // Debug.Log("Plant Name: " + plant.plantName);
         plantDescText.text = plant.plantDescription;
         amountExtractedText.text = PlayerPrefs.GetInt(plant.plantName).ToString();
         //spawn extraction steps
         for (int i = 0; i < plant.extractionSteps.Length; i++)
         {
             GameObject tool = Instantiate(toolsPrefab, extractionSteps);
-            Debug.Log("Showing" + plant.extractionSteps[i]);
+            // Debug.Log("Showing" + plant.extractionSteps[i]);
             //set sprite inside of the circle
             if (plantUnlocked)
             {
@@ -205,7 +215,7 @@ public class BookScript : MonoBehaviour
             {
                 //unknown tool is the last index of the toolSprites array
                 //Just spawn 1 unknown step and finish
-                Debug.Log("Unknown tool, showing unknown tool sprite");
+                // Debug.Log("Unknown tool, showing unknown tool sprite");
                 tool.transform.GetChild(0).GetComponent<Image>().sprite = toolData.tools[^1].toolSprite;
                 break;
             }
@@ -247,6 +257,7 @@ public class BookScript : MonoBehaviour
         }
         plantImage.sprite = plant.plantImage;
         plantNameText.text = plant.plantName;
+        // Debug.Log("Plant Name: " + plant.plantName);
         plantDescText.text = plant.plantDescription;
         if (plantUnlocked)
         {

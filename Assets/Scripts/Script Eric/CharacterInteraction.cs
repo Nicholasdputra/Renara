@@ -52,16 +52,28 @@ public class CharacterInteraction : MonoBehaviour
         dialogueTextBox.text = "";
         dialogueBox.gameObject.SetActive(true);
 
+        bool waitingForBracket = false;
         foreach (char letter in sentence.ToCharArray())
         {
             if (isSkiping)
             {
                 dialogueTextBox.text = sentence;
-                isSkiping = false;  
+                isSkiping = false;
                 break;
             }
             dialogueTextBox.text += letter;
-            yield return new WaitForSeconds(0.05f);
+            if (letter == '<')
+            {
+                waitingForBracket = true;
+            }
+            if (letter == '>')
+            {
+                waitingForBracket = false;
+            }
+            if (!waitingForBracket)
+            {
+                yield return new WaitForSeconds(0.05f);
+            }
         }
 
         isTalking = false;

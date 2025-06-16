@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
+using System.Collections.Generic;
 
 public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
 {
@@ -75,22 +77,41 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
         }
 
         //if the fullDNA doesnt contain the targetDNA, add it to random index and remove the excess (4 chars)
-        if(!fullDNA.Contains(targetDNA)){
-            correctTile = Random.Range(1,numberOfDNA-3);
-            fullDNA = fullDNA.Insert(correctTile, targetDNA);
-            //remove 4 last characters
-            fullDNA = fullDNA.Substring(0, fullDNA.Length - 4);
-            // Debug.Log("len" + fullDNA.Length);
-            // Debug.Log("Dna length " + fullDNA.Length);
-            // correctTile--;;
-            // Debug.Log("New DNA: " + fullDNA);
-            Debug.Log("Correct Tile: " + correctTile);
-        }else{
-            //else, find the index of the targetDNA
-            //very rare edge case
-            Debug.Log("yoo rare case where dna alrdy exists very cool!");
-            correctTile = fullDNA.IndexOf(targetDNA);
-            // Debug.Log("Correct Tile: " + correctTile);
+        bool cleanDNA = false;
+        while(!cleanDNA){
+            if (!fullDNA.Contains(targetDNA))
+            {
+                correctTile = Random.Range(1, numberOfDNA - 3);
+                fullDNA = fullDNA.Insert(correctTile, targetDNA);
+                //remove 4 last characters
+                fullDNA = fullDNA.Substring(0, fullDNA.Length - 4);
+                Debug.Log("Correct Tile: " + correctTile);
+                if (fullDNA.IndexOf(targetDNA) == fullDNA.LastIndexOf(targetDNA))
+                {
+                    //if the targetDNA is not found in the fullDNA, something went wrong
+                    correctTile = fullDNA.IndexOf(targetDNA);
+                    Debug.Log("Target DNA found at: " + correctTile);
+                    cleanDNA = true;
+                }
+                else
+                {
+                    cleanDNA = false;
+                }
+            }
+            else
+            {
+                if (fullDNA.IndexOf(targetDNA) == fullDNA.LastIndexOf(targetDNA))
+                {
+                    //if the targetDNA is not found in the fullDNA, something went wrong
+                    cleanDNA = true;
+                    correctTile = fullDNA.IndexOf(targetDNA);
+                    Debug.Log("Target DNA found at: " + correctTile);
+                }
+                else
+                {
+                    cleanDNA = false;
+                }
+            }
         }
 
         foreach(char c in fullDNA){

@@ -12,6 +12,10 @@ public class TeleportButton : MonoBehaviour
 
     void Start()
     {
+        if(mapScript == null)
+        {
+            mapScript = GameObject.Find("MapManager").GetComponent<MapScript>();
+        }
         playerZPos = GameObject.FindGameObjectWithTag("Player").transform.position.z;
         GetComponent<Button>().onClick.AddListener(Teleport);
     }

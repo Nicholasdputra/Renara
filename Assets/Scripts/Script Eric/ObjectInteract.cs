@@ -99,8 +99,8 @@ public class ObjectInteract : MonoBehaviour
     public void StopCharacterMovement()
     {
         player.GetComponent<CharacterMovement>().canMove = false;
-        Debug.Log(dialogueIsDone);
-        Debug.Log(oneTimeDialogue);
+        // Debug.Log(dialogueIsDone);
+        // Debug.Log(oneTimeDialogue);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
