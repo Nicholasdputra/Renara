@@ -20,7 +20,7 @@ public class MainMenu : MonoBehaviour
 
     void Play()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Gameplay");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Overworld");
     }
 
     void Settings()
