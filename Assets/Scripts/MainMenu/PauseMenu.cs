@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,18 +20,27 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
+        }
+    }
     public void TogglePause()
     {
-        isPaused = !isPaused;
-        pauseMenuUI.SetActive(isPaused);
-        pauseButton.SetActive(!isPaused);
-        if (isPaused)
-        {
-            Time.timeScale = 0f; // Pause the game
-        }
-        else
-        {
-            Time.timeScale = 1f; // Resume the game
+        if(!isSettingsOpen){
+            isPaused = !isPaused;
+            pauseMenuUI.SetActive(isPaused);
+            pauseButton.SetActive(!isPaused);
+            if (isPaused)
+            {
+                Time.timeScale = 0f; // Pause the game
+            }
+            else
+            {
+                Time.timeScale = 1f; // Resume the game
+            }
         }
     }
 
