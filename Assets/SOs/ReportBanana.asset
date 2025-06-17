@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5867ef1aa40d7d4f87d39da6979018c, type: 3}
+  m_Name: ReportBanana
+  m_EditorClassIdentifier: 
+  title: Banana Tree
+  sentences:
+  - promt: Bananas
+    fullSentence: <b>Bananas</b> is actually classified as <b>berry</b>.
+  - promt: Yellow
+    fullSentence: '<b>Bananas</b> are <b>yellow</b> because their chlorophyll breaks
+      down as they ripen, and is replaced by <b>carotenoid pigments</b>. '
+  - promt: Potassium
+    fullSentence: <b>Bananas</b> are rich in <b>potassium</b>, which makes them beneficial
+      for maintaining blood pressure, muscle function, and fluid balance in the body.
+  - promt: Genetics
+    fullSentence: Banana genetics share about <b>50% to 60%</b> similarity with humans.
+  - promt: Radioactive
+    fullSentence: "Bananas are slightly <b>radioactive</b> because they contain <b>Potassium-40</b>
+      \u2014 but don\u2019t worry, eating one won\u2019t turn you into a yellow,
+      banana-obsessed creature\u2026"

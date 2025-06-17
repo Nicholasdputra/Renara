@@ -15,4 +15,4 @@ MonoBehaviour:
   materialName: Banana Heart
   materialDescription: Also known as the banana blossom, this bud grows at the end
     of a banana bunch and can be used as an ingredient for dishes or something more?
-  materialSprite: {fileID: 0}
+  materialSprite: {fileID: 21300000, guid: 7af7d8c276b53334ca3b5fe2f62ebb2c, type: 3}

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5867ef1aa40d7d4f87d39da6979018c, type: 3}
+  m_Name: ReportMutatedRafflesia
+  m_EditorClassIdentifier: 
+  title: Mutated Rafflesia Arnoldi
+  sentences:
+  - promt: Cassava
+    fullSentence: <b>Cassava</b> is a root vegetable that grows underground. It is
+      an important food in many parts of the world like <b>Africa</b>, <b>Asia</b>,
+      and <b>South America</b>.
+  - promt: Carbohydrates
+    fullSentence: '<b>Cassava</b> is rich in <b>carbohydrates</b>, making it a major
+      <b>energy source</b> for millions of people.  '
+  - promt: Poison
+    fullSentence: '<b>cassava</b> has a natural <b>poison</b> called <b>cyanide</b>,
+      so it must be <b>peeled</b>, <b>soaked</b>, and <b>cooked</b> before eating.  '
+  - promt: Eco-friendly
+    fullSentence: '<b>cassava</b> is used to make eco-friendly products, such as
+      biodegradable plastic bags, packaging & utensils, and bioethanol fuels. '
+  - promt: Tapioca
+    fullSentence: <b>Cassava</b> is also used to make <b>tapioca</b>, the chewy pearls
+      found in bubble tea.

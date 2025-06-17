@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e50510de21e47c43a69031d2fe93b1b, type: 3}
   m_Name: Cassava Leaves
   m_EditorClassIdentifier: 
-  materialName: 
+  materialName: Mutated Cassava Leaves
   materialDescription: 
-  materialSprite: {fileID: 0}
+  materialSprite: {fileID: 21300000, guid: d1e11225baf02174d82027ae74ca3e29, type: 3}
