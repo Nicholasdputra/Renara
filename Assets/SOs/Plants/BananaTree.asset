@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 013e4a3b804aecd4480c2dfd35080a12, type: 3}
   m_Name: BananaTree
   m_EditorClassIdentifier: 
-  plantImage: {fileID: 21300000, guid: 5cac13bb586262947a4501da35e051e6, type: 3}
+  plantImage: {fileID: 21300000, guid: 5ea73e28933c18648843d31ef1b2e4fd, type: 3}
   plantName: Banana Tree
   plantDescription: 'Banana Trees are commonly found in tropical and subtropical
     areas. Even though this plant is common, the JagaAlam company has still chosen
