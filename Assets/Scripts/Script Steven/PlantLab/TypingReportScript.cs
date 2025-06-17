@@ -16,6 +16,13 @@ public class TypingReportScript : MonoBehaviour
     bool shownHint = false;
     bool isFinished = false;
     bool ischeckingInput = true;
+    AudioSource audioSource;
+    [SerializeField] AudioClip typingSound;
+
+    private void Start() {
+        audioSource = GetComponent<AudioSource>();
+    }
+    
     public void StartReport()
     {
         sentenceIndex = 0;
@@ -45,7 +52,7 @@ public class TypingReportScript : MonoBehaviour
     }
 
     string FormatTitle(string plantName){
-        return "<font=\"ReportHeader\"><align=\"center\"><size=110>Laporan " + plantName + "</size></align></font>\n\n";
+        return "<font=\"ReportHeader\"><align=\"center\"><size=110>" + plantName + " Report</size></align></font>\n\n";
     }
 
     void CheckInput(){
@@ -59,6 +66,10 @@ public class TypingReportScript : MonoBehaviour
             StartCoroutine(TypeSentence());
             return;
         }else if(!waitingForDot && Input.inputString.ToLower() == reportSO.sentences[sentenceIndex].promt[letterIndex].ToString().ToLower()){
+            float randPitch = Random.Range(1f, 1.4f);
+            audioSource.pitch = randPitch;
+            audioSource.PlayOneShot(typingSound);
+
             //else, go to the next letter
             letterIndex++;
             reportText.text = tempString;

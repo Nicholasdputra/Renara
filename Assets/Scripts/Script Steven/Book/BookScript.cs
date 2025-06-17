@@ -104,12 +104,12 @@ public class BookScript : MonoBehaviour
         if (openPageIndex < plantDataSO.plant.Length / 2)
         {
             openPageIndex++;
-            Debug.Log("Open Page Index: " + openPageIndex);
-            Debug.Log("max " + plantDataSO.plant.Length / 2);
+            // Debug.Log("Open Page Index: " + openPageIndex);
+            // Debug.Log("max " + plantDataSO.plant.Length / 2);
             if (openPageIndex == (plantDataSO.plant.Length / 2)-1)
             {
                 //last page, remove next button
-                Debug.Log("removing next button");
+                // Debug.Log("removing next button");
                 nextButton.gameObject.SetActive(false);
             }
             else

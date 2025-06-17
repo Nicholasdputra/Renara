@@ -22,4 +22,4 @@ MonoBehaviour:
   - GardeningScissors
   - Hoe
   isUnlocked: 0
-  materialDrop: {fileID: 0}
+  materialDrop: {fileID: 11400000, guid: 0ca9656e06d111646b9c878587607bd3, type: 2}

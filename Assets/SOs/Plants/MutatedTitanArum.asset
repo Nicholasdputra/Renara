@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MutatedTitanArum
   m_EditorClassIdentifier: 
   plantImage: {fileID: 21300000, guid: 4811eaaaa303d79499f1a39ba3664696, type: 3}
-  plantName: MutatedTitanArum
+  plantName: Mutated Titan Arum
   plantDescription: "A mutated corpse flower\u2026 it looks like it\u2019s wilting.
     There\u2019s this brown-like sap dripping off of it as well. Whatever they were
     trying to do with it, I\u2019m not sure it worked as intended."
@@ -22,4 +22,4 @@ MonoBehaviour:
   - Axe
   - Hoe
   isUnlocked: 0
-  materialDrop: {fileID: 0}
+  materialDrop: {fileID: 11400000, guid: 0328d6b41850891468960366cf7944d1, type: 2}

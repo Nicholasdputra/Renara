@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -21,39 +19,74 @@ public class LabManager : MonoBehaviour
     [SerializeField] Milestone milestoneScript;
     [SerializeField] GameObject materialPanel;
     [SerializeField] GameObject materialPrefab;
+    bool hasPlant;
+    Image plantLabImage;
+    CharacterMovement characterMovement;
+
+    void Start()
+    {
+        characterMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>();
+        plantImage = transform.GetChild(1).GetComponent<Image>();
+    }
 
     [ContextMenu("Start Lab")]
     public void StartLab()
     {
-        // playerPlant = SaveSystem.currentSave.currentPlayerData.currentPlant;
-        playerPlant = 0;
+        playerPlant = SaveSystem.currentSave.currentPlayerData.currentPlant;
+        promptText.gameObject.SetActive(true);
+        if (playerPlant == -1)
+        {
+            hasPlant = false;
+            plantImage.sprite = null;
+            promptText.text = "You have no plant to extract DNA from. Press Space to exit.";
+            plantImage.color = new Color(1, 1, 1, 0f);
+        }
+        else
+        {
+            hasPlant = true;
+            plantImage.sprite = plantData.plant[playerPlant].plantImage;
+            promptText.text = "Press Space to extract DNA";
+            plantImage.color = new Color(1, 1, 1, 0.7176471f);
+        }
         hasConfirmed = false;
         hasExtracted = false;
         hasReport = false;
         gameObject.SetActive(true);
-        plantImage.sprite = plantData.plant[playerPlant].plantImage;
         materialPanel.SetActive(false);
         promptText.gameObject.SetActive(true);
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && !hasConfirmed && !hasExtracted)
+        if (!hasPlant)
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                //close the lab
+                gameObject.SetActive(false);
+                characterMovement.canMove = true;
+            }
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && !hasConfirmed && !hasExtracted)
         {
             hasConfirmed = true;
             dnaMatchingPanel.gameObject.SetActive(true);
             promptText.gameObject.SetActive(false);
             dnaGame.StartDNAExtraction();
-        }else if(Input.GetKeyDown(KeyCode.Space) && hasExtracted){
+        }
+        else if (Input.GetKeyDown(KeyCode.Space) && hasExtracted)
+        {
             //close the lab
             gameObject.SetActive(false);
-            for(int i = 1; i<materialPanel.transform.childCount; i++){
+            for (int i = 1; i < materialPanel.transform.childCount; i++)
+            {
                 Destroy(materialPanel.transform.GetChild(i).gameObject);
             }
             materialPanel.SetActive(false);
             if (hasReport)
             {
-                milestoneScript.SubmitCurrentPlant();
+                // milestoneScript.SubmitCurrentPlant();
             }
             else
             {
@@ -82,8 +115,10 @@ public class LabManager : MonoBehaviour
         }
     }
 
-    public void ShowExtractedMaterials(bool hasReport){
+    public void ShowExtractedMaterials(bool hasReport)
+    {
         this.hasReport = hasReport;
+        promptText.gameObject.SetActive(false);
         Debug.Log("Showing Extracted Materials");
         hasExtracted = true;
         materialPanel.SetActive(true);
@@ -91,20 +126,23 @@ public class LabManager : MonoBehaviour
         CraftingMaterialSO currentPlantDrop = plantData.plant[playerPlant].materialDrop;
         materialDrop.transform.GetChild(0).GetComponent<Image>().sprite = currentPlantDrop.materialSprite;
         materialDrop.transform.GetChild(1).GetComponent<TMP_Text>().text = currentPlantDrop.materialName;
-        
+
         CraftingMaterial playerMaterial = SaveSystem.currentSave.currentPlayerData.obtainedMaterials.Find(m => m.materialSO == currentPlantDrop);
         // ADD MATERIAL VARIABLE HERE
-        if(playerMaterial == null){
-            SaveSystem.currentSave.currentPlayerData.obtainedMaterials.Add(new CraftingMaterial(currentPlantDrop, 1)); 
+        if (playerMaterial == null)
+        {
+            SaveSystem.currentSave.currentPlayerData.obtainedMaterials.Add(new CraftingMaterial(currentPlantDrop, 1));
         }
-        else{
+        else
+        {
             playerMaterial.amount++;
         }
 
-        if(hasReport){
+        if (hasReport)
+        {
             GameObject tempReport = Instantiate(materialPrefab, materialPanel.transform);
-            //tempReport.transform.GetChild(0).GetComponent<Image>().sprite = (EITHER PAPER SPRITE OR PLANT IMAGE);
             tempReport.transform.GetChild(1).GetComponent<TMP_Text>().text = plantData.plant[playerPlant].name + " Report";
         }
+        SaveSystem.currentSave.currentPlayerData.currentPlant = -1;
     }
 }

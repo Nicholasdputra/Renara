@@ -23,4 +23,4 @@ MonoBehaviour:
   - Sickle
   - Hoe
   isUnlocked: 0
-  materialDrop: {fileID: 0}
+  materialDrop: {fileID: 11400000, guid: eaea6963cb27f754c932450a4d4d4905, type: 2}

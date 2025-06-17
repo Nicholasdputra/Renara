@@ -18,12 +18,17 @@ public class MapScript : MonoBehaviour
     void Update()
     {
         canOpenMap = characterMovement.canMove;
-        if(Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.M))
         {
-            if(canOpenMap)
+            if (canOpenMap)
             {
                 ToggleMap();
             }
+        }
+        
+        if(Input.GetKeyDown(KeyCode.Escape) && mapPanel.activeSelf)
+        {
+            ToggleMap();
         }
     }
 

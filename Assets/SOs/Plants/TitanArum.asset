@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TitanArum
   m_EditorClassIdentifier: 
   plantImage: {fileID: 21300000, guid: cea607d90113bdb43920baa6feabe5cb, type: 3}
-  plantName: TitanArum
+  plantName: Titan Arum
   plantDescription: "The Titan Arum, A.K.A  the \u201Ccorpse flower,\u201D is a giant
     flowering plant native to the rainforests of Sumatra, often reaching heights
     of over 3 meters. It smells\u2026 kinda like a decomposing animal\u2026"
@@ -21,4 +21,4 @@ MonoBehaviour:
   - Axe
   - Hoe
   isUnlocked: 0
-  materialDrop: {fileID: 0}
+  materialDrop: {fileID: 11400000, guid: e1c937fb07ba3ae4696ef2b8e99a462a, type: 2}

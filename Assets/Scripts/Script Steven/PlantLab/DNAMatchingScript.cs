@@ -18,13 +18,23 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
     int correctTile;
     float tileWidth = 240f; // width of each DNA tile including spacing
 
+    [Header("Audio")]
+    AudioSource audioSource;
+    [SerializeField] AudioClip correctSound;
+
     void OnValueChange(Vector2 value)
     {
         //OnValueChange is called everytime the scroll rect is moved
         //put tick sound effect everytime it hits a new tile
     }
 
-    public void StartDNAExtraction(){
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    public void StartDNAExtraction()
+    {
         tileWidth = 240f;
         //make the scroll rect draggable
         GetComponent<ScrollRect>().horizontal = true;
@@ -32,7 +42,7 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
         //each dna tile is 100 with 10 px spacing. The horizontal group "has" 10 px paddingn on each side
         // meaning ths first tile needs to be 110 + 10 px away, and the last tile needs to be 10 + 100 + 10 (one block + edge space) px away
         //...idk it just works pokoknya gt lah :sob:
-        content.GetComponent<RectTransform>().sizeDelta = new Vector2((tileWidth*(numberOfDNA-3))+ 1400f, 0);
+        content.GetComponent<RectTransform>().sizeDelta = new Vector2((tileWidth * (numberOfDNA - 3)) + 1400f, 0);
 
         // 3856
         GenerateTargetDNA();
@@ -170,7 +180,9 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
         }
 
         Debug.Log("Tile: " + tile + " Correct Tile: " + correctTile);
-        if(Mathf.Abs(tile) == correctTile){
+        if (Mathf.Abs(tile) == correctTile)
+        {
+            audioSource.PlayOneShot(correctSound);
             Debug.Log("Correct!");
             float target = tile * tileWidth;
             content.localPosition = new Vector3(target, content.localPosition.y, content.localPosition.z);
