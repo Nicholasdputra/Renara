@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materialName: 
   materialDescription: 
-  materialSprite: {fileID: 0}
+  materialSprite: {fileID: 21300000, guid: 659c9b13e2a366249a9a7eda1a2ecd85, type: 3}
