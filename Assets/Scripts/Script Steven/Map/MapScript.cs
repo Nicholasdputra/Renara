@@ -41,6 +41,14 @@ public class MapScript : MonoBehaviour
     public void ToggleMap()
     {
         mapPanel.SetActive(!mapPanel.activeSelf);
+        if(mapPanel.activeSelf)
+        {
+            characterMovement.canMove = false;
+        }
+        else
+        {
+            characterMovement.canMove = true;
+        }
     }
 
     public void Teleport(Vector3 location)

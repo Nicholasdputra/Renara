@@ -220,10 +220,10 @@ public class BookScript : MonoBehaviour
                 break;
             }
             //spawn plus if not the last index
-            if (i != plant.extractionSteps.Length - 1)
-            {
-                Instantiate(plusPrefab, extractionSteps);
-            }
+            // if (i != plant.extractionSteps.Length - 1)
+            // {
+            //     Instantiate(plusPrefab, extractionSteps);
+            // }
         }
     }
 
