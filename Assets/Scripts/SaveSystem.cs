@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
@@ -15,6 +16,7 @@ public class SaveSystem : MonoBehaviour
             currentSave = this;
             DontDestroyOnLoad(gameObject);
             InitializePlayerData();
+            StartCoroutine(AutosaveCoroutine());
         }
         else
         {
@@ -51,7 +53,7 @@ public class SaveSystem : MonoBehaviour
             {
                 string json = reader.ReadToEnd();
                 currentPlayerData = JsonUtility.FromJson<PlayerDataSO>(json);
-                if(!(SceneManager.GetActiveScene().name == "Lab"))
+                if (!(SceneManager.GetActiveScene().name == "Lab"))
                 {
                     //overworld, set player position
                     GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -62,6 +64,15 @@ public class SaveSystem : MonoBehaviour
         else
         {
             Debug.LogError("Save file not found!");
+        }
+    }
+
+    IEnumerator Autosave()
+    {
+        while (true)
+        {
+            yield return new WaitForSecondsRealtime(180f);
+            Save();
         }
     }
 }

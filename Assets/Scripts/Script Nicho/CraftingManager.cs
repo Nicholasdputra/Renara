@@ -56,6 +56,7 @@ public class CraftingManager : MonoBehaviour
         }
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<CharacterMovement>().canMove = true;
+        SaveSystem.currentSave.Save();
     }
 
     public void OnEnable()

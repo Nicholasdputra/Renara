@@ -92,6 +92,7 @@ public class LabManager : MonoBehaviour
             {
                 GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().canMove = true;
             }
+            SaveSystem.currentSave.Save();
         }
     }
 
@@ -145,5 +146,6 @@ public class LabManager : MonoBehaviour
             tempReport.transform.GetChild(1).GetComponent<TMP_Text>().text = plantData.plant[playerPlant].name + " Report";
         }
         SaveSystem.currentSave.currentPlayerData.currentPlant = -1;
+        SaveSystem.currentSave.Save();
     }
 }

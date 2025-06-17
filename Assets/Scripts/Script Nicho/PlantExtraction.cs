@@ -69,5 +69,6 @@ public class PlantExtraction : MonoBehaviour
         // Debug.Log(gameObjectToDestroy.name + " has been destroyed.");
         gameObject.SetActive(false);
         player.GetComponent<CharacterMovement>().canMove = true;
+        SaveSystem.currentSave.Save();
     }
 }
