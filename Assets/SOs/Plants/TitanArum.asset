@@ -20,6 +20,6 @@ MonoBehaviour:
   extractionSteps:
   - Axe
   - Hoe
-  isUnlocked: 0
+  isUnlocked: 1
   report: {fileID: 11400000, guid: 903050485f1883243b919c167a2daa02, type: 2}
   materialDrop: {fileID: 11400000, guid: e1c937fb07ba3ae4696ef2b8e99a462a, type: 2}

@@ -79,17 +79,17 @@ public class BookScript : MonoBehaviour
     {
         switch (extractionStep)
         {
-            case "hoe":
+            case "Hoe":
                 return 0;
-            case "pruningShears":
+            case "GardeningScissors":
                 return 1;
-            case "sprayBottle":
+            case "SprayPotion":
                 return 2;
-            case "sickle":
+            case "Sickle":
                 return 3;
-            case "spade":
+            case "Shovel":
                 return 4;
-            case "axe":
+            case "Axe":
                 return 5;
             default:
                 Debug.LogError("Unknown tool: " + extractionStep);

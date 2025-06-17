@@ -16,7 +16,7 @@ public class SaveSystem : MonoBehaviour
             currentSave = this;
             DontDestroyOnLoad(gameObject);
             InitializePlayerData();
-            StartCoroutine(AutosaveCoroutine());
+            // StartCoroutine(AutosaveCoroutine());
         }
         else
         {

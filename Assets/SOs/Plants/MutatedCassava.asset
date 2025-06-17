@@ -21,6 +21,6 @@ MonoBehaviour:
   - SprayPotion
   - GardeningScissors
   - Hoe
-  isUnlocked: 0
+  isUnlocked: 1
   report: {fileID: 11400000, guid: ce53a345719571845b3a72f3e7f154c0, type: 2}
   materialDrop: {fileID: 11400000, guid: 2d1935bd475b86a4aa7445662b6c92cc, type: 2}

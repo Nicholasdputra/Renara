@@ -22,6 +22,6 @@ MonoBehaviour:
   extractionSteps:
   - Sickle
   - Hoe
-  isUnlocked: 0
+  isUnlocked: 1
   report: {fileID: 11400000, guid: ea3c1e22948835c4b80e3c8055f5a980, type: 2}
   materialDrop: {fileID: 11400000, guid: eaea6963cb27f754c932450a4d4d4905, type: 2}
