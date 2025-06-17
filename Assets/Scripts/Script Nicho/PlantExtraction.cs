@@ -12,13 +12,22 @@ public class PlantExtraction : MonoBehaviour
     public PlantSO plantToExtract;
     public PlantDataSO plantList;
     public bool doneExtracting = false;
+    public int plantIndex = 0;
 
     public void EnablePlantExtraction()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        gameObject.GetComponentInChildren<PlantDisplay>().plant = plantToExtract;
-        gameObject.GetComponentInChildren<PlantDisplay>().plantExtractionView = this;
-        gameObject.SetActive(true);
+        if(SaveSystem.currentSave.currentPlayerData.currentPlant == -1)
+        {
+            gameObject.GetComponentInChildren<PlantDisplay>().plant = plantToExtract;
+            gameObject.GetComponentInChildren<PlantDisplay>().plantExtractionView = this;
+            gameObject.SetActive(true);
+        } 
+        else{
+            // Debug.Log("Plant already extracted, They can still move.");
+            player.GetComponent<CharacterMovement>().canMove = true;
+        }
+            
     }
 
     public void DetermineWhatPlantToExtract(GameObject selectedPlant)
@@ -26,11 +35,12 @@ public class PlantExtraction : MonoBehaviour
         //determine based on selected plant name
         string plantName = selectedPlant.name;
         Debug.Log("Determining plant to extract: " + plantName);
-        foreach (PlantSO plant in plantList.plant)
+        for(int i = 0; i < plantList.plant.Length; i++)
         {
-            if (plant.plantName.ToLower() == plantName.ToLower())
+            if (plantList.plant[i].plantName.ToLower() == plantName.ToLower())
             {
-                plantToExtract = plant;
+                plantToExtract = plantList.plant[i];
+                plantIndex = i;
                 if (plantName.ToLower().Contains("mutated"))
                 {
                     extractionBackground.GetComponent<Image>().sprite = extractionBackgroundSprites[1];
@@ -45,7 +55,7 @@ public class PlantExtraction : MonoBehaviour
             }
             else
             {
-                Debug.Log("Didn't match with: " + plant.plantName);
+                Debug.Log("Didn't match with: " + plantList.plant[i].plantName);
             }
         }
     }
@@ -69,6 +79,7 @@ public class PlantExtraction : MonoBehaviour
         // Debug.Log(gameObjectToDestroy.name + " has been destroyed.");
         gameObject.SetActive(false);
         player.GetComponent<CharacterMovement>().canMove = true;
+        SaveSystem.currentSave.currentPlayerData.currentPlant = plantIndex;
         SaveSystem.currentSave.Save();
     }
 }

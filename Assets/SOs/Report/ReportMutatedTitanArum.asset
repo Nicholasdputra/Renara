@@ -14,19 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Mutated Titan Arum
   sentences:
-  - promt: Cassava
-    fullSentence: <b>Cassava</b> is a root vegetable that grows underground. It is
-      an important food in many parts of the world like <b>Africa</b>, <b>Asia</b>,
-      and <b>South America</b>.
-  - promt: Carbohydrates
-    fullSentence: '<b>Cassava</b> is rich in <b>carbohydrates</b>, making it a major
-      <b>energy source</b> for millions of people.  '
-  - promt: Poison
-    fullSentence: '<b>cassava</b> has a natural <b>poison</b> called <b>cyanide</b>,
-      so it must be <b>peeled</b>, <b>soaked</b>, and <b>cooked</b> before eating.  '
-  - promt: Eco-friendly
-    fullSentence: '<b>cassava</b> is used to make eco-friendly products, such as
-      biodegradable plastic bags, packaging & utensils, and bioethanol fuels. '
-  - promt: Tapioca
-    fullSentence: <b>Cassava</b> is also used to make <b>tapioca</b>, the chewy pearls
-      found in bubble tea.
+  - promt: Spadix
+    fullSentence: "The mutated version of the Titan Arum\u2019s spadix feels a lot
+      <b> less firm </b> when you touch it, it also just looks limp\u2026"
+  - promt: Goo
+    fullSentence: "The whole plant seems to just be covered and dripping in this
+      <b> sticky red goo </b> that <b> doesn\u2019t smell like anything.</b>"
+  - promt: Roots
+    fullSentence: The roots of the plant seem to not be as <b> strong </b>, the plant
+      seemed easier to pull out.
+  - promt: Cold
+    fullSentence: "Unlike its regular counterpart, the mutated Titan Arum doesn\u2019t
+      really feel warm to the touch."

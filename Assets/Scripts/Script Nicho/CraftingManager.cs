@@ -3,16 +3,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-
 public class CraftingManager : MonoBehaviour
 {
     [Header("For Displaying What Items Can Be Crafted")]
     public GameObject craftingListObjects; //The crafting list that shows what items can be crafted
     public GameObject craftableItemButtonPrefab;//prefab for the craftable item button
     public GameObject uncraftableItemButtonPrefab; //prefab for the uncraftable item button
+    public Sprite itemUnavailableFrame; //The frame that is used for the uncraftable mats
     public GameObject itemButtonParent; //The parent of the buttons that show what items can be crafted
     public GameObject craftablePopUp; //The pop up that shows the item you can craft
     private List<ItemSO> uncraftableItems = new List<ItemSO>(); //List of items that cannot be crafted right now
+    public TMP_Text craftableNameText; //Text for item name in the craftablePopUp
     public GameObject craftablePopUpImageGameObj; //The image of the item that can be crafted in the craftablePopUp
     public GameObject materialsNeededParent; //The place where the materials needed to craft an item are displayed
     public GameObject materialsNeededPrefab; //Prefab for the materials needed to craft an item
@@ -31,12 +32,18 @@ public class CraftingManager : MonoBehaviour
     public Image coloredZone; //the colored zone that shows the player where to stop the slider
     private ItemSO activeItem; //the item that is currently being crafted
 
-    public void EnterCraftingTable(){
+    [Header("Show Crafted Item")]
+    public GameObject finishedPanel; //The panel that shows the crafted item
+    public GameObject finishedCurePrefab;
+
+    public void EnterCraftingTable()
+    {
         gameObject.SetActive(true);
     }
 
     public void ExitCraftingTable()
     {
+        craftableNameText.text = "";
         gameObject.SetActive(false);
         if (craftingListObjects.activeSelf)
         {
@@ -73,35 +80,50 @@ public class CraftingManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)){
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
             Debug.Log("Escape");
             ExitCraftingTable();
             return;
         }
 
-        if(isInMinigame){
-            if(minigameProg == 0){ //A
-                if(sliderCoroutine == null){
+        if (isInMinigame)
+        {
+            if (minigameProg == 0)
+            { //A
+                if (sliderCoroutine == null)
+                {
                     StartCraftingMinigamePartX();
                 }
-                if(Input.GetKeyDown(KeyCode.A)){                  
+                if (Input.GetKeyDown(KeyCode.A))
+                {
                     DetermineCraftingMinigameOutcome();
                 }
-            } else if(minigameProg == 1){ //S
-                if(sliderCoroutine == null){
+            }
+            else if (minigameProg == 1)
+            { //S
+                if (sliderCoroutine == null)
+                {
                     StartCraftingMinigamePartX();
                 }
-                if(Input.GetKeyDown(KeyCode.S)){
+                if (Input.GetKeyDown(KeyCode.S))
+                {
                     DetermineCraftingMinigameOutcome();
                 }
-            } else if(minigameProg == 2){ //D
-                if(sliderCoroutine == null){
+            }
+            else if (minigameProg == 2)
+            { //D
+                if (sliderCoroutine == null)
+                {
                     StartCraftingMinigamePartX();
                 }
-                if(Input.GetKeyDown(KeyCode.D)){
+                if (Input.GetKeyDown(KeyCode.D))
+                {
                     DetermineCraftingMinigameOutcome();
                 }
-            } else if(minigameProg == 3){
+            }
+            else if (minigameProg == 3)
+            {
                 isInMinigame = false;
                 CraftItem();
             }
@@ -111,7 +133,7 @@ public class CraftingManager : MonoBehaviour
     public void SetUpCraftingList()
     {
         //Clear the crafting list
-        if(itemButtonParent.transform.childCount > 0)
+        if (itemButtonParent.transform.childCount > 0)
         {
             foreach (Transform child in itemButtonParent.transform)
             {
@@ -135,7 +157,7 @@ public class CraftingManager : MonoBehaviour
                 {
                     craftable = false;
                     break;
-                } 
+                }
             }
 
             //If the player has all the materials, display the button
@@ -162,7 +184,7 @@ public class CraftingManager : MonoBehaviour
                 }
                 //Add a listener to the button so that when it's clicked, the craftablePopUp will open and work as intended
                 itemButton.GetComponent<Button>().onClick.AddListener(() => CraftingListButton(item));
-            } 
+            }
             else
             {
                 //add to uncraftable items list
@@ -197,14 +219,17 @@ public class CraftingManager : MonoBehaviour
     void CraftingListButton(ItemSO item)
     {
         //Reset the materials needed children (in case it wasnt properly reset)
-        if(materialsNeededParent.transform.childCount > 0)
+        if (materialsNeededParent.transform.childCount > 0)
         {
             foreach (Transform child in materialsNeededParent.transform)
             {
                 Destroy(child.gameObject);
             }
         }
-        
+
+        //Set the label of the item that was clicked
+        craftableNameText.text = item.itemName;
+
         //Set the active item to the item that was clicked
         activeItem = item;
 
@@ -235,14 +260,16 @@ public class CraftingManager : MonoBehaviour
     void UncraftableItemCraftingListButton(ItemSO item)
     {
         //Reset the materials needed children (in case it wasnt properly reset)
-        if(materialsNeededParent.transform.childCount > 0)
+        if (materialsNeededParent.transform.childCount > 0)
         {
             foreach (Transform child in materialsNeededParent.transform)
             {
                 Destroy(child.gameObject);
             }
         }
-        
+        //Set the label of the item that was clicked
+        craftableNameText.text = item.itemName;
+
         //Set the active item to the item that was clicked
         activeItem = item;
 
@@ -250,7 +277,7 @@ public class CraftingManager : MonoBehaviour
         craftablePopUp.SetActive(true);
 
         //Set the image to the item's icon
-        craftablePopUp.GetComponentInChildren<Image>().sprite = item.itemSprite;
+        craftablePopUpImageGameObj.GetComponentInChildren<Image>().sprite = item.itemSprite;
 
         //Set the materials needed to the item's materials needed
         foreach (CraftingMaterial craftingMaterial in item.materialsNeeded)
@@ -263,6 +290,14 @@ public class CraftingManager : MonoBehaviour
             {
                 Image materialTypeIcon = materialTypeIconTransform.GetComponent<Image>();
                 materialTypeIcon.sprite = craftingMaterial.materialSO.materialSprite;
+
+                //Check if the player has a sufficient amount of each material
+                CraftingMaterial playerMaterial = SaveSystem.currentSave.currentPlayerData.obtainedMaterials.Find(m => m.materialSO == craftingMaterial.materialSO);
+                if (playerMaterial == null || playerMaterial.amount < craftingMaterial.amount)
+                {
+                    materialNeeded.GetComponent<Image>().sprite = itemUnavailableFrame; //Set the frame to the uncraftable frame
+                    break;
+                }
             }
         }
 
@@ -278,15 +313,18 @@ public class CraftingManager : MonoBehaviour
         craftablePopUp.SetActive(false);
     }
 
-    void StartCraftingMinigamePartX(){
+    void StartCraftingMinigamePartX()
+    {
         //Clear indicator colors
         for (int i = minigameProg; i < indicators.Length; i++)
         {
             Transform coloredZone = sliders[i].transform.Find("ColoredZone(Clone)");
-            if (coloredZone != null) {
+            if (coloredZone != null)
+            {
                 Destroy(coloredZone.gameObject);
-            }   
-            if (indicators[i].color != Color.white){
+            }
+            if (indicators[i].color != Color.white)
+            {
                 indicators[i].color = Color.white;
             }
         }
@@ -297,7 +335,8 @@ public class CraftingManager : MonoBehaviour
     void DetermineCraftingMinigameOutcome()
     {
         //Check if the slider is in the right position
-        if(sliders[minigameProg].value >= minVal/100 && sliders[minigameProg].value <= maxVal/100){
+        if (sliders[minigameProg].value >= minVal / 100 && sliders[minigameProg].value <= maxVal / 100)
+        {
             //Set the indicator to green
             indicators[minigameProg].color = Color.green;
 
@@ -306,22 +345,26 @@ public class CraftingManager : MonoBehaviour
             sliderCoroutine = null;
 
             //Destroy the colored zone
-            if(sliders[minigameProg].transform.Find("ColoredZone(Clone)").gameObject != null){
+            if (sliders[minigameProg].transform.Find("ColoredZone(Clone)").gameObject != null)
+            {
                 Destroy(sliders[minigameProg].transform.Find("ColoredZone(Clone)").gameObject);
             }
 
             //Increment the minigame progress
             minigameProg++;
         }
-        else{
+        else
+        {
             //Reset the indicators and destroy the colored zone
-            for(int i = minigameProg; i >= 0; i--){
+            for (int i = minigameProg; i >= 0; i--)
+            {
                 indicators[i].color = Color.white;
-                if(sliders[minigameProg].transform.Find("ColoredZone(Clone)").gameObject != null){
+                if (sliders[minigameProg].transform.Find("ColoredZone(Clone)").gameObject != null)
+                {
                     Destroy(sliders[minigameProg].transform.Find("ColoredZone(Clone)").gameObject);
                 }
                 sliders[i].value = 0;
-            } 
+            }
 
             //Reset the minigame progress
             minigameProg = 0;
@@ -346,16 +389,20 @@ public class CraftingManager : MonoBehaviour
                 goingUp = true;
             }
 
-            if(goingUp){
+            if (goingUp)
+            {
                 slider.value += Time.deltaTime;
-            } else{
+            }
+            else
+            {
                 slider.value -= Time.deltaTime;
             }
             yield return null;
         }
     }
 
-    void CreateColoredZone(Slider partXSlider){
+    void CreateColoredZone(Slider partXSlider)
+    {
         float randomNum = Random.Range(11, 90);
         minVal = randomNum - 10;
         maxVal = randomNum + 10;
@@ -363,25 +410,26 @@ public class CraftingManager : MonoBehaviour
         // Instantiate the colored zone and set its parent
         Image instantiatedColoredZone = Instantiate(coloredZone, partXSlider.transform);
         instantiatedColoredZone.transform.SetSiblingIndex(1);
-        
+
         // Get the slider's params
         RectTransform coloredZoneRect = instantiatedColoredZone.GetComponent<RectTransform>();
         float sliderWidth = partXSlider.transform.Find("Background").GetComponent<RectTransform>().rect.width;
         float sliderHeight = partXSlider.GetComponent<RectTransform>().rect.height;
 
         // Set the size of the colored zone
-        float coloredZoneWidth = sliderWidth;
-        float coloredZoneHeight = (maxVal - minVal) * sliderHeight / 100; 
+        float coloredZoneWidth = sliderWidth - 20;
+        float coloredZoneHeight = (maxVal - minVal) * sliderHeight / 100;
         coloredZoneRect.sizeDelta = new Vector2(coloredZoneWidth, coloredZoneHeight);
 
         // Set the position of the colored zone
-        Vector3 coloredZonePos = Vector3.zero; 
+        Vector3 coloredZonePos = Vector3.zero;
         coloredZonePos.y -= sliderHeight / 2;
         coloredZonePos.y += randomNum / 100 * sliderHeight;
         coloredZoneRect.anchoredPosition = coloredZonePos;
     }
 
-    void CraftItem(){ 
+    void CraftItem()
+    {
         //Remove the materials needed from the player's inventory, make sure it's the right amout
         foreach (CraftingMaterial requiredMaterial in activeItem.materialsNeeded)
         {
@@ -394,7 +442,7 @@ public class CraftingManager : MonoBehaviour
             else if (playerMaterial.amount > requiredMaterial.amount)
             {
                 playerMaterial.amount -= requiredMaterial.amount;
-            } 
+            }
             else
             {
                 //This should never happen
@@ -404,7 +452,7 @@ public class CraftingManager : MonoBehaviour
 
         //Add the crafted item to the player's inventory
         SaveSystem.currentSave.currentPlayerData.obtainedItemDataSO.items.Add(activeItem);
-        
+
         //Close the craftablePopUp
         craftingMinigameObjects.SetActive(false);
         craftablePopUp.SetActive(false);
@@ -418,5 +466,16 @@ public class CraftingManager : MonoBehaviour
         craftingMinigameObjects.SetActive(false);
         craftablePopUp.SetActive(false);
     }
-
+    
+    public void ShowExtractedMaterials()
+    {
+        Debug.Log("Showing Extracted Materials");
+        
+        finishedPanel.SetActive(true);
+        GameObject materialDrop = Instantiate(finishedCurePrefab, finishedPanel.transform);
+        ItemSO itemCrafted = activeItem; 
+        materialDrop.transform.GetChild(0).GetComponent<Image>().sprite = itemCrafted.itemSprite;
+        materialDrop.transform.GetChild(1).GetComponent<TMP_Text>().text = itemCrafted.itemName;
+        SaveSystem.currentSave.Save();
+    }
 }

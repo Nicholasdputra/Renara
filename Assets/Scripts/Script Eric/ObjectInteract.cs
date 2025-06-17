@@ -43,8 +43,9 @@ public class ObjectInteract : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E) && interactable)
         {
-            if(gameObject.tag == "PlantToExtract")
+            if (gameObject.tag == "PlantToExtract")
             {
+                
                 if (GameObject.Find("Canvas") != null)
                 {
                     // Debug.Log("Canvas found");
@@ -96,7 +97,7 @@ public class ObjectInteract : MonoBehaviour
 
             return;
         }
-        
+
         player.GetComponent<CharacterInteraction>().dialogues = dialogues;
         player.GetComponent<CharacterInteraction>().PlayDialogue();
     }
@@ -145,22 +146,20 @@ public class ObjectInteract : MonoBehaviour
             player.GetComponent<CharacterInteraction>().dialogues = dialogues;
             player.GetComponent<CharacterInteraction>().PlayRandomDialogue();
         }
+        else
+        {
+            UseCureAndDestroyTaggedObjects(targetCure, cureName);
+        }
 
-        UseCureAndDestroyTaggedObjects(targetCure, cureName); 
     }
 
     public void UseCureAndDestroyTaggedObjects(string tagToDestroy, string cureName) //kodenya rafa
     {
         if (playerData != null && playerData.obtainedItemDataSO != null)
         {
+            TransisionScript.Transision("");
             //it would be great kalo ada function blackscreen disini biar ngeblock random dialog, bingung gimana cara ngilanginnya
-
-            GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag(tagToDestroy);
-
-            foreach (GameObject obj in taggedObjects)
-            {
-                Destroy(obj);
-            }
+            StartCoroutine(DeleteZoneObjects(tagToDestroy, cureName));
         }
         else
         {
@@ -170,5 +169,15 @@ public class ObjectInteract : MonoBehaviour
         player.GetComponent<CharacterMovement>().canMove = true;
     }
 
+    IEnumerator DeleteZoneObjects(string tagToDestroy, string cureName)
+    {
+        yield return new WaitForSeconds(1.4f); // Delay to allow for transition effect
+        GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag(tagToDestroy);
+
+        foreach (GameObject obj in taggedObjects)
+        {
+            Destroy(obj);
+        }
+    }
 
 }

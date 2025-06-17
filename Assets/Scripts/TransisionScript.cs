@@ -56,6 +56,10 @@ public class TransisionScript : MonoBehaviour
         {
             yield return SceneManager.LoadSceneAsync(sceneName);
         }
+        else
+        {
+            yield return new WaitForSeconds(0.3f);
+        }
 
         // Fade in
         elapsedTime = 0f;

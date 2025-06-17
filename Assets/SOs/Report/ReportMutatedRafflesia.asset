@@ -14,19 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Mutated Rafflesia Arnoldi
   sentences:
-  - promt: Cassava
-    fullSentence: <b>Cassava</b> is a root vegetable that grows underground. It is
-      an important food in many parts of the world like <b>Africa</b>, <b>Asia</b>,
-      and <b>South America</b>.
-  - promt: Carbohydrates
-    fullSentence: '<b>Cassava</b> is rich in <b>carbohydrates</b>, making it a major
-      <b>energy source</b> for millions of people.  '
-  - promt: Poison
-    fullSentence: '<b>Cassava</b> has a natural <b>poison</b> called <b>cyanide</b>,
-      so it must be <b>peeled</b>, <b>soaked</b>, and <b>cooked</b> before eating.  '
-  - promt: Eco-friendly
-    fullSentence: '<b>Cassava</b> is used to make eco-friendly products, such as
-      biodegradable plastic bags, packaging & utensils, and bioethanol fuels. '
-  - promt: Tapioca
-    fullSentence: <b>Cassava</b> is also used to make <b>tapioca</b>, the chewy pearls
-      found in bubble tea.
+  - promt: Smell
+    fullSentence: The mutation seem to have made the <b> smell of rotting meat ever
+      <b> worse </b>, like a dumpster behind a butcher shop with a bunch of expired
+      meat and bones.
+  - promt: Size
+    fullSentence: "As if the normal kind wasn\u2019t big enough already\u2026 this
+      mutated one seems to have <b> double the diameter</b>\u2026"
+  - promt: Petals
+    fullSentence: "The petals on the flower seem to have ripped, almost like it got
+      <b> stretched and ripped </b> due to a sudden increase in size\u2026 brutal."
+  - promt: Mesh
+    fullSentence: "It seems like there\u2019s this <b> dried cobweb-like mesh pattern
+      </b> at the bottom of the plant that\u2019s almost blood red."
+  - promt: Host
+    fullSentence: "The host plant seems to have also been fully absorbed almost onto
+      the plant, making it a standalone plant that\u2019s not parasitic anymore."

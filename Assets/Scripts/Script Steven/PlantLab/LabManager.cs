@@ -22,6 +22,8 @@ public class LabManager : MonoBehaviour
     bool hasPlant;
     Image plantLabImage;
     CharacterMovement characterMovement;
+    bool writingReport;
+    bool inLab = false;
 
     void Start()
     {
@@ -32,6 +34,13 @@ public class LabManager : MonoBehaviour
     [ContextMenu("Start Lab")]
     public void StartLab()
     {
+        if (inLab)
+        {
+            Debug.Log("Already in Lab");
+            return;
+        }
+        inLab = true;
+        Debug.Log("Starting Lab");
         playerPlant = SaveSystem.currentSave.currentPlayerData.currentPlant;
         promptText.gameObject.SetActive(true);
         if (playerPlant == -1)
@@ -51,6 +60,7 @@ public class LabManager : MonoBehaviour
         hasConfirmed = false;
         hasExtracted = false;
         hasReport = false;
+        writingReport = false;
         gameObject.SetActive(true);
         materialPanel.SetActive(false);
         promptText.gameObject.SetActive(true);
@@ -60,22 +70,25 @@ public class LabManager : MonoBehaviour
     {
         if (!hasPlant)
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && !writingReport)
             {
                 //close the lab
                 gameObject.SetActive(false);
                 characterMovement.canMove = true;
+                inLab = false;
+                SaveSystem.currentSave.Save();
             }
             return;
         }
-        if (Input.GetKeyDown(KeyCode.Space) && !hasConfirmed && !hasExtracted)
+        if (Input.GetKeyDown(KeyCode.Space) && !hasConfirmed && !hasExtracted && !writingReport)
         {
+            Debug.Log(hasConfirmed + " " + hasExtracted + " " + writingReport);
             hasConfirmed = true;
             dnaMatchingPanel.gameObject.SetActive(true);
             promptText.gameObject.SetActive(false);
             dnaGame.StartDNAExtraction();
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && hasExtracted)
+        else if (Input.GetKeyDown(KeyCode.Space) && hasExtracted && !writingReport)
         {
             //close the lab
             gameObject.SetActive(false);
@@ -92,6 +105,7 @@ public class LabManager : MonoBehaviour
             {
                 GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().canMove = true;
             }
+            inLab = false;
             SaveSystem.currentSave.Save();
         }
     }
@@ -101,16 +115,19 @@ public class LabManager : MonoBehaviour
         //Calls at the end of DNA Animation
         dnaMatchingPanel.gameObject.SetActive(false);
         // check if we have unlocked the plant or not
-        if(plantData.plant[playerPlant].isUnlocked == false){
+        if (plantData.plant[playerPlant].isUnlocked == false)
+        {
             //if not, unlock it
             //Unlocking is handled by the milestone script so this is not needed anymore
             // plantData.plant[playerPlant].isUnlocked = true;
             Debug.Log("Plant Unlocked");
             typingReportScript.gameObject.SetActive(true);
             typingReportScript.reportSO = plantData.plant[playerPlant].report;
+            writingReport = true;
             typingReportScript.StartReport();
         }
-        else{
+        else
+        {
             //update plant extracted
             Debug.Log("Plant Already Unlocked");
             ShowExtractedMaterials(false);
@@ -119,6 +136,9 @@ public class LabManager : MonoBehaviour
 
     public void ShowExtractedMaterials(bool hasReport)
     {
+        Debug.Log("Show Extracted Materials, set wrigingReport to false");
+        writingReport = false;
+        typingReportScript.gameObject.SetActive(false);
         this.hasReport = hasReport;
         promptText.gameObject.SetActive(false);
         Debug.Log("Showing Extracted Materials");
@@ -143,7 +163,7 @@ public class LabManager : MonoBehaviour
         if (hasReport)
         {
             GameObject tempReport = Instantiate(materialPrefab, materialPanel.transform);
-            tempReport.transform.GetChild(1).GetComponent<TMP_Text>().text = plantData.plant[playerPlant].name + " Report";
+            tempReport.transform.GetChild(1).GetComponent<TMP_Text>().text = plantData.plant[playerPlant].plantName + " Report";
         }
         SaveSystem.currentSave.currentPlayerData.currentPlant = -1;
         SaveSystem.currentSave.Save();

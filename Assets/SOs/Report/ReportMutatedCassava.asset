@@ -14,19 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Mutated Cassava
   sentences:
-  - promt: Cassava
-    fullSentence: <b>Cassava</b> is a root vegetable that grows underground. It is
-      an important food in many parts of the world like <b>Africa</b>, <b>Asia</b>,
-      and <b>South America</b>.
-  - promt: Carbohydrates
-    fullSentence: '<b>Cassava</b> is rich in <b>carbohydrates</b>, making it a major
-      <b>energy source</b> for millions of people.  '
-  - promt: Poison
-    fullSentence: '<b>Cassava</b> has a natural <b>poison</b> called <b>cyanide</b>,
-      so it must be <b>peeled</b>, <b>soaked</b>, and <b>cooked</b> before eating.  '
-  - promt: Eco-friendly
-    fullSentence: '<b>Cassava</b> is used to make eco-friendly products, such as
-      biodegradable plastic bags, packaging & utensils, and bioethanol fuels. '
-  - promt: Tapioca
-    fullSentence: <b>Cassava</b> is also used to make <b>tapioca</b>, the chewy pearls
-      found in bubble tea.
+  - promt: Mutation
+    fullSentence: "This cassava seems to have <b> mutated </b> from its base form\u2026
+      We can still distinguish it from other plants though, but it still looks <b>
+      different.</b>"
+  - promt: Leaves
+    fullSentence: The <b> mutated cassava </b> seem to have far fewer leaves and
+      branches. Its leaves seem to have also gone white, similar to how an albino
+      cassava plant would look like.
+  - promt: Roots
+    fullSentence: "<b>CassaThe plant\u2019s <b> roots </b> seem to have become more
+      lumpy as well, almost becoming a huge stump, perhaps as a sign that the environment
+      has become tougher to survive in or that it needs more resources to survive
+      than the regular variant."
+  - promt: Yellow Mark
+    fullSentence: "The leaves seem to also have a yellow mark at the place where
+      it\u2019s connected to the branches, perhaps it\u2019s a sign that the nutrients
+      it\u2019s drawn aren\u2019t quite normal."
+  - promt: Texture
+    fullSentence: "The branches and leaves seem to almost have this too-smooth to
+      be natural, <b> rubbery texture </b>. It also <b> smells like chemicals\u2026</b>"

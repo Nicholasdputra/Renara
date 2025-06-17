@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e50510de21e47c43a69031d2fe93b1b, type: 3}
   m_Name: Cassave Stem
   m_EditorClassIdentifier: 
-  materialName: 
-  materialDescription: 
+  materialName: Cassava Stem
+  materialDescription: 'Though it looks like a discarded stick, the cassava stem
+    is how the entire plant is grown. Just stick it in the ground and wait. Maybe
+    it can be used for making something. '
   materialSprite: {fileID: 21300000, guid: a8d1dd8149ab4e34391450ad354da088, type: 3}

@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e50510de21e47c43a69031d2fe93b1b, type: 3}
   m_Name: Rafflesia Petals
   m_EditorClassIdentifier: 
-  materialName: 
-  materialDescription: 
+  materialName: 'Rafflesia Petals '
+  materialDescription: "Rafflesia Petals Massive, fleshy, and famously stinky\u2014Rafflesia
+    petals are as rare as they are unforgettable. While they reek of rotting meat
+    to attract flies, some daring herbalists swear they have powerful medicinal properties.
+    Perhaps it can be used to heal not just people, but the earth."
   materialSprite: {fileID: 21300000, guid: 659c9b13e2a366249a9a7eda1a2ecd85, type: 3}

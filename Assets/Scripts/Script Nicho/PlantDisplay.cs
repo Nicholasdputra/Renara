@@ -66,6 +66,7 @@ public class PlantDisplay : MonoBehaviour, IDropHandler
                         StopCoroutine(amyTalkingCoroutine);
                     }
                     amyTalkingCoroutine = StartCoroutine(AmyTalking());
+                    
                     StartCoroutine(plantExtractionView.ClosePlantExtraction());
                     //exit this view
                 }

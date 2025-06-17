@@ -23,4 +23,4 @@ MonoBehaviour:
   - Hoe
   isUnlocked: 1
   report: {fileID: 11400000, guid: 0179d3de5f27baf4daa586ada56f8faf, type: 2}
-  materialDrop: {fileID: 11400000, guid: 0ca9656e06d111646b9c878587607bd3, type: 2}
+  materialDrop: {fileID: 11400000, guid: 2d1935bd475b86a4aa7445662b6c92cc, type: 2}
