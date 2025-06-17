@@ -23,6 +23,8 @@ MonoBehaviour:
     amount: 933
   - materialSO: {fileID: 11400000, guid: ea98345853fa1fb4f81773e0a16921c8, type: 2}
     amount: 10
+  - materialSO: {fileID: 11400000, guid: 892625b49bc88b94dafd00e7ecf723df, type: 2}
+    amount: 1
   position: {x: -3, y: 1, z: 0}
   currentPlant: 1
   playerToolLevel: 0

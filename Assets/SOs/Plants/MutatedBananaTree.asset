@@ -23,4 +23,5 @@ MonoBehaviour:
   - Shovel
   - SprayPotion
   isUnlocked: 0
+  report: {fileID: 11400000, guid: 5fed826652adaa845b9ee6166ea64c04, type: 2}
   materialDrop: {fileID: 11400000, guid: 892625b49bc88b94dafd00e7ecf723df, type: 2}

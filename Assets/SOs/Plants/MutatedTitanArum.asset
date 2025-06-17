@@ -22,4 +22,5 @@ MonoBehaviour:
   - Axe
   - Hoe
   isUnlocked: 0
+  report: {fileID: 11400000, guid: 3566d5bb5b0fe314abcf93be431b3011, type: 2}
   materialDrop: {fileID: 11400000, guid: 0328d6b41850891468960366cf7944d1, type: 2}

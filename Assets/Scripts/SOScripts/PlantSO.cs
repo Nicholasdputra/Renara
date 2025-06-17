@@ -8,6 +8,7 @@ public class PlantSO : ScriptableObject
     public string plantDescription;
     public string[] extractionSteps;
     public bool isUnlocked;
+    public ReportSO report;
     public CraftingMaterialSO materialDrop;
 
     public PlantSO(Sprite plantImage, string plantName, string plantDescription, string[] extractionSteps, bool isUnlocked){

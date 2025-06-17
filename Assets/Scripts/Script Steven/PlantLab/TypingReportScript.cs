@@ -9,7 +9,7 @@ public class TypingReportScript : MonoBehaviour
     string colorString = "<color=#888888>";
     string tempString;
     [SerializeField] TMP_Text reportText;
-    [SerializeField] ReportSO reportSO;
+    [SerializeField] public ReportSO reportSO;
     [SerializeField] int sentenceIndex = 0;
     [SerializeField] int letterIndex = 0;
     [SerializeField] bool waitingForDot = false;
@@ -101,12 +101,27 @@ public class TypingReportScript : MonoBehaviour
         reportText.text = tempString;
 
         //write the current sentence
-        for(int i = 0; i < reportSO.sentences[sentenceIndex].fullSentence.Length; i++){
+        bool waitingForBracket = false;
+        for (int i = 0; i < reportSO.sentences[sentenceIndex].fullSentence.Length; i++)
+        {
+            char letter = reportSO.sentences[sentenceIndex].fullSentence[i];
             // Debug.Log("Typing sentence " + (sentenceIndex + 1));
             reportText.text += reportSO.sentences[sentenceIndex].fullSentence[i];
-            yield return new WaitForSeconds(0.025f);
+            if (letter == '<')
+            {
+                waitingForBracket = true;
+            }
+            if (letter == '>')
+            {
+                waitingForBracket = false;
+            }
+            if (!waitingForBracket)
+            {
+                yield return new WaitForSeconds(0.025f);
+            }
         }
         reportText.text += " ";
+        
         yield return new WaitForSeconds(0.025f);
         NextSentence();
     }

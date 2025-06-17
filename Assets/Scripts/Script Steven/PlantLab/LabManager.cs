@@ -106,6 +106,7 @@ public class LabManager : MonoBehaviour
             // plantData.plant[playerPlant].isUnlocked = true;
             Debug.Log("Plant Unlocked");
             typingReportScript.gameObject.SetActive(true);
+            typingReportScript.reportSO = plantData.plant[playerPlant].report;
             typingReportScript.StartReport();
         }
         else{
