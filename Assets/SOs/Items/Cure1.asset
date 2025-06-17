@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63137ae536260bb45803babb3b34e8e8, type: 3}
   m_Name: Cure1
   m_EditorClassIdentifier: 
-  itemName: CureType1
-  itemDescription: Cures my depression
-  itemSprite: {fileID: 21300000, guid: 6072dfb4574490c4c921af327eab51db, type: 3}
+  itemName: Cure Zone 1
+  itemDescription: Cures area int he Banana Zone
+  itemSprite: {fileID: 21300000, guid: c90addce7386030428fedb71f4c231f5, type: 3}
   materialsNeeded:
-  - materialSO: {fileID: 11400000, guid: 07fb5ff82c493a2459168c5025f367b4, type: 2}
+  - materialSO: {fileID: 11400000, guid: ea98345853fa1fb4f81773e0a16921c8, type: 2}
     amount: 1
-  - materialSO: {fileID: 11400000, guid: c65094de47513694a97c53be92f94b5e, type: 2}
+  - materialSO: {fileID: 11400000, guid: 892625b49bc88b94dafd00e7ecf723df, type: 2}
     amount: 1

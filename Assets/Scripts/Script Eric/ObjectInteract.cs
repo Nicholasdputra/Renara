@@ -123,6 +123,29 @@ public class ObjectInteract : MonoBehaviour
 
     public void UseCure()
     {
+        bool hasCure = false;
+
+        foreach (var item in playerData.obtainedItemDataSO.items)
+        {
+            if (item.itemName == cureName)
+            {
+                hasCure = true;
+                break;
+            }
+        }
+
+        if (!hasCure)
+        {
+            if (dialogueIsDone && oneTimeDialogue)
+            {
+                player.GetComponent<CharacterMovement>().canMove = true;
+
+                return;
+            }
+            player.GetComponent<CharacterInteraction>().dialogues = dialogues;
+            player.GetComponent<CharacterInteraction>().PlayRandomDialogue();
+        }
+
         UseCureAndDestroyTaggedObjects(targetCure, cureName); 
     }
 
@@ -130,39 +153,21 @@ public class ObjectInteract : MonoBehaviour
     {
         if (playerData != null && playerData.obtainedItemDataSO != null)
         {
-            bool hasCure = false;
+            //it would be great kalo ada function blackscreen disini biar ngeblock random dialog, bingung gimana cara ngilanginnya
 
-            foreach (var item in playerData.obtainedItemDataSO.items)
+            GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag(tagToDestroy);
+
+            foreach (GameObject obj in taggedObjects)
             {
-                if (item.itemName == cureName) 
-                {
-                    hasCure = true;
-                    break;
-                }
-            }
-
-            if (hasCure)
-            {
-                //it would be great kalo ada function blackscreen disini biar ngeblock random dialog, bingung gimana cara ngilanginnya
-
-                GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag(tagToDestroy);
-
-                foreach (GameObject obj in taggedObjects)
-                {
-                    Destroy(obj);
-                }
-
-                Debug.Log("Cure used. Destroyed all objects with tag: " + tagToDestroy);
-            }
-            else
-            {
-                Debug.Log("Player does not have the cure.");
+                Destroy(obj);
             }
         }
         else
         {
             Debug.Log("Player data or obtained item data is missing.");
         }
+
+        player.GetComponent<CharacterMovement>().canMove = true;
     }
 
 

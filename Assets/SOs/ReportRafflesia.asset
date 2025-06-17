@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5867ef1aa40d7d4f87d39da6979018c, type: 3}
+  m_Name: ReportRafflesia
+  m_EditorClassIdentifier: 
+  title: Rafflesia Arnoldii
+  sentences:
+  - promt: Smell
+    fullSentence: The <b>Rafflesia</b> flower emits strong but localized rotting
+      meat-like smell, which attract carrion flies, which act as pollinators
+  - promt: Rare
+    fullSentence: "<b>Rafflesia</b> is an <b>extremely rare</b> and hard to cultivate.
+      Even in the wild, it\u2019s a botanical treasure few people ever get to see
+      in full bloom."
+  - promt: Parasite
+    fullSentence: It is a <b> parasitic </b> plant which has no leaves, stems, or
+      even roots, living entirely through a host vine.
+  - promt: Diameter
+    fullSentence: Some species of <b>Rafflesia</b> produce the <b>largest individual
+      flower</b> in the world, reaching up to <b>1 meter in diameter</b> and weighing
+      over 10 kilograms.
+  - promt: Slimy
+    fullSentence: The bloom of <b>Rafflesia</b> is a rare event that only lasts for
+      a few <b>days</b>. After blooming, it quickly withers into a black, slimy mass.
