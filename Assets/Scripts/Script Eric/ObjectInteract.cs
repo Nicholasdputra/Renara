@@ -12,6 +12,11 @@ public class ObjectInteract : MonoBehaviour
     [SerializeField] private GameObject popUp;
     [SerializeField] private UnityEvent onInteract;
 
+    [SerializeField] private PlayerDataSO playerData; //editan Rafa
+    [SerializeField] private string cureName; //editan Rafa
+    [SerializeField] private string targetCure; //editan Rafa
+
+
     private GameObject player;
     private bool interactable;
     private bool oneTimeDialogue;
@@ -115,4 +120,50 @@ public class ObjectInteract : MonoBehaviour
         popUp.SetActive(false);
         interactable = false;
     }
+
+    public void UseCure()
+    {
+        UseCureAndDestroyTaggedObjects(targetCure, cureName); 
+    }
+
+    public void UseCureAndDestroyTaggedObjects(string tagToDestroy, string cureName) //kodenya rafa
+    {
+        if (playerData != null && playerData.obtainedItemDataSO != null)
+        {
+            bool hasCure = false;
+
+            foreach (var item in playerData.obtainedItemDataSO.items)
+            {
+                if (item.itemName == cureName) 
+                {
+                    hasCure = true;
+                    break;
+                }
+            }
+
+            if (hasCure)
+            {
+                //it would be great kalo ada function blackscreen disini biar ngeblock random dialog, bingung gimana cara ngilanginnya
+
+                GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag(tagToDestroy);
+
+                foreach (GameObject obj in taggedObjects)
+                {
+                    Destroy(obj);
+                }
+
+                Debug.Log("Cure used. Destroyed all objects with tag: " + tagToDestroy);
+            }
+            else
+            {
+                Debug.Log("Player does not have the cure.");
+            }
+        }
+        else
+        {
+            Debug.Log("Player data or obtained item data is missing.");
+        }
+    }
+
+
 }

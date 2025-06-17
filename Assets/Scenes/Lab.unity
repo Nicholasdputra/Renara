@@ -3415,6 +3415,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  playerData: {fileID: 0}
+  cureName: 
+  targetCure: 
   dialogues: []
 --- !u!212 &875091545
 SpriteRenderer:
@@ -5884,6 +5887,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  playerData: {fileID: 0}
+  cureName: 
+  targetCure: 
   dialogues:
   - ALL PURPOSE CRAFTING STATION<br>Yes, it can make a rocket launcher.<br>But do
     you have the recipe for it?
@@ -5947,6 +5953,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  playerData: {fileID: 0}
+  cureName: 
+  targetCure: 
   dialogues: []
 --- !u!212 &1310179661
 SpriteRenderer:
@@ -8894,6 +8903,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  playerData: {fileID: 0}
+  cureName: 
+  targetCure: 
   dialogues:
   - "DNA EXTRACTION CHAMBER<br>Shove in a plant, and the chamber does the rest\u2014mostly
     legally."
