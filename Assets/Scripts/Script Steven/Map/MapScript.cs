@@ -20,16 +20,22 @@ public class MapScript : MonoBehaviour
         canOpenMap = characterMovement.canMove;
         if (Input.GetKeyDown(KeyCode.M))
         {
-            if (canOpenMap)
+            if (canOpenMap||mapPanel.activeSelf)
             {
                 ToggleMap();
             }
         }
-        
-        if(Input.GetKeyDown(KeyCode.Escape) && mapPanel.activeSelf)
+
+        if (Input.GetKeyDown(KeyCode.Escape) && mapPanel.activeSelf)
         {
             ToggleMap();
         }
+
+        if (mapPanel.activeSelf)
+        {
+            characterMovement.canMove = false;
+        }
+        
     }
 
     public void ToggleMap()
@@ -44,6 +50,7 @@ public class MapScript : MonoBehaviour
         player.transform.position = location;
         Camera.main.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, Camera.main.transform.position.z);
         mapPanel.SetActive(false);
+        characterMovement.canMove = true;
         //teleport fade in animation
     }
 }

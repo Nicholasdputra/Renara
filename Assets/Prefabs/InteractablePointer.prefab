@@ -92,7 +92,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8148475205713169194}
   - component: {fileID: 6291971434236433329}
-  - component: {fileID: 4234722744011642959}
   - component: {fileID: 8754005830225554940}
   m_Layer: 0
   m_Name: InteractablePointer
@@ -169,19 +168,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4234722744011642959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5462220778081085003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f6923f1a6747554d8baaeda07b9b258, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetOpacity: 0.25
 --- !u!58 &8754005830225554940
 CircleCollider2D:
   m_ObjectHideFlags: 0

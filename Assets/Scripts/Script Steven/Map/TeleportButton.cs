@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class TeleportButton : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class TeleportButton : MonoBehaviour
 
     void Start()
     {
-        if(mapScript == null)
+        if (mapScript == null)
         {
             mapScript = GameObject.Find("MapManager").GetComponent<MapScript>();
         }
@@ -20,7 +21,7 @@ public class TeleportButton : MonoBehaviour
         GetComponent<Button>().onClick.AddListener(Teleport);
     }
 
-    public 
+    public
     void Teleport()
     {
         if (!teleportToLab)
@@ -32,17 +33,24 @@ public class TeleportButton : MonoBehaviour
                 SaveSystem.currentSave.currentPlayerData.position = new Vector3(teleportLocation.x, teleportLocation.y, playerZPos);
                 Debug.Log("Player Position Set to: " + SaveSystem.currentSave.currentPlayerData.position);
                 SaveSystem.currentSave.Save();
-                SceneManager.LoadScene("Overworld");
+                TransisionScript.Transision("Overworld");
+                // SceneManager.LoadScene("Overworld");
                 return;
             }
             //calls the teleport function in the map script
-            mapScript.Teleport(new Vector3(teleportLocation.x, teleportLocation.y, playerZPos));
-            // Debug.Log("Teleporting to " + teleportLocation);
+            Invoke("MovePlayerToLocation", 1.5f);
+            TransisionScript.Transision("Overworld");
         }
         else
         {
-            SceneManager.LoadScene("Lab");
+            TransisionScript.Transision("Lab");
+            // SceneManager.LoadScene("Lab");
         }
         SaveSystem.currentSave.Save();
+    }
+    
+    void MovePlayerToLocation(Vector2 location)
+    {
+        mapScript.Teleport(new Vector3(location.x, location.y, playerZPos));
     }
 }
