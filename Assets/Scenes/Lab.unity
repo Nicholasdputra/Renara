@@ -3102,6 +3102,90 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &742468552
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 665083217750610176, guid: 238c2e720e8d0284a97e5c2c9c9f840e, type: 3}
+      propertyPath: m_Name
+      value: Cure list
+      objectReference: {fileID: 0}
+    - target: {fileID: 5070870121640376885, guid: 238c2e720e8d0284a97e5c2c9c9f840e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5070870121640376885, guid: 238c2e720e8d0284a97e5c2c9c9f840e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5070870121640376885, guid: 238c2e720e8d0284a97e5c2c9c9f840e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643745045089829576, guid: 238c2e720e8d0284a97e5c2c9c9f840e, type: 3}
+      propertyPath: dialogues.Array.data[0]
+      value: Cure Recipes Log<br>Zone 1 needs Normal Banana Heart and Mutated Banana
+        Sample<br>Zone 2 needs Normal Cassava Stem and Mutated Cassava Leaves Sample<br>Zone
+        3 needs Normal Titan Arum Spadix and Mutated Titan Arum Spadix<br>Zone 4
+        needs Normal Rafflesia Petals and Mutated Rafflesia Goo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7445289319785420182, guid: 238c2e720e8d0284a97e5c2c9c9f840e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 7445289319785420182, guid: 238c2e720e8d0284a97e5c2c9c9f840e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 8762323483143950201, guid: 238c2e720e8d0284a97e5c2c9c9f840e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 8762323483143950201, guid: 238c2e720e8d0284a97e5c2c9c9f840e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 8762323483143950201, guid: 238c2e720e8d0284a97e5c2c9c9f840e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8762323483143950201, guid: 238c2e720e8d0284a97e5c2c9c9f840e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8762323483143950201, guid: 238c2e720e8d0284a97e5c2c9c9f840e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8762323483143950201, guid: 238c2e720e8d0284a97e5c2c9c9f840e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8762323483143950201, guid: 238c2e720e8d0284a97e5c2c9c9f840e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8762323483143950201, guid: 238c2e720e8d0284a97e5c2c9c9f840e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8762323483143950201, guid: 238c2e720e8d0284a97e5c2c9c9f840e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8762323483143950201, guid: 238c2e720e8d0284a97e5c2c9c9f840e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 238c2e720e8d0284a97e5c2c9c9f840e, type: 3}
 --- !u!1 &755986560
 GameObject:
   m_ObjectHideFlags: 0
@@ -11056,3 +11140,4 @@ SceneRoots:
   - {fileID: 401584737}
   - {fileID: 1614471702}
   - {fileID: 2083124186}
+  - {fileID: 742468552}

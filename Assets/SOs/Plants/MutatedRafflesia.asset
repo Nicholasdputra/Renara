@@ -14,10 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantImage: {fileID: 21300000, guid: e91c98e76a2686c49ba1f05413923e52, type: 3}
   plantName: Mutated Rafflesia
-  plantDescription: "The mutated rafflessia, similar to its normal counterpart, but
-    maybe about 10x more repulsive. The petals look kind of damaged\u2026 and that
-    same brown goo seems to have solidified into a sort of solid thread that looks
-    almost like a complicated web."
+  plantDescription: The mutated rafflessia, similar to its normal counterpart, but
+    maybe about 10x more repulsive.
   extractionSteps:
   - SprayPotion
   - Sickle

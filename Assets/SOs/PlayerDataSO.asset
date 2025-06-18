@@ -16,15 +16,7 @@ MonoBehaviour:
   listOfRecipes: {fileID: 11400000, guid: e629e48363a33d74bab70c451326d1ee, type: 2}
   toolDataSO: {fileID: 11400000, guid: f5eba59e8ae4aed47b3ffc1da2a43a2a, type: 2}
   plantDataSO: {fileID: 11400000, guid: 557ed8c74f682964aa12c0528c5f9c50, type: 2}
-  obtainedMaterials:
-  - materialSO: {fileID: 11400000, guid: ea98345853fa1fb4f81773e0a16921c8, type: 2}
-    amount: 101
-  - materialSO: {fileID: 11400000, guid: 892625b49bc88b94dafd00e7ecf723df, type: 2}
-    amount: 2
-  - materialSO: {fileID: 11400000, guid: 892625b49bc88b94dafd00e7ecf723df, type: 2}
-    amount: 2
-  - materialSO: {fileID: 11400000, guid: 0ca9656e06d111646b9c878587607bd3, type: 2}
-    amount: 1
+  obtainedMaterials: []
   position: {x: -3, y: 1, z: 0}
   currentPlant: -1
   playerToolLevel: 0

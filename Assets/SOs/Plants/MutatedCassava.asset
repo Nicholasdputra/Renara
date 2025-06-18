@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantImage: {fileID: 21300000, guid: f023a48687a0e9842afc8b6f2a219b25, type: 3}
   plantName: Mutated Cassava
-  plantDescription: "The mutated cassava plant looks really different from the regular
-    version, it\u2019s much shorter and its leaves are white. Seems like it has albinism\u2026
-    I wonder what would happen if you were to eat it."
+  plantDescription: The mutated rafflessia, similar to its normal counterpart, but
+    maybe about 10x more repulsive.
   extractionSteps:
   - SprayPotion
   - GardeningScissors

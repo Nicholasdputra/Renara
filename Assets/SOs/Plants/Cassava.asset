@@ -14,10 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantImage: {fileID: 21300000, guid: dc23a7d7c709de44e800b26d50740ad6, type: 3}
   plantName: Cassava
-  plantDescription: "Cassavas are a root crop found in tropical regions that is usually
-    processed into flour, snacks, and other things that are related to food. It\u2019s
-    very drought tolerant, which is probably why the JagaAlam company chose to cultivate
-    this plant. "
+  plantDescription: Cassavas are a root crop found in tropical regions that is usually
+    processed into flour, snacks, and other things that are related to food.
   extractionSteps:
   - GardeningScissors
   - Hoe

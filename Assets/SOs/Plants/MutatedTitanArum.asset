@@ -15,8 +15,7 @@ MonoBehaviour:
   plantImage: {fileID: 21300000, guid: 4a5bb87faec462149a93e145be85387b, type: 3}
   plantName: Mutated Titan Arum
   plantDescription: "A mutated corpse flower\u2026 it looks like it\u2019s wilting.
-    There\u2019s this brown-like sap dripping off of it as well. Whatever they were
-    trying to do with it, I\u2019m not sure it worked as intended."
+    There\u2019s this brown-like sap dripping off of it as well."
   extractionSteps:
   - SprayPotion
   - Axe

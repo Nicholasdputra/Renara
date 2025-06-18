@@ -14,11 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantImage: {fileID: 21300000, guid: 00b3ef45366addb41a870675b8afea6d, type: 3}
   plantName: Rafflesia
-  plantDescription: "A rare flower found in the rainforests of Southeast Asia. It
-    has no leaves, stems, or roots of its own and relies entirely on a host for nutrients
-    and water. I reckon its rarity and uniqueness is the reason the JagaAlam company
-    has chosen to cultivate this plant despite its foul smell that\u2019s reminiscent
-    of rotting flesh."
+  plantDescription: A rare flower found in the rainforests of Southeast Asia.
   extractionSteps:
   - Sickle
   - Hoe
