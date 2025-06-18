@@ -49,17 +49,22 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
     }
 
     [ContextMenu("Generate DNA")]
-    public void GenerateTargetDNA(){
-        
+    public void GenerateTargetDNA()
+    {
+
         //reset UI
-        foreach(Transform dna in targetDNAPanel){
-            if(dna.name != "DNAStrandSprite"){
+        foreach (Transform dna in targetDNAPanel)
+        {
+            if (dna.name != "DNAStrandSprite")
+            {
                 Destroy(dna.gameObject);
             }
         }
 
-        foreach(Transform dna in content){
-            if(dna.name != "DNAStrandSprite"){
+        foreach (Transform dna in content)
+        {
+            if (dna.name != "DNAStrandSprite")
+            {
                 Destroy(dna.gameObject);
             }
         }
@@ -68,7 +73,7 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
         //generate random acgt as one strip
         //check if the strip has the target
         //if not, add the target to random index from 0-(total-3) cuz range is inclusive
-        
+
         string targetDNA = "";
         string fullDNA = "";
         for (int i = 0; i < 4; i++)
@@ -82,13 +87,15 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
         // Debug.Log("Target DNA: " + targetDNA);
 
         //create 15 random DNA string
-        for(int i = 0; i < numberOfDNA; i++){
+        for (int i = 0; i < numberOfDNA; i++)
+        {
             fullDNA += Random.Range(0, 4);
         }
 
         //if the fullDNA doesnt contain the targetDNA, add it to random index and remove the excess (4 chars)
         bool cleanDNA = false;
-        while(!cleanDNA){
+        while (!cleanDNA)
+        {
             if (!fullDNA.Contains(targetDNA))
             {
                 correctTile = Random.Range(1, numberOfDNA - 3);
@@ -124,11 +131,12 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
             }
         }
 
-        foreach(char c in fullDNA){
+        foreach (char c in fullDNA)
+        {
             GameObject tempObject = Instantiate(dnaPrefab, content);
             tempObject.GetComponent<Image>().sprite = dnaSprites[c - '0'];
         }
-        
+
         //set random position
         content.localPosition = new Vector3(Random.Range(0, numberOfDNA) * 110f, content.localPosition.y, content.localPosition.z);
     }
@@ -143,29 +151,35 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
     IEnumerator ScrollRectSnap()
     {
         //snap to the nearest tile, the -40 is for liniency so it can snap forward
-        int tile = (int)((content.localPosition.x)/(tileWidth));
-        if(content.localPosition.x >= 0){
+        int tile = (int)((content.localPosition.x) / (tileWidth));
+        if (content.localPosition.x >= 0)
+        {
             //too far to the front, just let unity snap it back
             //but we still need to process the tile
             tile = 0;
-        }else if(content.localPosition.x <= -(tileWidth * (numberOfDNA - 3))){
+        }
+        else if (content.localPosition.x <= -(tileWidth * (numberOfDNA - 3)))
+        {
             Debug.Log("Too far to the back, snapping to last tile");
             Debug.Log("local pos: " + content.localPosition.x);
-            Debug.Log("trest: " + (content.GetComponent<RectTransform>().sizeDelta.x-(4*tileWidth)));
+            Debug.Log("trest: " + (content.GetComponent<RectTransform>().sizeDelta.x - (4 * tileWidth)));
             //...dont ask why its 670 idk either
             //negative cuz all of our tiles are negative
             //too far to the back, just let unity snap it back
             //but we still need to process the tile
             tile = numberOfDNA - 3;
-        }else{
+        }
+        else
+        {
             Debug.Log("Tile: " + tile);
             //middle tile, we manually snap it
             float target = tile * tileWidth;
             // Debug.Log("Tile: " + tile + " Target: " + target);
             float t = 0;
-            while(t < 0.5){
+            while (t < 0.5)
+            {
                 t += Time.deltaTime;
-                content.localPosition = new Vector3(Mathf.SmoothStep(content.localPosition.x, target, t/0.5f), content.localPosition.y, content.localPosition.z);
+                content.localPosition = new Vector3(Mathf.SmoothStep(content.localPosition.x, target, t / 0.5f), content.localPosition.y, content.localPosition.z);
                 yield return null;
             }
         }
@@ -174,7 +188,8 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
     }
     void SubmitDNA(int tile)
     {
-        if(correctTile == -1){
+        if (correctTile == -1)
+        {
             Debug.LogError("The player shouldnt have been able to move DNA without DNA Target existing");
             return;
         }

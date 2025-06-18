@@ -95,14 +95,14 @@ public class SettingsManager : MonoBehaviour
     public void SetVolume(float volume)
     {
         AudioListener.volume = volume;
-        Debug.Log("Setting volume to " + volume);
+        // Debug.Log("Setting volume to " + volume);
 
         // Save volume setting
         PlayerPrefs.SetFloat("Volume", volume);
         PlayerPrefs.Save();
     }
 
-    private void LoadSettings()
+    public void LoadSettings()
     {
         // Load resolution setting
         if (PlayerPrefs.HasKey("ResolutionIndex"))

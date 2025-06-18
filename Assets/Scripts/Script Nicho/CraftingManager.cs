@@ -35,14 +35,18 @@ public class CraftingManager : MonoBehaviour
     [Header("Show Crafted Item")]
     public GameObject finishedPanel; //The panel that shows the crafted item
     public GameObject finishedCurePrefab;
+    bool showingMaterial = false; //bool to check if the player is showing the crafted item
+    public GameObject pauseButton;
 
     public void EnterCraftingTable()
     {
         gameObject.SetActive(true);
+        pauseButton.SetActive(false);
     }
 
     public void ExitCraftingTable()
     {
+        pauseButton.SetActive(true);
         craftableNameText.text = "";
         gameObject.SetActive(false);
         if (craftingListObjects.activeSelf)
@@ -76,6 +80,8 @@ public class CraftingManager : MonoBehaviour
         craftingListObjects.SetActive(true);
         craftingMinigameObjects.SetActive(false);
         craftablePopUp.SetActive(false);
+        showingMaterial = false;
+        finishedPanel.SetActive(false);
     }
 
     void Update()
@@ -127,6 +133,13 @@ public class CraftingManager : MonoBehaviour
                 isInMinigame = false;
                 CraftItem();
             }
+        }
+
+        if(showingMaterial && Input.GetKeyDown(KeyCode.Space))
+        {
+            //Close the finished panel
+            finishedPanel.SetActive(false);
+            showingMaterial = false;
         }
     }
 
@@ -242,6 +255,7 @@ public class CraftingManager : MonoBehaviour
         //Set the materials needed to the item's materials needed
         foreach (CraftingMaterial craftingMaterial in item.materialsNeeded)
         {
+            Debug.Log("Needs: " + craftingMaterial.materialSO.materialName + " x" + craftingMaterial.amount);
             //We make the image of the material pop up on the right
             GameObject materialNeeded = Instantiate(materialsNeededPrefab, materialsNeededParent.transform);
             materialNeeded.GetComponentInChildren<TextMeshProUGUI>().text = craftingMaterial.amount.ToString();
@@ -267,6 +281,7 @@ public class CraftingManager : MonoBehaviour
                 Destroy(child.gameObject);
             }
         }
+        
         //Set the label of the item that was clicked
         craftableNameText.text = item.itemName;
 
@@ -282,12 +297,13 @@ public class CraftingManager : MonoBehaviour
         //Set the materials needed to the item's materials needed
         foreach (CraftingMaterial craftingMaterial in item.materialsNeeded)
         {
+            // Debug.Log("Needs: " + craftingMaterial.materialSO.materialName + " x" + craftingMaterial.amount);
             //We make the image of the material pop up on the right
             GameObject materialNeeded = Instantiate(materialsNeededPrefab, materialsNeededParent.transform);
             materialNeeded.GetComponentInChildren<TextMeshProUGUI>().text = craftingMaterial.amount.ToString();
             Transform materialTypeIconTransform = materialNeeded.transform.Find("MaterialTypeIcon");
             if (materialTypeIconTransform != null)
-            {
+                {   
                 Image materialTypeIcon = materialTypeIconTransform.GetComponent<Image>();
                 materialTypeIcon.sprite = craftingMaterial.materialSO.materialSprite;
 
@@ -296,7 +312,6 @@ public class CraftingManager : MonoBehaviour
                 if (playerMaterial == null || playerMaterial.amount < craftingMaterial.amount)
                 {
                     materialNeeded.GetComponent<Image>().sprite = itemUnavailableFrame; //Set the frame to the uncraftable frame
-                    break;
                 }
             }
         }
@@ -465,10 +480,12 @@ public class CraftingManager : MonoBehaviour
         craftingListObjects.SetActive(true);
         craftingMinigameObjects.SetActive(false);
         craftablePopUp.SetActive(false);
+        ShowExtractedMaterials();
     }
     
     public void ShowExtractedMaterials()
     {
+        showingMaterial = true;
         Debug.Log("Showing Extracted Materials");
         
         finishedPanel.SetActive(true);

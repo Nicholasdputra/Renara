@@ -17,7 +17,7 @@ public class PlantDisplay : MonoBehaviour, IDropHandler
     public Sprite[] amySprites;
     public Image amyImage;
     public Coroutine amyTalkingCoroutine;
-    void Awake()
+    void OnEnable()
     {
         //Determine which plant to display here later
         // plant = plantList.plant[0];
@@ -51,6 +51,7 @@ public class PlantDisplay : MonoBehaviour, IDropHandler
                 dialogueText.text = "";
                 dialogueText.text = string.Empty;
                 dialogueText.text = "That seems right!";
+                PlayToolSound(currentItemScript.tool.toolName);
                 currentStep++;
 
                 //stop kl dah di extract
@@ -91,6 +92,11 @@ public class PlantDisplay : MonoBehaviour, IDropHandler
                 dialogueText.text = "That doesn't seem right... Let's try another tool!";
             }
         }
+    }
+
+    public void PlayToolSound(string toolName){
+        Debug.Log("Playing SFX");
+        AudioManager.instance.PlaySFX(toolName);
     }
 
     public IEnumerator AmyTalking()

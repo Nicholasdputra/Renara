@@ -18,6 +18,6 @@ MonoBehaviour:
   extractionSteps:
   - Axe
   - Shovel
-  isUnlocked: 1
+  isUnlocked: 0
   report: {fileID: 11400000, guid: af0e99fee68810e43bc949bf4a4ef4d1, type: 2}
   materialDrop: {fileID: 11400000, guid: ea98345853fa1fb4f81773e0a16921c8, type: 2}

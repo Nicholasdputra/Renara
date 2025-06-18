@@ -9,7 +9,6 @@ public class BookScript : MonoBehaviour
     GameObject player;
     [Header("Tool Sprites")]
     //U dont have to use an SO for this, it could be changed to a sprite array
-
     public ToolDataSO toolData;
     [Header("Plant Data")]
     public PlantDataSO plantDataSO;
@@ -29,6 +28,8 @@ public class BookScript : MonoBehaviour
     public GameObject toolsPrefab;
     public GameObject plusPrefab;
     public int openPageIndex;
+
+    public GameObject plantExtractionPanel;
 
     private void Start()
     {
@@ -56,7 +57,7 @@ public class BookScript : MonoBehaviour
             prevButton.gameObject.SetActive(false);
             return;
         }
-        if (Input.GetKeyDown(KeyCode.B) && player.GetComponent<CharacterMovement>().canMove && !leftBookPanel.gameObject.activeSelf)
+        if (Input.GetKeyDown(KeyCode.B) && (player.GetComponent<CharacterMovement>().canMove||plantExtractionPanel.activeSelf) && !leftBookPanel.gameObject.activeSelf)
         {
             //open book
             OpenBook();
@@ -285,10 +286,10 @@ public class BookScript : MonoBehaviour
                 break;
             }
             //spawn plus if not the last index
-            if (i != plant.extractionSteps.Length - 1)
-            {
-                Instantiate(plusPrefab, extractionSteps);
-            }
+            // if (i != plant.extractionSteps.Length - 1)
+            // {
+            //     Instantiate(plusPrefab, extractionSteps);
+            // }
         }
     }
 }

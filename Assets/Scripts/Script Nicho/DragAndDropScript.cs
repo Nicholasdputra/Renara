@@ -10,9 +10,10 @@ IPointerDownHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
     public bool inItemSlot = true;
     public Vector2 startingPosition;
     public ItemSlot currentItemSlot;
-
+    [SerializeField] Canvas canvas;
     private void Awake()
     {
+        canvas = transform.parent.parent.GetComponent<Canvas>();
         startingPosition = GetComponent<RectTransform>().anchoredPosition;
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
@@ -20,7 +21,7 @@ IPointerDownHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("OnBeginDrag");
+        // Debug.Log("OnBeginDrag");
         inItemSlot = false;
         canvasGroup.alpha = .6f;
         canvasGroup.blocksRaycasts = false;
@@ -28,13 +29,13 @@ IPointerDownHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("OnDrag");
-        rectTransform.anchoredPosition += eventData.delta;
+        // Debug.Log("OnDrag");
+        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("OnEndDrag");
+        // Debug.Log("OnEndDrag");
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
 
@@ -61,6 +62,6 @@ IPointerDownHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("OnPointerDown");
+        // Debug.Log("OnPointerDown");
     }
 }

@@ -10,5 +10,6 @@ public class ReportSO : ScriptableObject
 [System.Serializable]
 public class Sentences{
     public string promt;
+    [TextArea(3, 10)]
     public string fullSentence;
 }

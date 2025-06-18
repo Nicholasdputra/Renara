@@ -16,7 +16,7 @@ MonoBehaviour:
   itemDescription: Cures area in the Cassava Zone
   itemSprite: {fileID: 21300000, guid: c90addce7386030428fedb71f4c231f5, type: 3}
   materialsNeeded:
-  - materialSO: {fileID: 11400000, guid: ea98345853fa1fb4f81773e0a16921c8, type: 2}
+  - materialSO: {fileID: 11400000, guid: 2d1935bd475b86a4aa7445662b6c92cc, type: 2}
     amount: 1
-  - materialSO: {fileID: 11400000, guid: 892625b49bc88b94dafd00e7ecf723df, type: 2}
+  - materialSO: {fileID: 11400000, guid: 0ca9656e06d111646b9c878587607bd3, type: 2}
     amount: 1

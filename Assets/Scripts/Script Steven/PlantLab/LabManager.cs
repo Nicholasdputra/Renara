@@ -24,6 +24,7 @@ public class LabManager : MonoBehaviour
     CharacterMovement characterMovement;
     bool writingReport;
     bool inLab = false;
+    public GameObject pauseButton;
 
     void Start()
     {
@@ -68,11 +69,15 @@ public class LabManager : MonoBehaviour
 
     void Update()
     {
+        if (inLab)
+        {
+            pauseButton.SetActive(false);
+        }
         if (!hasPlant)
         {
             if (Input.GetKeyDown(KeyCode.Space) && !writingReport)
             {
-                //close the lab
+                //close the lab because no plant
                 gameObject.SetActive(false);
                 characterMovement.canMove = true;
                 inLab = false;
@@ -103,9 +108,10 @@ public class LabManager : MonoBehaviour
             }
             else
             {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().canMove = true;
+                characterMovement.canMove = true;
             }
             inLab = false;
+            characterMovement.canMove = true;
             SaveSystem.currentSave.Save();
         }
     }
@@ -113,6 +119,7 @@ public class LabManager : MonoBehaviour
     [ContextMenu("Start Report")]
     public void CloseDNAWindow(){
         //Calls at the end of DNA Animation
+        dnaMatchingPanel.GetComponent<Animator>().SetTrigger("ResetDNA");
         dnaMatchingPanel.gameObject.SetActive(false);
         // check if we have unlocked the plant or not
         if (plantData.plant[playerPlant].isUnlocked == false)
@@ -136,6 +143,10 @@ public class LabManager : MonoBehaviour
 
     public void ShowExtractedMaterials(bool hasReport)
     {
+        if(SaveSystem.currentSave.currentPlayerData.plantDataSO.plant[playerPlant].isUnlocked == false)
+        {
+            SaveSystem.currentSave.currentPlayerData.plantDataSO.plant[playerPlant].isUnlocked = true;
+        }
         Debug.Log("Show Extracted Materials, set wrigingReport to false");
         writingReport = false;
         typingReportScript.gameObject.SetActive(false);

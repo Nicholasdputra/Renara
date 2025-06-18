@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class TransisionScript : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class TransisionScript : MonoBehaviour
     Image fadeImage;
     AudioSource audioSource;
     [SerializeField] AudioClip transitionSound;
+    bool isTransitioning = false;
 
     private void Awake()
     {
@@ -18,6 +20,7 @@ public class TransisionScript : MonoBehaviour
             fadeImage = GetComponent<Image>();
             audioSource = GetComponent<AudioSource>();
             DontDestroyOnLoad(gameObject);
+            isTransitioning = false;
         }
         else
         {
@@ -35,6 +38,11 @@ public class TransisionScript : MonoBehaviour
 
     IEnumerator TransisionCoroutine(string sceneName = "")
     {
+        if (isTransitioning)
+        {
+            yield break; // Prevent multiple transitions at the same time
+        }
+        isTransitioning = true;
         if (!sceneName.Equals(""))
         {
             audioSource.PlayOneShot(transitionSound);
@@ -69,5 +77,6 @@ public class TransisionScript : MonoBehaviour
             fadeImage.color = new Color(0, 0, 0, Mathf.Clamp01(1 - (elapsedTime / fadeDuration)));
             yield return null;
         }
+        isTransitioning = false;
     }
 }

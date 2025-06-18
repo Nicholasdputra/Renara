@@ -20,6 +20,6 @@ MonoBehaviour:
   - SprayPotion
   - Sickle
   - Hoe
-  isUnlocked: 1
+  isUnlocked: 0
   report: {fileID: 11400000, guid: 0347f13439991a24696847cd9d070eee, type: 2}
   materialDrop: {fileID: 11400000, guid: beb950d22cba59942824b99f7140e196, type: 2}

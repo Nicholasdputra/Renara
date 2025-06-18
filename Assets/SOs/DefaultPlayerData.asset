@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2045a9e09cde9c44eb1414650947fa75, type: 3}
+  m_Name: DefaultPlayerData
+  m_EditorClassIdentifier: 
+  obtainedItemDataSO: {fileID: 11400000, guid: 084d716656cbca84fa3ee27079ee4d7e, type: 2}
+  listOfRecipes: {fileID: 11400000, guid: e629e48363a33d74bab70c451326d1ee, type: 2}
+  toolDataSO: {fileID: 11400000, guid: f5eba59e8ae4aed47b3ffc1da2a43a2a, type: 2}
+  plantDataSO: {fileID: 11400000, guid: 557ed8c74f682964aa12c0528c5f9c50, type: 2}
+  obtainedMaterials: []
+  position: {x: -3, y: 1, z: 0}
+  currentPlant: -1
+  playerToolLevel: 0
+  hasCuredZone1: 0
+  hasCuredZone2: 0
+  hasCuredZone3: 0
+  hasCuredZone4: 0

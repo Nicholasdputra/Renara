@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5867ef1aa40d7d4f87d39da6979018c, type: 3}
   m_Name: ReportMutatedBananaTree
   m_EditorClassIdentifier: 
-  title: Cassava
+  title: Mutated Banana Tree
   sentences:
   - promt: Blister
     fullSentence: There appears to be a lot of red-almost purplish blisters appearing
@@ -21,7 +21,7 @@ MonoBehaviour:
     fullSentence: There seems to be this viscous thick white goo inside of the blisters
       that drip out whenever it pops.
   - promt: Trunk
-    fullSentence: "The trunk of the tree feels <b> softer to the touch <\\b>, almost
+    fullSentence: "The trunk of the tree feels <b> softer to the touch </b>, almost
       kind of like the actual bananas themselves\u2026 which is kinda weird."
   - promt: Chemicals
     fullSentence: "The whole plant kind of has this <b> weird stench of chemicals

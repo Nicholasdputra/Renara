@@ -24,7 +24,6 @@ public class ObjectInteract : MonoBehaviour
 
     [Header("Dialogue")]
     [SerializeField] private string[] dialogues;
-
     private void Start()
     {
         interactable = false;
@@ -39,9 +38,9 @@ public class ObjectInteract : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if (Input.GetKey(KeyCode.E) && interactable)
+        if (Input.GetKeyDown(KeyCode.E) && interactable)
         {
             if (gameObject.tag == "PlantToExtract")
             {
@@ -87,6 +86,7 @@ public class ObjectInteract : MonoBehaviour
         }
         player.GetComponent<CharacterInteraction>().dialogues = dialogues;
         player.GetComponent<CharacterInteraction>().PlayRandomDialogue();
+        AudioManager.instance.PlaySFX("PaperInteract");
     }
 
     public void CallFullDialogue()
@@ -100,6 +100,7 @@ public class ObjectInteract : MonoBehaviour
 
         player.GetComponent<CharacterInteraction>().dialogues = dialogues;
         player.GetComponent<CharacterInteraction>().PlayDialogue();
+        AudioManager.instance.PlaySFX("PaperInteract");
     }
 
     public void StopCharacterMovement()
@@ -148,6 +149,21 @@ public class ObjectInteract : MonoBehaviour
         }
         else
         {
+            switch (targetCure)
+            {
+                case "Zone1":
+                    playerData.hasCuredZone1 = true;
+                    break;
+                case "Zone2":
+                    playerData.hasCuredZone2 = true;
+                    break;
+                case "Zone3":
+                    playerData.hasCuredZone3 = true;
+                    break;
+                case "Zone4":
+                    playerData.hasCuredZone4 = true;
+                    break;
+            }
             UseCureAndDestroyTaggedObjects(targetCure, cureName);
         }
 
@@ -167,6 +183,9 @@ public class ObjectInteract : MonoBehaviour
         }
 
         player.GetComponent<CharacterMovement>().canMove = true;
+        AudioManager.instance.PlaySFX("SprayPotion");
+        Debug.Log("soraying");
+        SaveSystem.currentSave.Save(); // Save the game after using the cure
     }
 
     IEnumerator DeleteZoneObjects(string tagToDestroy, string cureName)
@@ -176,7 +195,7 @@ public class ObjectInteract : MonoBehaviour
 
         foreach (GameObject obj in taggedObjects)
         {
-            Destroy(obj);
+            obj.SetActive(false); // Deactivate the object instead of destroying it
         }
     }
 
