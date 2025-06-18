@@ -16,7 +16,7 @@ MonoBehaviour:
   sentences:
   - promt: Smell
     fullSentence: The <b>Rafflesia</b> flower emits strong but localized rotting
-      meat-like smell, which attract carrion flies, which act as pollinators
+      meat-like smell, which attract carrion flies, which act as pollinators.
   - promt: Rare
     fullSentence: "<b>Rafflesia</b> is an <b>extremely rare</b> and hard to cultivate.
       Even in the wild, it\u2019s a botanical treasure few people ever get to see

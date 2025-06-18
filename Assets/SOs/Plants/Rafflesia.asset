@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 013e4a3b804aecd4480c2dfd35080a12, type: 3}
   m_Name: Rafflesia
   m_EditorClassIdentifier: 
-  plantImage: {fileID: 21300000, guid: 7662b6edede394347b6066fe394e4f3f, type: 3}
+  plantImage: {fileID: 21300000, guid: 00b3ef45366addb41a870675b8afea6d, type: 3}
   plantName: Rafflesia
   plantDescription: "A rare flower found in the rainforests of Southeast Asia. It
     has no leaves, stems, or roots of its own and relies entirely on a host for nutrients

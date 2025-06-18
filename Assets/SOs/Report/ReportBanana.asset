@@ -17,8 +17,8 @@ MonoBehaviour:
   - promt: Bananas
     fullSentence: <b>Bananas</b> is actually classified as <b>berry</b>.
   - promt: Yellow
-    fullSentence: '<b>Bananas</b> are <b>yellow</b> because their chlorophyll breaks
-      down as they ripen, and is replaced by <b>carotenoid pigments</b>. '
+    fullSentence: <b>Bananas</b> are <b>yellow</b> because their chlorophyll breaks
+      down as they ripen, and is replaced by <b>carotenoid pigments</b>.
   - promt: Potassium
     fullSentence: <b>Bananas</b> are rich in <b>potassium</b>, which makes them beneficial
       for maintaining blood pressure, muscle function, and fluid balance in the body.
