@@ -57,10 +57,18 @@ public class BookScript : MonoBehaviour
             prevButton.gameObject.SetActive(false);
             return;
         }
-        if (Input.GetKeyDown(KeyCode.B) && (player.GetComponent<CharacterMovement>().canMove||plantExtractionPanel.activeSelf) && !leftBookPanel.gameObject.activeSelf)
+        if (Input.GetKeyDown(KeyCode.B) && player.GetComponent<CharacterMovement>().canMove && !leftBookPanel.gameObject.activeSelf)
         {
             //open book
             OpenBook();
+        }
+
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Overworld")
+        {
+            if (Input.GetKeyDown(KeyCode.B) && (player.GetComponent<CharacterMovement>().canMove|| plantExtractionPanel.activeSelf) && !leftBookPanel.gameObject.activeSelf)
+            {
+                
+            }
         }
     }
 

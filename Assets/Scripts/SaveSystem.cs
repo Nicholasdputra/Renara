@@ -49,13 +49,15 @@ public class SaveSystem : MonoBehaviour
         }
         else
         {
-            Debug.Log("Theres a json file, loading it.");
-            Load();
+            // Debug.Log("Theres a json file, loading it.");
+            // Load();
         }
     }
 
     public void Save()
     {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        currentPlayerData.position = player.transform.position;
         string json = JsonUtility.ToJson(currentPlayerData);
         Debug.Log(json);
 
@@ -72,7 +74,7 @@ public class SaveSystem : MonoBehaviour
         {
             string json = reader.ReadToEnd();
             Debug.Log(json);
-            // currentPlayerData = JsonUtility.FromJson<PlayerDataSO>(json);
+            currentPlayerData = JsonUtility.FromJson<PlayerDataSO>(json);
         }
     }
 

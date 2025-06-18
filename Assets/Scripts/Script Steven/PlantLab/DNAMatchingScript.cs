@@ -160,9 +160,9 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
         }
         else if (content.localPosition.x <= -(tileWidth * (numberOfDNA - 3)))
         {
-            Debug.Log("Too far to the back, snapping to last tile");
-            Debug.Log("local pos: " + content.localPosition.x);
-            Debug.Log("trest: " + (content.GetComponent<RectTransform>().sizeDelta.x - (4 * tileWidth)));
+            // Debug.Log("Too far to the back, snapping to last tile");
+            // Debug.Log("local pos: " + content.localPosition.x);
+            // Debug.Log("trest: " + (content.GetComponent<RectTransform>().sizeDelta.x - (4 * tileWidth)));
             //...dont ask why its 670 idk either
             //negative cuz all of our tiles are negative
             //too far to the back, just let unity snap it back
@@ -171,7 +171,7 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
         }
         else
         {
-            Debug.Log("Tile: " + tile);
+            // Debug.Log("Tile: " + tile);
             //middle tile, we manually snap it
             float target = tile * tileWidth;
             // Debug.Log("Tile: " + tile + " Target: " + target);
@@ -194,7 +194,7 @@ public class DNAMatchingScript : MonoBehaviour, IEndDragHandler
             return;
         }
 
-        Debug.Log("Tile: " + tile + " Correct Tile: " + correctTile);
+        // Debug.Log("Tile: " + tile + " Correct Tile: " + correctTile);
         if (Mathf.Abs(tile) == correctTile)
         {
             audioSource.PlayOneShot(correctSound);

@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
+using System.Collections.Generic;
 
 public class TransisionScript : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class TransisionScript : MonoBehaviour
     AudioSource audioSource;
     [SerializeField] AudioClip transitionSound;
     bool isTransitioning = false;
+    public GameObject[] overworldPlants;
 
     private void Awake()
     {
@@ -25,6 +27,31 @@ public class TransisionScript : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+
+        if(SceneManager.GetActiveScene().name.Equals("Overworld"))
+        {
+            overworldPlants = GameObject.FindGameObjectsWithTag("PlantToExtract");
+            for (int i = 0; i < overworldPlants.Length; i++)
+            {
+                for(int j = 0; j < SaveSystem.currentSave.currentPlayerData.plantDataSO.plant.Length; j++)
+                {
+                    if (SaveSystem.currentSave.currentPlayerData.plantDataSO.plant[j].plantName == overworldPlants[i].name)
+                    {
+                        // Debug.Log("Plant found: " + overworldPlants[i].name);
+                        // Debug.Log("Is unlocked: " + SaveSystem.currentSave.currentPlayerData.plantDataSO.plant[j].isUnlocked);
+                        if (SaveSystem.currentSave.currentPlayerData.plantDataSO.plant[j].isUnlocked)
+                        {
+                            overworldPlants[i].SetActive(false);
+                        }
+                        else
+                        {
+                            overworldPlants[i].SetActive(true);
+                        }
+                        break;
+                    }
+                }
+            }
         }
     }
 
