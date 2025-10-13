@@ -16,14 +16,9 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
           <a>Script Name</a>
         </h4>
       </th>
-      <th width="33%">
+      <th width="67%">
         <h4>
           <a>Script Description</a>
-        </h4>
-      </th>
-      <th width="33%">
-        <h4>
-          <a>Programmer</a>
         </h4>
       </th>
     </tr>
@@ -36,9 +31,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       <td>
         Responsible for everything sound related in the game
       </td>
-      <td>
-        Eric
-      </td>
     </tr>
     <tr>
       <td>
@@ -46,9 +38,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       </td>
       <td>
         Responsible for everything in the main menu
-      </td>
-      <td>
-        Steven Wijaya
       </td>
     </tr>
     <tr>
@@ -58,9 +47,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       <td>
         Responsible for pausing
       </td>
-      <td>
-        Steven Wijaya
-      </td>
     </tr>
     <tr>
       <td>
@@ -69,9 +55,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       <td>
         Responsible for saving and keeping player data
       </td>
-      <td>
-        Nicholas Dwi Putra
-      </td>
     </tr>
     <tr>
       <td>
@@ -79,9 +62,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       </td>
       <td>
         Responsible for adjusting and managing player settings
-      </td>
-      <td>
-        Steven Wijaya
       </td>
     </tr>
   </tbody>
@@ -95,19 +75,14 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       <h2>
         <a>📔Book</a>
       </h2>
-      <th width="33%">
+      <th width="40%">
         <h4>
           <a>Script Name</a>
         </h4>
       </th>
-      <th width="33%">
+      <th width="60%">
         <h4>
           <a>Script Description</a>
-        </h4>
-      </th>
-      <th width="33%">
-        <h4>
-          <a>Programmer</a>
         </h4>
       </th>
     </tr>
@@ -120,19 +95,13 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       <td>
         Responsible for player's plant encyclopedia book
       </td>
-      <td>
-        Steven Wijaya
-      </td>
     </tr>
     <tr>
       <td>
-        🪴 CurrentPlantUIScript.cs
+        🪴CurrentPlantUIScript.cs
       </td>
       <td>
         Responsible for showing plant image in book
-      </td>
-      <td>
-        Steven Wijaya
       </td>
     </tr>
   </tbody>
@@ -151,14 +120,9 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
           <a>Script Name</a>
         </h4>
       </th>
-      <th width="33%">
+      <th width="67%">
         <h4>
           <a>Script Description</a>
-        </h4>
-      </th>
-      <th width="33%">
-        <h4>
-          <a>Programmer</a>
         </h4>
       </th>
     </tr>
@@ -171,9 +135,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       <td>
         Responsible for crafting panel and minigame
       </td>
-      <td>
-        Nicholas Dwi Putra
-      </td>
     </tr>
     <tr>
       <td>
@@ -181,9 +142,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       </td>
       <td>
         Responsible for setting up player materials inside the crafting bench
-      </td>
-      <td>
-        Nicholas Dwi Putra
       </td>
     </tr>
   </tbody>
@@ -202,14 +160,9 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
           <a>Script Name</a>
         </h4>
       </th>
-      <th width="33%">
+      <th width="67%">
         <h4>
           <a>Script Description</a>
-        </h4>
-      </th>
-      <th width="33%">
-        <h4>
-          <a>Programmer</a>
         </h4>
       </th>
     </tr>
@@ -222,9 +175,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       <td>
         Responsible for dna matching minigame
       </td>
-      <td>
-        Steven Wijaya
-      </td>
     </tr>
     <tr>
       <td>
@@ -232,9 +182,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       </td>
       <td>
         Opens DNA minigame panel
-      </td>
-      <td>
-        Steven Wijaya
       </td>
     </tr>
     <tr>
@@ -244,9 +191,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       <td>
         Responsible for exiting
       </td>
-      <td>
-        Steven Wijaya
-      </td>
     </tr>
     <tr>
       <td>
@@ -254,9 +198,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       </td>
       <td>
         Responsible for saving and keeping player data
-      </td>
-      <td>
-        Steven Wijaya
       </td>
     </tr>
     <tr>
@@ -266,9 +207,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       <td>
         Responsible for player milestone unlocks
       </td>
-      <td>
-        Steven Wijaya
-      </td>
     </tr>
     <tr>
       <td>
@@ -277,9 +215,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       <td>
         Responsible for the typing minigame at the end of DNA extraction
       </td>
-      <td>
-        Steven Wijaya
-      </td>
     </tr>
     <tr>
       <td>
@@ -287,9 +222,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       </td>
       <td>
         Responsible for the typing minigame at the end of DNA extraction
-      </td>
-      <td>
-        Steven Wijaya + Nicholas Dwi Putra
       </td>
     </tr>
   </tbody>
@@ -308,14 +240,9 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
           <a>Script Name</a>
         </h4>
       </th>
-      <th width="33%">
+      <th width="67%">
         <h4>
           <a>Script Description</a>
-        </h4>
-      </th>
-      <th width="33%">
-        <h4>
-          <a>Programmer</a>
         </h4>
       </th>
     </tr>
@@ -328,9 +255,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       <td>
         Responsible for opening and closing map panel
       </td>
-      <td>
-        Steven Wijaya
-      </td>
     </tr>
     <tr>
       <td>
@@ -338,9 +262,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       </td>
       <td>
         Used to transition to other scenes in a teleport-like manner
-      </td>
-      <td>
-        Steven Wijaya
       </td>
     </tr>
     <tr>
@@ -350,9 +271,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       <td>
         Responsible for transition 'animation'
       </td>
-      <td>
-        Steven Wijaya
-      </td>
     </tr>
     <tr>
       <td>
@@ -360,9 +278,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       </td>
       <td>
         Responsible for 'curing' certain zones
-      </td>
-      <td>
-        Steven Wijaya
       </td>
     </tr>
   </tbody>
@@ -381,14 +296,9 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
           <a>Script Name</a>
         </h4>
       </th>
-      <th width="33%">
+      <th width="67%">
         <h4>
           <a>Script Description</a>
-        </h4>
-      </th>
-      <th width="33%">
-        <h4>
-          <a>Programmer</a>
         </h4>
       </th>
     </tr>
@@ -401,19 +311,13 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       <td>
         Responsible for drag and drop mechanic in extraction minigame
       </td>
-      <td>
-        Nicholas Dwi Putra
-      </td>
     </tr>
     <tr>
       <td>
-        🖼️Item Slot
+        🖼️ Item Slot
       </td>
       <td>
         Responsible for handling item slot behavior for drag and drop
-      </td>
-      <td>
-        Nicholas Dwi Putra
       </td>
     </tr>
     <tr>
@@ -423,9 +327,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       <td>
         Responsible for setting up plant data based on scriptable objects
       </td>
-      <td>
-        Nicholas Dwi Putra
-      </td>
     </tr>
     <tr>
       <td>
@@ -434,9 +335,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       <td>
         Responsible for the overall flow of plant extraction minigame
       </td>
-      <td>
-        Nicholas Dwi Putra
-      </td>
     </tr>
     <tr>
       <td>
@@ -444,9 +342,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       </td>
       <td>
         Responsible for setting up tool data based on scriptable objects
-      </td>
-      <td>
-        Nicholas Dwi Putra
       </td>
     </tr>
   </tbody>
@@ -465,14 +360,9 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
           <a>Script Name</a>
         </h4>
       </th>
-      <th width="33%">
+      <th width="67%">
         <h4>
           <a>Script Description</a>
-        </h4>
-      </th>
-      <th width="33%">
-        <h4>
-          <a>Programmer</a>
         </h4>
       </th>
     </tr>
@@ -485,9 +375,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       <td>
         Responsible for player's interactions with their surroundings
       </td>
-      <td>
-        Eric
-      </td>
     </tr>
     <tr>
       <td>
@@ -496,9 +383,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       <td>
         Responsible for player's movement
       </td>
-      <td>
-        Eric
-      </td>
     </tr>
     <tr>
       <td>
@@ -506,9 +390,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       </td>
       <td>
         Responsible for setting up interactable objects
-      </td>
-      <td>
-        Eric
       </td>
     </tr>
   </tbody>
@@ -527,14 +408,9 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
           <a>Script Name</a>
         </h4>
       </th>
-      <th width="33%">
+      <th width="67%">
         <h4>
           <a>Script Description</a>
-        </h4>
-      </th>
-      <th width="33%">
-        <h4>
-          <a>Programmer</a>
         </h4>
       </th>
     </tr>
@@ -547,9 +423,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       <td>
         A scriptable object that holds the list of all crafting materials
       </td>
-      <td>
-        Nicholas Dwi Putra
-      </td>
     </tr>
     <tr>
       <td>
@@ -557,9 +430,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       </td>
       <td>
         A scriptable object for crafting materials
-      </td>
-      <td>
-        Nicholas Dwi Putra
       </td>
     </tr>
     <tr>
@@ -569,9 +439,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       <td>
         A scriptable object that holds the list of all craftable items
       </td>
-      <td>
-        Nicholas Dwi Putra
-      </td>
     </tr>
     <tr>
       <td>
@@ -579,9 +446,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       </td>
       <td>
         A scriptable object for craftable items (cures mainly)
-      </td>
-      <td>
-        Nicholas Dwi Putra
       </td>
     </tr>
     <tr>
@@ -591,9 +455,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       <td>
         A scriptable object that holds the list of all plants
       </td>
-      <td>
-        Steven Wijaya
-      </td>
     </tr>
     <tr>
       <td>
@@ -601,9 +462,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       </td>
       <td>
         A scriptable object for plants
-      </td>
-      <td>
-        Nicholas Dwi Putra
       </td>
     </tr>
     <tr>
@@ -613,9 +471,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       <td>
         A scriptable object for player save data
       </td>
-      <td>
-        Nicholas Dwi Putra
-      </td>
     </tr>
     <tr>
       <td>
@@ -623,9 +478,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       </td>
       <td>
         A scriptable object for extraction report lines
-      </td>
-      <td>
-        Steven Wijaya
       </td>
     </tr>
     <tr>
@@ -635,9 +487,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       <td>
         A scriptable object that holds the list of all tools
       </td>
-      <td>
-        Nicholas Dwi Putra
-      </td>
     </tr>
     <tr>
       <td>
@@ -646,9 +495,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       <td>
         A scriptable object for extraction tools
       </td>
-      <td>
-        Nicholas Dwi Putra
-      </td>
     </tr>
     <tr>
       <td>
@@ -656,9 +502,6 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
       </td>
       <td>
         A scriptable object for tool sprites in the encylopedia
-      </td>
-      <td>
-        Steven Wijaya
       </td>
     </tr>
   </tbody>
