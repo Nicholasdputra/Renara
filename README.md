@@ -506,3 +506,114 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
     </tr>
   </tbody>
 </table>
+
+---
+
+# 🕹️ Controls
+<table width="100%">
+  <thead>
+    <tr>
+      <th width="33%">
+        <h4>
+          <a>Button</a>
+        </h4>
+      </th>
+      <th width="67%">
+        <h4>
+          <a>Action</a>
+        </h4>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        WASD
+      </td>
+      <td>
+        Character Movement
+      </td>
+    </tr>
+    <tr>
+      <td>
+        E
+      </td>
+      <td>
+        Interact with plants, lab stations, and notes that are scattered around the map
+      </td>
+    </tr>
+    <tr>
+      <td>
+        B
+      </td>
+      <td>
+        Open the book / enecyclopedia
+      </td>
+    </tr>
+    <tr>
+      <td>
+        M
+      </td>
+      <td>
+        Open the map of the game, then click on one of the teleport
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Esc
+      </td>
+      <td>
+        Open the pause menu
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Drag and Drop (left mouse button)
+      </td>
+      <td>
+        Drag and drop tools in the right order to extract a plant
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Space
+      </td>
+      <td>
+        Press space to start DNA extraction minigame
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Drag left and right (left mouse button while in DNA Extraction)
+      </td>
+      <td>
+        Drag the bottom strand of DNA left and right to match it with the top strand
+      </td>
+    </tr>    
+    <tr>
+      <td>
+        Typing (While in report writing)
+      </td>
+      <td>
+        Drag the bottom strand of DNA left and right to match it with the top strand.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        A-S-D (While Crafting)
+      </td>
+      <td>
+        Press down at the right time to advance the crafting process
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+# 🥤 Team Members
+* Angeline Maria Suryadi - Game Artist 🖌️
+* Eric - Game Programmer 💻
+* Nicholas Dwi Putra (Me) - Game Designer and Programmer 💻📃
+* Rafael Wirasana Wijaya - Game Designer and Artist 📃🖌️
+* Steven Wijaya - Game Programmer 💻
