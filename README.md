@@ -1,3 +1,31 @@
+<table width="100%">
+  <thead>
+    <tr>    
+      <th colspan="2">
+        <h2>Gameplay Footage - May Take Time To Load</h2>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">
+        <img src="https://github.com/user-attachments/assets/6c1e34af-7d3f-4fc8-9e09-a8e32f90e7ac" alt="Renara Extraction" width="100%">
+      </td>
+      <td align="center">
+        <img src="https://github.com/user-attachments/assets/b6c5a90d-429e-4ebe-ae0f-dcd90c7db42a" alt="Renara Extraction Report" width="100%">
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="https://github.com/user-attachments/assets/c00ce7f4-d833-4e06-9987-8fba7b8f0609" alt="Renara Crafting" width="100%"> 
+      </td>
+      <td align="center">
+        <img src="https://github.com/user-attachments/assets/836e0cd7-28d2-4bd4-8171-9e7a0b38d5da" alt="Renara Notes" width="100%"> 
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 # 🏝️ About
 Renara is a 2D top down adventure game, set on a mysterious island where nature and pollution have fused in unnatural harmony. Players step into the shoes of Amy, a young botany student sent alone to the long-abandoned Renara Island, once a globally renowned botanical sanctuary, to extract DNA samples, do research, and figure out what went happened in the island in the past.
 
