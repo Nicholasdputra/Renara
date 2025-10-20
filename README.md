@@ -2,7 +2,7 @@
   <thead>
     <tr>    
       <th colspan="2">
-        <h2>Gameplay Footage - May Take Time To Load</h2>
+        <h1>Gameplay Footage - May Take Time To Load</h1>
       </th>
     </tr>
   </thead>
@@ -636,6 +636,17 @@ Renara is a 2D top down adventure game, set on a mysterious island where nature 
     </tr>
   </tbody>
 </table>
+
+---
+# 💻 My Contributions
+
+* Drag and Drop
+* Plant Drops
+* Game Lore and Texts
+* Crafting Minigame
+* Save System
+* Recipes
+* Scriptable Objects
 
 ---
 
