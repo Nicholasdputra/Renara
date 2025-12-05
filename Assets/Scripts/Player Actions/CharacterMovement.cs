@@ -22,9 +22,9 @@ public class CharacterMovement : MonoBehaviour
         canMove = true;
         if (SceneManager.GetActiveScene().name == "Overworld")
         {
-            Debug.Log("Loading player position from save data");
-            Debug.Log("Current Player Position: " + SaveSystem.currentSave.currentPlayerData.position);
-            transform.position = SaveSystem.currentSave.currentPlayerData.position;
+            // Debug.Log("Loading player position from save data");
+            // Debug.Log("Current Player Position: " + SaveSystem.currentSave.currentPlayerData.position);
+            // transform.position = SaveSystem.currentSave.currentPlayerData.position;
         }
     }
 

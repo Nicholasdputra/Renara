@@ -199,4 +199,9 @@ public class ObjectInteract : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        Debug.Log("Plant Disabled");
+    }
+
 }

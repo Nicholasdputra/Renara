@@ -63,13 +63,13 @@ public class BookScript : MonoBehaviour
             OpenBook();
         }
 
-        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Overworld")
-        {
-            if (Input.GetKeyDown(KeyCode.B) && (player.GetComponent<CharacterMovement>().canMove|| plantExtractionPanel.activeSelf) && !leftBookPanel.gameObject.activeSelf)
-            {
+        // if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Overworld")
+        // {
+        //     if (Input.GetKeyDown(KeyCode.B) && (player.GetComponent<CharacterMovement>().canMove|| plantExtractionPanel.activeSelf) && !leftBookPanel.gameObject.activeSelf)
+        //     {
                 
-            }
-        }
+        //     }
+        // }
     }
 
     public void OpenBook()
