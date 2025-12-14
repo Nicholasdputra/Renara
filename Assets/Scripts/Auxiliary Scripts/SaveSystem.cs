@@ -28,6 +28,8 @@ public class SaveSystem : MonoBehaviour
 
     private void InitializePlayerData()
     {
+        // so currently the data is just being saved in the scriptable object template, not the json
+        // so we cant change this code below since it will actually remove the save system
         currentPlayerData = playerDataTemplate;
         if (!System.IO.File.Exists(Application.persistentDataPath + "/save.json"))
         {
