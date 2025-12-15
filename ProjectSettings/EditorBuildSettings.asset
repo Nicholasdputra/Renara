@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 1f83c44180883414b94ac582d7e44139
   - enabled: 1
-    path: Assets/Scenes/OldOverWorld.unity
-    guid: 617eda38e0ca084478066088cfe33c47
+    path: Assets/Scenes/OverWorld.unity
+    guid: 26e398b11f586af4c9d08fa2de8acc1d
   - enabled: 1
     path: Assets/Scenes/Lab.unity
     guid: a4a09e3a895136542a08606f78050d97
