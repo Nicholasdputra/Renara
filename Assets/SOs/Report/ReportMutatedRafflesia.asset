@@ -15,9 +15,9 @@ MonoBehaviour:
   title: Mutated Rafflesia Arnoldi
   sentences:
   - promt: Smell
-    fullSentence: The mutation seem to have made the <b> smell of rotting meat ever
-      <b> worse </b>, like a dumpster behind a butcher shop with a bunch of expired
-      meat and bones.
+    fullSentence: The mutation seem to have made the smell of rotting meat ever <b>
+      worse </b>, like a dumpster behind a butcher shop with a bunch of expired meat
+      and bones.
   - promt: Size
     fullSentence: "As if the normal kind wasn\u2019t big enough already\u2026 this
       mutated one seems to have <b> double the diameter</b>\u2026"

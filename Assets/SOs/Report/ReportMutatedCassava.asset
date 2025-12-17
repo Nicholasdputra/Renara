@@ -23,8 +23,8 @@ MonoBehaviour:
       branches. Its leaves seem to have also gone white, similar to how an albino
       cassava plant would look like.
   - promt: Roots
-    fullSentence: "<b>CassaThe plant\u2019s <b> roots </b> seem to have become more
-      lumpy as well, almost becoming a huge stump, perhaps as a sign that the environment
+    fullSentence: "The <b> plant\u2019s roots </b> seem to have become more lumpy
+      as well, almost becoming a huge stump, perhaps as a sign that the environment
       has become tougher to survive in or that it needs more resources to survive
       than the regular variant."
   - promt: Yellow Mark

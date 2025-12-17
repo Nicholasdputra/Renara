@@ -18,4 +18,5 @@ MonoBehaviour:
   extractionSteps:
   - 
   isUnlocked: 0
+  report: {fileID: 0}
   materialDrop: {fileID: 0}

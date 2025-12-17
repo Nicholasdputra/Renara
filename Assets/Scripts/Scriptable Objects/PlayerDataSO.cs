@@ -18,4 +18,17 @@ public class PlayerDataSO : ScriptableObject
     public bool hasCuredZone2;
     public bool hasCuredZone3;
     public bool hasCuredZone4;
+
+    [ContextMenu("Clear Data")]
+    public void ClearData()
+    {
+        plantDataSO.ClearData();
+        obtainedMaterials = new List<CraftingMaterial>();
+        currentPlant = -1;
+        playerToolLevel = 0;
+        hasCuredZone1 = false;
+        hasCuredZone2 = false;
+        hasCuredZone3 = false;
+        hasCuredZone4 = false;
+    }
 }
