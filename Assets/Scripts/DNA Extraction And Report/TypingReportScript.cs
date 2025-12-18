@@ -35,6 +35,7 @@ public class TypingReportScript : MonoBehaviour
         reportText.text = tempString + colorString + reportSO.sentences[sentenceIndex].promt + " (Type the grayed out words)";
         // reportText.transform.localPosition = Vector3.zero;
         shownHint = false;
+        ischeckingInput = true;
     }
 
     // Update is called once per frame

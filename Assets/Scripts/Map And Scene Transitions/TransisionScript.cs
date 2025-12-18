@@ -2,8 +2,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using Unity.VisualScripting;
-using System.Collections.Generic;
 
 public class TransisionScript : MonoBehaviour
 {

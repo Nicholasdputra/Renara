@@ -56,8 +56,8 @@ public class SaveSystem : MonoBehaviour
 
     public void Save()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        currentPlayerData.position = player.transform.position;
+        // GameObject player = GameObject.FindGameObjectWithTag("Player");
+        // currentPlayerData.position = player.transform.position;
         string json = JsonUtility.ToJson(currentPlayerData);
         Debug.Log(json);
 

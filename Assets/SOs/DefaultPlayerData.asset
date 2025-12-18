@@ -17,7 +17,7 @@ MonoBehaviour:
   toolDataSO: {fileID: 11400000, guid: f5eba59e8ae4aed47b3ffc1da2a43a2a, type: 2}
   plantDataSO: {fileID: 11400000, guid: 557ed8c74f682964aa12c0528c5f9c50, type: 2}
   obtainedMaterials: []
-  position: {x: 4.366254, y: 1.1828631, z: 0}
+  position: {x: -10, y: 100, z: 0}
   currentPlant: -1
   playerToolLevel: 0
   hasCuredZone1: 0

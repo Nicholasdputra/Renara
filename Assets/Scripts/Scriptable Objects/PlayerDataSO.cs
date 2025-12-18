@@ -22,6 +22,7 @@ public class PlayerDataSO : ScriptableObject
     [ContextMenu("Clear Data")]
     public void ClearData()
     {
+        obtainedItemDataSO.ClearItems();
         plantDataSO.ClearData();
         obtainedMaterials = new List<CraftingMaterial>();
         currentPlant = -1;
